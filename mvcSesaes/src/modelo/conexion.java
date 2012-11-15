@@ -26,7 +26,7 @@ public class conexion {
     private String comandoSQL;
     private boolean esSelect;
 
-
+//
     public conexion() {
         this.driver = "com.mysql.jdbc.Driver";
         this.nombreBase = "jdbc:mysql://localhost:3306/mvcsesaes";

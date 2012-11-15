@@ -8,6 +8,7 @@ package vista;
  *
  * @author Milii2
  */
+//
 public class VentanaIngreso extends javax.swing.JFrame {
 
     /**

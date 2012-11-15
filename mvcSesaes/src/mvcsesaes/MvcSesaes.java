@@ -17,7 +17,7 @@ import vista.VentanaPrincipal;
 //
 //
 public class MvcSesaes {
-
+//
     /**
      * @param args the command line arguments
      */

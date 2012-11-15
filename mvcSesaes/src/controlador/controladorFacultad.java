@@ -90,6 +90,7 @@ public class controladorFacultad implements ActionListener{
         controladorCarrera contcarrera=new controladorCarrera(ventana,modelocarrera);
         modelocarrera.setCod_f(modelo.getCod_f());
         //se inicia la vista
+        
         contcarrera.iniciar_vista();
     }
     
