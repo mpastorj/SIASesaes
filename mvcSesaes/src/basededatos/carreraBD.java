@@ -50,12 +50,13 @@ public class carreraBD {
            while(cdb.getRst().next())
            {
                nombre_c =cdb.getRst().getString("nombre_c");
-               contador++;
               
-               for(i=0;i<contador;i++){
+              
+              
                    nombres_c.add(nombre_c);
                    //nombres_c[i]=nombre_c;
-               }
+               
+           
                
           //carrera.addItem(cdb.getRst().getObject("nombre"));       
         }

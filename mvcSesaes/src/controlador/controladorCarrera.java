@@ -61,7 +61,8 @@ public class controladorCarrera implements ActionListener{
         //vista.listacarrera.addItemListener(modelo.getNombres_c());
      //   while(modelo.getNombres_c()!=null){
             //vista.listacarrera.addItem(modelo.getNombres_c().get(15));
-            vista.listacarrera.addItem(modelo.nombres_c.get(10));
+        for(String arreglodecarreras:modelo.nombres_c)
+            vista.listacarrera.addItem(arreglodecarreras);
       //  }
        // String s;
        // s=modelo.getNombres_c().get(15);
