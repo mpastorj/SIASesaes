@@ -31,15 +31,14 @@ public class Persona {
 
    
 
-
+    public void setFono(String Fono) {
+        this.Fono = Fono;
+    }
 
     public String getFono() {
         return Fono;
     }
 
-    public void setFono(String Fono) {
-        this.Fono = Fono;
-    }
     public int Edad;
 
     public String getRut() {

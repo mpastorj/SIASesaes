@@ -29,8 +29,8 @@ public class conexion {
 
     public conexion() {
         this.driver = "com.mysql.jdbc.Driver";
-        this.nombreBase = "jdbc:mysql://localhost:3306/persona";
-        this.nombreTabla = "persona";
+        this.nombreBase = "jdbc:mysql://localhost:3306/mvcsesaes";
+        this.nombreTabla = "";
         this.user = "root";
         this.password = "";
         this.comandoSQL = "";
