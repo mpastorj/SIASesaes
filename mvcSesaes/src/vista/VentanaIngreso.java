@@ -10,7 +10,6 @@ package vista;
  */
 //
 public class VentanaIngreso extends javax.swing.JFrame {
-
     /**
      * Creates new form VentanaIngreso
      *///

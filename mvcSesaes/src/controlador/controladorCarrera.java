@@ -8,11 +8,14 @@ import basededatos.facultadBD;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.Carrera;
 import modelo.Facultad;
 import vista.VentanaIngreso;
+
+
 
 /**
  *
@@ -23,20 +26,17 @@ public class controladorCarrera implements ActionListener{
     private VentanaIngreso vista;
     private facultadBD facultadBD;
     private Carrera modelo;
+ 
     
-    public controladorCarrera(VentanaIngreso vista,Carrera modelo){
-       this.vista=vista;
-       this.modelo=modelo;
-       this.vista.botonfacultad.addActionListener(this);
-
+    public controladorCarrera(Carrera modelo){
+    this.modelo = modelo;
     }
     
-        public void iniciar_vista(){
-        vista.botonfacultad.setText("NADA QUE VER");
-      
-    }
-
-
+     public void llenar(ArrayList <String> c){
+        for(String arreglodecarreras:c)
+         vista.listacarrera.addItem(arreglodecarreras);
+        }
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         try {
@@ -51,9 +51,7 @@ public class controladorCarrera implements ActionListener{
             Logger.getLogger(controladorCarrera.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        for(String arreglodecarreras:modelo.nombres_c)
-            vista.listacarrera.addItem(arreglodecarreras);
-        
+       
         vista.botonfacultad.setText("NADA QUE VER");
    
     }

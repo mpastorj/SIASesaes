@@ -86,7 +86,7 @@ public class controladorPersona implements ActionListener{
         ventana.setVisible(true);
         
         controladorFacultad contfacultad=new controladorFacultad(ventana,modelofacultad);
-        controladorCarrera contcarrera=new controladorCarrera(ventana,modelocarrera);
+
 
         contfacultad.iniciar_vista();
         

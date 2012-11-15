@@ -4,6 +4,9 @@
  */
 package basededatos;
 
+
+import controlador.controladorCarrera;
+import controlador.controladorFacultad;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -54,5 +57,9 @@ public class carreraBD {
         } 
          cdb.cerrarConexion();
          c.setNombres_c(nombres_c);
+         
+     
+       
+       
         }
 }

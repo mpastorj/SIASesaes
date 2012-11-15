@@ -53,12 +53,12 @@ public class Facultad {
         fdb.grabar();
     }
 
-    public void leer() throws java.lang.ClassNotFoundException,
+    public void leer(Facultad modelo) throws java.lang.ClassNotFoundException,
                                 java.lang.InstantiationException,
                                 java.lang.IllegalAccessException,
                                 java.sql.SQLException
     {
-        facultadBD fdb=new facultadBD(this);
+        facultadBD fdb=new facultadBD(modelo);
         fdb.leer();
     }
     /*public void setNombre_f(Object selectedItem) {
