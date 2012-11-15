@@ -5,9 +5,11 @@
 package basededatos;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.Carrera;
+import modelo.Facultad;
 import modelo.conexion;
 import vista.VentanaPrincipal;
 
@@ -18,7 +20,11 @@ import vista.VentanaPrincipal;
 public class carreraBD {
     
     private Carrera c;
-    String nombres_c[] = new String[10];
+    private Facultad f;
+    //ArrayList <String> nombres_c;
+    
+    //String nombres_c[] = new String[15];
+    ArrayList <String> nombres_c=new ArrayList<String>();
     int i=0;
     int contador=0;
     String nombre_c;
@@ -36,7 +42,8 @@ public class carreraBD {
             conexion cdb=new conexion();
         
             cdb.setEsSelect(true);
-            cdb.setComandoSQL("select nombre_c  from carrera where cod_f='"+c.getCod_f()+"'" );
+            //cdb.setComandoSQL("select nombre_c  from carrera where cod_f='"+f.getCod_f()+"'" );
+            cdb.setComandoSQL("select nombre_c  from carrera where cod_f=(select cod_f from facultad where nombre_f='Ingeniería') ");
             cdb.conectar();
             
             try {  
@@ -44,8 +51,10 @@ public class carreraBD {
            {
                nombre_c =cdb.getRst().getString("nombre_c");
                contador++;
+              
                for(i=0;i<contador;i++){
-                   nombres_c[i]=nombre_c;
+                   nombres_c.add(nombre_c);
+                   //nombres_c[i]=nombre_c;
                }
                
           //carrera.addItem(cdb.getRst().getObject("nombre"));       
@@ -54,6 +63,7 @@ public class carreraBD {
             Logger.getLogger(VentanaPrincipal.class.getName()).log(Level.SEVERE, "Error al cargar lista de carreras segun facultad", ex);
         } 
          cdb.cerrarConexion();
+         //c.setNombres_c(nombres_c);
          c.setNombres_c(nombres_c);
           //  f.setCod_f(codigo_f);
         }

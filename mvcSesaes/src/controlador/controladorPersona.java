@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import modelo.Carrera;
 import vista.VentanaPrincipal;
 //import modelo.error;
 import modelo.Persona;
@@ -108,11 +109,12 @@ public class controladorPersona implements ActionListener{
         
         //DESDE AQUI VENTANA INGRESO
         Facultad modelofacultad=new Facultad();
+        Carrera modelocarrera=new Carrera();
         VentanaIngreso ventana = new VentanaIngreso();
         ventana.setVisible(true);
         
         controladorFacultad contfacultad=new controladorFacultad(ventana,modelofacultad);
-
+        controladorCarrera contcarrera=new controladorCarrera(ventana,modelocarrera);
         //se inicia la vista
         contfacultad.iniciar_vista();
         

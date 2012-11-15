@@ -32,6 +32,12 @@ public class controladorFacultad implements ActionListener{
        this.vista.listafacultad.addActionListener(this);
 
     }
+    public controladorFacultad(VentanaIngreso vista, Facultad modelo, Carrera modelocarrera){
+        this.vista=vista;
+        this.modelo=modelo;
+        this.modelocarrera=modelocarrera;
+        this.vista.listafacultad.addActionListener(this);
+    }
     
     public void iniciar_vista(){
         
@@ -56,13 +62,34 @@ public class controladorFacultad implements ActionListener{
         } catch (SQLException ex) {
             Logger.getLogger(controladorFacultad.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        //modelocarrera.setCod_f(modelo.getCod_f());
         int numeroentero= modelo.getCod_f();
         String numFacultad= Integer.toString(numeroentero);
         vista.codigofacultad.setText(numFacultad);
-        //SETEAR CODIGO C
-        modelocarrera.setCod_f(numeroentero);
+        //SETEAR CODIGO F
+        //modelocarrera.setCod_f(modelo.getCod_f());
+        /*try {
+            modelocarrera.leer();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(controladorFacultad.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(controladorFacultad.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(controladorFacultad.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(controladorFacultad.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
+       // vista.listacarrera.addItem(modelocarrera.getNombres_c());
         //throw new UnsupportedOperationException("Not supported yet.");
+        //Facultad modelofacultad=new Facultad();
+        Carrera modelocarrera=new Carrera();
+        VentanaIngreso ventana = new VentanaIngreso();
+        ventana.setVisible(true);
+        
+        //controladorFacultad contfacultad=new controladorFacultad(ventana,modelofacultad);
+        controladorCarrera contcarrera=new controladorCarrera(ventana,modelocarrera);
+        //se inicia la vista
+        contcarrera.iniciar_vista();
     }
     
 }

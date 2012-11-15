@@ -6,6 +6,7 @@ package basededatos;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import modelo.Carrera;
 import modelo.Facultad;
 import modelo.Persona;
 import modelo.conexion;
@@ -18,9 +19,14 @@ import vista.VentanaPrincipal;
 public class facultadBD {
     
     private Facultad f;
+    private Carrera c;
 
     public facultadBD(Facultad f) {
         this.f = f;
+    }
+    
+    public facultadBD(Carrera c){
+        this.c=c;
     }
     
     //METODO PARA INSERTAR FACULTADES **NO USADO**
@@ -49,7 +55,7 @@ public class facultadBD {
             cdb.setEsSelect(true);
             cdb.setComandoSQL("select cod_f  from facultad where nombre_f ='"+f.getNombre_f()+"'" );
             cdb.conectar();
-           
+            
             try {
             while(cdb.getRst().next()) {
                     codigo_f =cdb.getRst().getInt("cod_f");
@@ -59,6 +65,7 @@ public class facultadBD {
             }
             cdb.cerrarConexion();
             f.setCod_f(codigo_f);
+           // c.setCod_f(codigo_f);
         }
     
     
