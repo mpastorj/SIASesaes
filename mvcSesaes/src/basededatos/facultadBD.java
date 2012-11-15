@@ -65,7 +65,6 @@ public class facultadBD {
             }
             cdb.cerrarConexion();
             f.setCod_f(codigo_f);
-           // c.setCod_f(codigo_f);
         }
     
     

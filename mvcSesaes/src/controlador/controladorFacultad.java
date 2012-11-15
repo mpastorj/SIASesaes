@@ -20,11 +20,13 @@ import modelo.Carrera;
  *
  * @author Milii2
  */
+
 public class controladorFacultad implements ActionListener{
     private VentanaIngreso vista;
     private Facultad modelo;
     private facultadBD facultadBD;
     private Carrera modelocarrera;
+    
     
     public controladorFacultad(VentanaIngreso vista,Facultad modelo){
        this.vista=vista;
@@ -43,12 +45,14 @@ public class controladorFacultad implements ActionListener{
         
         vista.botonfacultad.setText("Ingresar");
         vista.setTitle(" > Ingreso ");
-        //vista.botoningresar.action(new VentanaIngreso().setVisible(true));
       
     }
     
+    
+    
     @Override
     public void actionPerformed(ActionEvent e) {
+        int numeroentero=0;
         String nombrefacultad=(String) vista.listafacultad.getSelectedItem();
         modelo.setNombre_f(nombrefacultad);
         try {
@@ -62,36 +66,21 @@ public class controladorFacultad implements ActionListener{
         } catch (SQLException ex) {
             Logger.getLogger(controladorFacultad.class.getName()).log(Level.SEVERE, null, ex);
         }
-        //modelocarrera.setCod_f(modelo.getCod_f());
-        int numeroentero= modelo.getCod_f();
+        
+        numeroentero= modelo.getCod_f();
         String numFacultad= Integer.toString(numeroentero);
         vista.codigofacultad.setText(numFacultad);
-        //SETEAR CODIGO F
-        //modelocarrera.setCod_f(modelo.getCod_f());
-        /*try {
-            modelocarrera.leer();
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(controladorFacultad.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            Logger.getLogger(controladorFacultad.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            Logger.getLogger(controladorFacultad.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(controladorFacultad.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-       // vista.listacarrera.addItem(modelocarrera.getNombres_c());
-        //throw new UnsupportedOperationException("Not supported yet.");
-        //Facultad modelofacultad=new Facultad();
+
         Carrera modelocarrera=new Carrera();
         VentanaIngreso ventana = new VentanaIngreso();
         ventana.setVisible(true);
         
-        //controladorFacultad contfacultad=new controladorFacultad(ventana,modelofacultad);
         controladorCarrera contcarrera=new controladorCarrera(ventana,modelocarrera);
         modelocarrera.setCod_f(modelo.getCod_f());
-        //se inicia la vista
+        numeroentero=0;
         
         contcarrera.iniciar_vista();
     }
+    
     
 }

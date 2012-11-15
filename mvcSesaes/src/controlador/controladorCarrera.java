@@ -27,18 +27,12 @@ public class controladorCarrera implements ActionListener{
     public controladorCarrera(VentanaIngreso vista,Carrera modelo){
        this.vista=vista;
        this.modelo=modelo;
-       //this.vista.listafacultad.addActionListener(this);
-       //this.vista.listafacultad.getSelectedItem(this);
-       //this.vista.listacarrera.addActionListener(this);
        this.vista.botonfacultad.addActionListener(this);
 
     }
     
         public void iniciar_vista(){
         vista.botonfacultad.setText("NADA QUE VER");
-        //vista.botonfacultad.setText("Ingresar");
-        //vista.setTitle(" > Ingreso ");
-        //vista.botoningresar.action(new VentanaIngreso().setVisible(true));
       
     }
 
@@ -56,25 +50,12 @@ public class controladorCarrera implements ActionListener{
         } catch (SQLException ex) {
             Logger.getLogger(controladorCarrera.class.getName()).log(Level.SEVERE, null, ex);
         }
-        //vista.listacarrera.addItem(modelo.getNombres_c());
-        //vista.listacarrera.addItem(modelo.getNombres_c());
-        //vista.listacarrera.addItemListener(modelo.getNombres_c());
-     //   while(modelo.getNombres_c()!=null){
-            //vista.listacarrera.addItem(modelo.getNombres_c().get(15));
+
         for(String arreglodecarreras:modelo.nombres_c)
-            
             vista.listacarrera.addItem(arreglodecarreras);
-      //  }
-       // String s;
-       // s=modelo.getNombres_c().get(15);
-       // for (String s : a) {
-   // System.out.println(s);
-//}
-   
+        
         vista.botonfacultad.setText("NADA QUE VER");
    
     }
-    
-    
-    
+      
 }

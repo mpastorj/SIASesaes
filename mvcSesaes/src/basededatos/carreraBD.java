@@ -21,9 +21,6 @@ public class carreraBD {
     
     private Carrera c;
     private Facultad f;
-    //ArrayList <String> nombres_c;
-    
-    //String nombres_c[] = new String[15];
     ArrayList <String> nombres_c=new ArrayList<String>();
     int i=0;
     int contador=0;
@@ -42,8 +39,6 @@ public class carreraBD {
             conexion cdb=new conexion();
         
             cdb.setEsSelect(true);
-            //cdb.setComandoSQL("select nombre_c  from carrera where cod_f='"+f.getCod_f()+"'" );
-            //cdb.setComandoSQL("select nombre_c  from carrera where cod_f=(select cod_f from facultad where nombre_f='Ingeniería') ");
             cdb.setComandoSQL("select nombre_c  from carrera where cod_f='"+c.getCod_f()+"'" );
             cdb.conectar();
             
@@ -52,17 +47,12 @@ public class carreraBD {
             {
                nombre_c =cdb.getRst().getString("nombre_c");
                 
-                   nombres_c.add(nombre_c);
-                   //nombres_c[i]=nombre_c;          
-               
-           //carrera.addItem(cdb.getRst().getObject("nombre"));       
+                   nombres_c.add(nombre_c);       
            }
         } catch (SQLException ex) {
             Logger.getLogger(VentanaPrincipal.class.getName()).log(Level.SEVERE, "Error al cargar lista de carreras segun facultad", ex);
         } 
          cdb.cerrarConexion();
-         //c.setNombres_c(nombres_c);
          c.setNombres_c(nombres_c);
-          //  f.setCod_f(codigo_f);
         }
 }
