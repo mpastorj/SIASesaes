@@ -8,6 +8,7 @@ import basededatos.facultadBD;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.Facultad;
@@ -15,6 +16,7 @@ import modelo.Persona;
 import vista.VentanaIngreso;
 import vista.VentanaPrincipal;
 import modelo.Carrera;
+import modelo.conexion;
 
 /**
  *
@@ -27,6 +29,8 @@ public class controladorFacultad implements ActionListener{
     private facultadBD facultadBD;
     private Carrera modelocarrera;
     
+
+ public controladorFacultad(){}   
     
     public controladorFacultad(VentanaIngreso vista,Facultad modelo){
        this.vista=vista;
@@ -48,7 +52,10 @@ public class controladorFacultad implements ActionListener{
       
     }
     
+
     
+   
+ 
     
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -56,7 +63,7 @@ public class controladorFacultad implements ActionListener{
         String nombrefacultad=(String) vista.listafacultad.getSelectedItem();
         modelo.setNombre_f(nombrefacultad);
         try {
-            modelo.leer();
+            modelo.leer(modelo);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(controladorFacultad.class.getName()).log(Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
@@ -70,16 +77,45 @@ public class controladorFacultad implements ActionListener{
         numeroentero= modelo.getCod_f();
         String numFacultad= Integer.toString(numeroentero);
         vista.codigofacultad.setText(numFacultad);
+        
+        modelocarrera = new Carrera();
+        
+        modelocarrera.setCod_f(numeroentero);
+        
+        
+        
+        ArrayList <String> nombres_c = new ArrayList();
+         conexion cdb=new conexion();
+        
+            cdb.setEsSelect(true);
+            cdb.setComandoSQL("select nombre_c  from carrera where cod_f='"+numFacultad+"'" );
+            cdb.conectar();
+            
+            try {  
+            while(cdb.getRst().next())
+            {
+               String nombre_c =cdb.getRst().getString("nombre_c");
+                
+                   nombres_c.add(nombre_c);       
+           }
+        } catch (SQLException ex) {
+            Logger.getLogger(VentanaPrincipal.class.getName()).log(Level.SEVERE, "Error al cargar lista de carreras segun facultad", ex);
+        } 
+         cdb.cerrarConexion();
+         
+         vista.listacarrera.removeAllItems();
+         
+         for(String arreglodecarreras:nombres_c)
+         vista.listacarrera.addItem(arreglodecarreras);
 
-        Carrera modelocarrera=new Carrera();
-        VentanaIngreso ventana = new VentanaIngreso();
-        ventana.setVisible(true);
+    
         
-        controladorCarrera contcarrera=new controladorCarrera(ventana,modelocarrera);
-        modelocarrera.setCod_f(modelo.getCod_f());
-        numeroentero=0;
+       
+     
+      
         
-        contcarrera.iniciar_vista();
+       
+        
     }
     
     
