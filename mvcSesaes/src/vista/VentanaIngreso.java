@@ -40,8 +40,12 @@ public class VentanaIngreso extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         codigofacultad = new javax.swing.JTextField();
         codigoespecialidad = new javax.swing.JTextField();
+        calendario = new com.toedter.calendar.JCalendar();
+        fecha = new javax.swing.JTextField();
+        listatipo = new javax.swing.JComboBox();
+        jLabel6 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         botondeingreso.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         botondeingreso.setText("Ingresar");
@@ -50,10 +54,17 @@ public class VentanaIngreso extends javax.swing.JFrame {
         jLabel1.setText("Especialidad:");
 
         listaespecialidad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccione Opción>", "Medicina General", "Medicina Interna", "Odontología General", "Psiquiatría", "Nutriología", "Traumatología", "Psicología", "Enfermería", "Medicina en Hematología", "Kinesiología", "Cirugía", "Neurología" }));
+        listaespecialidad.setEnabled(false);
+
+        listaprofesional.setEnabled(false);
 
         listafacultad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccione Opción>", "Administración y Economía", "Ciencias de la Construcción y Ordenamiento Territorial", "Ciencias Naturales, Matemática y del Medio Ambiente", "Humanidades y Tecnologías de la Comunicación Social", "Ingeniería" }));
+        listafacultad.setEnabled(false);
+
+        listacarrera.setEnabled(false);
 
         cantidadatenciones.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccione>", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+        cantidadatenciones.setEnabled(false);
 
         jLabel2.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         jLabel2.setText("Profesional:");
@@ -67,28 +78,56 @@ public class VentanaIngreso extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         jLabel5.setText("Número de Atenciones:");
 
+        calendario.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        calendario.setDecorationBordersVisible(true);
+        calendario.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 11)); // NOI18N
+        calendario.setTodayButtonText("Fecha Actual");
+        calendario.setTodayButtonVisible(true);
+        calendario.setWeekOfYearVisible(false);
+
+        listatipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccione>", "Diurno", "Vespertino" }));
+        listatipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listatipoActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
+        jLabel6.setText("Tipo:");
+
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(layout.createSequentialGroup()
-                .add(20, 20, 20)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
                     .add(layout.createSequentialGroup()
-                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                            .add(codigofacultad, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
-                            .add(codigoespecialidad))
+                        .add(89, 89, 89)
+                        .add(fecha, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 120, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .add(botondeingreso, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 108, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .add(74, 74, 74))
+                        .add(botondeingreso, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 108, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(calendario, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 417, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(21, 21, 21))
+            .add(layout.createSequentialGroup()
+                .addContainerGap()
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                    .add(layout.createSequentialGroup()
+                        .add(codigofacultad, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 122, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(43, 43, 43)
+                        .add(codigoespecialidad, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 122, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                     .add(layout.createSequentialGroup()
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                            .add(jLabel5)
-                            .add(org.jdesktop.layout.GroupLayout.LEADING, jLabel1)
-                            .add(org.jdesktop.layout.GroupLayout.LEADING, jLabel2)
-                            .add(org.jdesktop.layout.GroupLayout.LEADING, jLabel3)
-                            .add(org.jdesktop.layout.GroupLayout.LEADING, jLabel4))
-                        .add(22, 22, 22)
+                            .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                .add(jLabel1)
+                                .add(jLabel2)
+                                .add(jLabel3)
+                                .add(jLabel4)
+                                .add(jLabel5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 153, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                            .add(org.jdesktop.layout.GroupLayout.LEADING, layout.createSequentialGroup()
+                                .add(jLabel6)
+                                .add(18, 18, 18)
+                                .add(listatipo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
@@ -96,13 +135,17 @@ public class VentanaIngreso extends javax.swing.JFrame {
                                     .add(listaprofesional, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .add(cantidadatenciones, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                                 .add(org.jdesktop.layout.GroupLayout.TRAILING, listafacultad, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 198, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                            .add(org.jdesktop.layout.GroupLayout.TRAILING, listacarrera, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 198, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(56, Short.MAX_VALUE))))
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, listacarrera, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 198, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
-                .add(28, 28, 28)
+                .add(12, 12, 12)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(jLabel6)
+                    .add(listatipo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(19, 19, 19)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel1)
                     .add(listaespecialidad, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
@@ -122,21 +165,26 @@ public class VentanaIngreso extends javax.swing.JFrame {
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(cantidadatenciones, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(jLabel5))
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(layout.createSequentialGroup()
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .add(botondeingreso, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 44, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .add(layout.createSequentialGroup()
-                        .add(35, 35, 35)
-                        .add(codigofacultad, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                        .add(codigoespecialidad, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(22, Short.MAX_VALUE))))
+                .add(26, 26, 26)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(codigoespecialidad, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(codigofacultad, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(18, 18, 18)
+                .add(calendario, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(botondeingreso, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 44, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(fecha, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void listatipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listatipoActionPerformed
+        // TODO add your handling code here:
+        listaespecialidad.enable();
+    }//GEN-LAST:event_listatipoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -174,17 +222,21 @@ public class VentanaIngreso extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton botondeingreso;
+    public com.toedter.calendar.JCalendar calendario;
     public javax.swing.JComboBox cantidadatenciones;
     public javax.swing.JTextField codigoespecialidad;
     public javax.swing.JTextField codigofacultad;
+    public javax.swing.JTextField fecha;
     public javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     public javax.swing.JComboBox listacarrera;
     public javax.swing.JComboBox listaespecialidad;
     public javax.swing.JComboBox listafacultad;
     public javax.swing.JComboBox listaprofesional;
+    public javax.swing.JComboBox listatipo;
     // End of variables declaration//GEN-END:variables
 }

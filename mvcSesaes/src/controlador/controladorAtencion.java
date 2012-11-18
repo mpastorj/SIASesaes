@@ -6,9 +6,14 @@ package controlador;
 
 import basededatos.especialidadBD;
 import basededatos.facultadBD;
+import com.toedter.calendar.JCalendar;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -56,13 +61,33 @@ public class controladorAtencion implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e){
+        
+        
+        
+        //Cantidad de atenciones que se desee ingresar
         int codigoalumno=0;
         String numero_atenciones=(String) vista.cantidadatenciones.getSelectedItem();
         int cantidad = Integer.parseInt(numero_atenciones);
         
+        //FORMATO DE LA FECHA A INGRESAR
+        DateFormat df=new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat formatodefecha = new SimpleDateFormat("yyyy-MM-dd");
+        Date fecha=null;
+        //SE OBTIENE FECHA SELECCIONADA EN JCALENDAR
+        String año=Integer.toString(vista.calendario.getCalendar().get(java.util.Calendar.YEAR));
+        String mes=Integer.toString(vista.calendario.getCalendar().get(java.util.Calendar.MONTH)+1);
+        String dia=Integer.toString(vista.calendario.getCalendar().get(java.util.Calendar.DAY_OF_MONTH));
+        vista.fecha.setText(dia+" de "+mes+" del "+año);
+        String fecha_atencion=año+"-"+mes+"-"+dia;
+        try {
+            fecha = formatodefecha.parse(fecha_atencion);
+        } catch (ParseException ex) {
+            Logger.getLogger(controladorAtencion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //---------------------------------------------
+        
         for(int i=0;i<cantidad;i++){
-           
-                
+                    
                 //INSERTA CODIGO DE CARRERA
                 conexion cnbd=new conexion();
                 cnbd.setEsSelect(false);
@@ -88,9 +113,9 @@ public class controladorAtencion implements ActionListener{
                 cnbd.cerrarConexion();
                 
                 //--------------------------------------------
-                //INSERTA LA ATENCION CONSIDERANDO CODIGO DE ALUMNO Y CODIGO DE PROFESIONAL
+                //INSERTA LA ATENCION CONSIDERANDO CODIGO DE ALUMNO, CODIGO DE PROFESIONAL Y FECHA DE ATENCIÓN
                 cnbd.setEsSelect(false);
-                cnbd.setComandoSQL("insert into atencion(cod_p,cod_a) values('"+modelo_profesional.getCod_p()+"','"+codigoalumno+"')");
+                cnbd.setComandoSQL("insert into atencion(cod_p,cod_a,fecha_a) values('"+modelo_profesional.getCod_p()+"','"+codigoalumno+"','"+df.format(fecha).toString() +"')");
                 
                 cnbd.conectar();
                 cnbd.cerrarConexion();
@@ -99,8 +124,10 @@ public class controladorAtencion implements ActionListener{
                 
       }
         javax.swing.JOptionPane.showMessageDialog (null, "La información ha sido ingresada con éxito", "Ficha de Ingreso", JOptionPane.INFORMATION_MESSAGE);
-        
+      
+
     }
+    
     
     
 }

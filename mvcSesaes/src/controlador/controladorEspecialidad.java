@@ -100,6 +100,9 @@ public class controladorEspecialidad implements ActionListener{
             
             String nombreprofesional=(String) vista.listaprofesional.getSelectedItem();
             modeloprofesional.setNombre_p(nombreprofesional);
+            vista.listaprofesional.enable();
+            vista.listafacultad.enable();
+            
                 
     }
    

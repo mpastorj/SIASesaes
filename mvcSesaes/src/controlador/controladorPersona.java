@@ -34,39 +34,10 @@ public class controladorPersona implements ActionListener{
        this.vista.botoningresar.addActionListener(this);
     }
     
-    public void agregarpersona(String prut, String pnombre, String pfono, int pedad) throws java.lang.ClassNotFoundException,
-                                                                                                java.lang.InstantiationException,
-                                                                                                java.lang.IllegalAccessException,
-                                                                                                java.sql.SQLException
-                                                                                               
-    {
-        Persona p=new Persona(prut,pnombre,pfono,pedad);
-        
-        p.grabar();
-        
-    }
-    
-    public void modificarpersona(String prut, String pnombre, String pfono, String pedad) throws java.lang.ClassNotFoundException,
-                                                                                                java.lang.InstantiationException,
-                                                                                                java.lang.IllegalAccessException,
-                                                                                                java.sql.SQLException
-                                                                                                
-    {
-        Persona p=new Persona(prut);
-        p.actualizar(pnombre,pfono,pedad);
-        p.grabar();
-    }
-    
-    public void eliminarpersona(String prut, String pnombre, String pfono, String pedad) throws java.lang.ClassNotFoundException,
-                                                                                                java.lang.InstantiationException,
-                                                                                                java.lang.IllegalAccessException,
-                                                                                                java.sql.SQLException
-                                                                                               
-    {
-        Persona p;
-        p=new Persona(prut);
-            p.borrar();
-        
+    public controladorPersona(VentanaIngreso vista2,Persona modelo){
+        this.vista2=vista2;
+        this.modelo=modelo;
+        this.vista2.listatipo.addActionListener(this);
     }
 
     public void iniciar_vista(){

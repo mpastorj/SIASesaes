@@ -76,17 +76,16 @@ public class carreraBD {
             try {  
             while(cdb.getRst().next())
             {
-               //nombre_c = cdb.getRst().getString("nombre_c");
-                codigocarrera=cdb.getRst().getInt("cod_c");
-               //nombres_c.add(nombre_c);       
+                codigocarrera=cdb.getRst().getInt("cod_c");       
             }
             } catch (SQLException ex) {
             Logger.getLogger(VentanaPrincipal.class.getName()).log(Level.SEVERE, "Error al cargar lista de carreras segun facultad", ex);
             } 
+            
          cdb.cerrarConexion();
          c.setCod_c(codigocarrera);
-         javax.swing.JOptionPane.showMessageDialog(null, "LALA", c.getNombre_c(), JOptionPane.INFORMATION_MESSAGE);
-         //javax.swing.JOptionPane.showMessageDialog (null, "La información ha sido ingresada con éxito", "Ficha de Ingreso", JOptionPane.INFORMATION_MESSAGE); 
+         
+         //javax.swing.JOptionPane.showMessageDialog(null, "Carrera Reconocida", c.getNombre_c(), JOptionPane.INFORMATION_MESSAGE); 
                
            }
 }

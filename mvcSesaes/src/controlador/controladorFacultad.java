@@ -46,14 +46,27 @@ public class controladorFacultad implements ActionListener{
     
     public void iniciar_vista(){
       
+        //vista.listatipo.addActionListener(this);
+        //vista.listaespecialidad.disable();
         vista.setTitle(" > Ingreso ");
       
     }
+    
+   
  
     
     @Override
     public void actionPerformed(ActionEvent e) {
+        int numerotipo=0;
+        String tipodeingreso=(String) vista.listatipo.getSelectedItem();
+        if("Diurno".equals(tipodeingreso)){
+            numerotipo=1;
+        }
+        else{
+            numerotipo=2;
+        }
         
+       
         int numeroentero=0;
         String nombrefacultad=(String) vista.listafacultad.getSelectedItem();
         modelo.setNombre_f(nombrefacultad);
@@ -84,7 +97,7 @@ public class controladorFacultad implements ActionListener{
             conexion cdb=new conexion();
         
             cdb.setEsSelect(true);
-            cdb.setComandoSQL("select nombre_c  from carrera where cod_f='"+numFacultad+"'" );
+            cdb.setComandoSQL("select nombre_c,tipo  from carrera where tipo='"+numerotipo+"' and cod_f='"+numFacultad+"' order by nombre_c" );
             cdb.conectar();
             
             try {  
@@ -110,7 +123,8 @@ public class controladorFacultad implements ActionListener{
             String titulocarrera=(String) vista.listacarrera.getSelectedItem();
             modelocarrera.setNombre_c(titulocarrera);
             
-        
+            vista.listacarrera.enable();
+            vista.cantidadatenciones.enable();
     }
     
     
