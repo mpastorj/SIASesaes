@@ -8,7 +8,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.Carrera;
 import modelo.Facultad;
-import modelo.Persona;
 import modelo.conexion;
 import vista.VentanaPrincipal;
 
@@ -43,7 +42,7 @@ public class facultadBD {
     }
     
         
-       // METODO PARA CARGAR EN JCOMBOBOX LAS FACULTADES DE LA BD **USADO EN VENTANAINGRESO**
+       // METODO PARA OBTENER CODIGO DE FACULTAD DESDE JCOMBOBOX **USADO EN VENTANAINGRESO**
         public void leer() throws java.lang.ClassNotFoundException, 
                          java.lang.InstantiationException,
                          java.lang.IllegalAccessException, 

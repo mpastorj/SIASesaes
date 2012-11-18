@@ -12,10 +12,10 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.Facultad;
-import modelo.Persona;
 import vista.VentanaIngreso;
 import vista.VentanaPrincipal;
 import modelo.Carrera;
+import modelo.Especialidad;
 import modelo.conexion;
 
 /**
@@ -26,7 +26,6 @@ import modelo.conexion;
 public class controladorFacultad implements ActionListener{
     private VentanaIngreso vista;
     private Facultad modelo;
-    private facultadBD facultadBD;
     private Carrera modelocarrera;
     
 
@@ -46,19 +45,15 @@ public class controladorFacultad implements ActionListener{
     }
     
     public void iniciar_vista(){
-        
-        vista.botonfacultad.setText("Ingresar");
+      
         vista.setTitle(" > Ingreso ");
       
     }
-    
-
-    
-   
  
     
     @Override
     public void actionPerformed(ActionEvent e) {
+        
         int numeroentero=0;
         String nombrefacultad=(String) vista.listafacultad.getSelectedItem();
         modelo.setNombre_f(nombrefacultad);
@@ -76,16 +71,17 @@ public class controladorFacultad implements ActionListener{
         
         numeroentero= modelo.getCod_f();
         String numFacultad= Integer.toString(numeroentero);
-        vista.codigofacultad.setText(numFacultad);
+       // vista.codigofacultad.setText(numFacultad);
+
+        //-- HASTA ACA OBTIENE CODIGO DE FACULTAD
         
         modelocarrera = new Carrera();
         
         modelocarrera.setCod_f(numeroentero);
-        
-        
-        
-        ArrayList <String> nombres_c = new ArrayList();
-         conexion cdb=new conexion();
+  
+        //ACA SE LLENA EL JCOMBOBOX DE CARRERAS SEGUN FACULTAD
+            ArrayList <String> nombres_c = new ArrayList();
+            conexion cdb=new conexion();
         
             cdb.setEsSelect(true);
             cdb.setComandoSQL("select nombre_c  from carrera where cod_f='"+numFacultad+"'" );
@@ -96,25 +92,24 @@ public class controladorFacultad implements ActionListener{
             {
                String nombre_c =cdb.getRst().getString("nombre_c");
                 
-                   nombres_c.add(nombre_c);       
-           }
-        } catch (SQLException ex) {
+               nombres_c.add(nombre_c);       
+            }
+            } catch (SQLException ex) {
             Logger.getLogger(VentanaPrincipal.class.getName()).log(Level.SEVERE, "Error al cargar lista de carreras segun facultad", ex);
-        } 
-         cdb.cerrarConexion();
-         
-         vista.listacarrera.removeAllItems();
-         
-         for(String arreglodecarreras:nombres_c)
-         vista.listacarrera.addItem(arreglodecarreras);
-
-    
-        
-       
-     
+            } 
+            
+            cdb.cerrarConexion();
+            
+            vista.listacarrera.removeAllItems();
       
-        
-       
+            for(String arreglodecarreras:nombres_c)
+            vista.listacarrera.addItem(arreglodecarreras);
+            
+        //-------------------------------------------
+            
+            String titulocarrera=(String) vista.listacarrera.getSelectedItem();
+            modelocarrera.setNombre_c(titulocarrera);
+            
         
     }
     

@@ -15,6 +15,7 @@ public class VentanaIngreso extends javax.swing.JFrame {
      *///
     public VentanaIngreso() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -26,37 +27,44 @@ public class VentanaIngreso extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        botonfacultad = new javax.swing.JButton();
+        botondeingreso = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
-        jComboBox2 = new javax.swing.JComboBox();
+        listaespecialidad = new javax.swing.JComboBox();
+        listaprofesional = new javax.swing.JComboBox();
         listafacultad = new javax.swing.JComboBox();
         listacarrera = new javax.swing.JComboBox();
-        jComboBox5 = new javax.swing.JComboBox();
+        cantidadatenciones = new javax.swing.JComboBox();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         codigofacultad = new javax.swing.JTextField();
+        codigoespecialidad = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        botondeingreso.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        botondeingreso.setText("Ingresar");
+
+        jLabel1.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         jLabel1.setText("Especialidad:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        listaespecialidad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccione Opción>", "Medicina General", "Medicina Interna", "Odontología General", "Psiquiatría", "Nutriología", "Traumatología", "Psicología", "Enfermería", "Medicina en Hematología", "Kinesiología", "Cirugía", "Neurología" }));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        listafacultad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccione Opción>", "Administración y Economía", "Ciencias de la Construcción y Ordenamiento Territorial", "Ciencias Naturales, Matemática y del Medio Ambiente", "Humanidades y Tecnologías de la Comunicación Social", "Ingeniería" }));
 
-        listafacultad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Administración y Economía", "Ciencias de la Construcción y Ordenamiento Territorial", "Ciencias Naturales, Matemática y del Medio Ambiente", "Humanidades y Tecnologías de la Comunicación Social", "Ingeniería" }));
+        cantidadatenciones.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccione>", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
+        jLabel2.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         jLabel2.setText("Profesional:");
 
+        jLabel3.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         jLabel3.setText("Facultad:");
 
+        jLabel4.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         jLabel4.setText("Carrera:");
 
+        jLabel5.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         jLabel5.setText("Número de Atenciones:");
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
@@ -67,9 +75,11 @@ public class VentanaIngreso extends javax.swing.JFrame {
                 .add(20, 20, 20)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(layout.createSequentialGroup()
-                        .add(codigofacultad, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 122, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                            .add(codigofacultad, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
+                            .add(codigoespecialidad))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .add(botonfacultad, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 108, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(botondeingreso, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 108, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .add(74, 74, 74))
                     .add(layout.createSequentialGroup()
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
@@ -82,12 +92,12 @@ public class VentanaIngreso extends javax.swing.JFrame {
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                                    .add(jComboBox1, 0, 198, Short.MAX_VALUE)
-                                    .add(jComboBox2, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .add(jComboBox5, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .add(listaespecialidad, 0, 198, Short.MAX_VALUE)
+                                    .add(listaprofesional, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .add(cantidadatenciones, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                                 .add(org.jdesktop.layout.GroupLayout.TRAILING, listafacultad, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 198, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                             .add(org.jdesktop.layout.GroupLayout.TRAILING, listacarrera, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 198, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(97, Short.MAX_VALUE))))
+                        .addContainerGap(56, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -95,10 +105,10 @@ public class VentanaIngreso extends javax.swing.JFrame {
                 .add(28, 28, 28)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel1)
-                    .add(jComboBox1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(listaespecialidad, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .add(18, 18, 18)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jComboBox2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(listaprofesional, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(jLabel2))
                 .add(18, 18, 18)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
@@ -110,17 +120,19 @@ public class VentanaIngreso extends javax.swing.JFrame {
                     .add(jLabel4))
                 .add(18, 18, 18)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jComboBox5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(cantidadatenciones, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(jLabel5))
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(layout.createSequentialGroup()
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .add(botonfacultad, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 44, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(botondeingreso, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 44, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .add(layout.createSequentialGroup()
                         .add(35, 35, 35)
                         .add(codigofacultad, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(45, Short.MAX_VALUE))))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                        .add(codigoespecialidad, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(22, Short.MAX_VALUE))))
         );
 
         pack();
@@ -161,17 +173,18 @@ public class VentanaIngreso extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton botonfacultad;
+    public javax.swing.JButton botondeingreso;
+    public javax.swing.JComboBox cantidadatenciones;
+    public javax.swing.JTextField codigoespecialidad;
     public javax.swing.JTextField codigofacultad;
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox2;
-    private javax.swing.JComboBox jComboBox5;
-    private javax.swing.JLabel jLabel1;
+    public javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     public javax.swing.JComboBox listacarrera;
+    public javax.swing.JComboBox listaespecialidad;
     public javax.swing.JComboBox listafacultad;
+    public javax.swing.JComboBox listaprofesional;
     // End of variables declaration//GEN-END:variables
 }

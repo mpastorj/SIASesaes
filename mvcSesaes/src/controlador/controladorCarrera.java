@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.Carrera;
-import modelo.Facultad;
 import vista.VentanaIngreso;
 
 
@@ -31,28 +30,41 @@ public class controladorCarrera implements ActionListener{
     public controladorCarrera(Carrera modelo){
     this.modelo = modelo;
     }
+
+    public controladorCarrera(VentanaIngreso vista, Carrera modelo) {
+        this.vista = vista;
+        this.modelo = modelo;
+        this.vista.listacarrera.addActionListener(this);
+    }
+
     
      public void llenar(ArrayList <String> c){
-        for(String arreglodecarreras:c)
+         for(String arreglodecarreras:c)
          vista.listacarrera.addItem(arreglodecarreras);
-        }
+     }
     
     @Override
     public void actionPerformed(ActionEvent e) {
+        
+        String titulocarrera=(String) vista.listacarrera.getSelectedItem();
+        modelo.setNombre_c(titulocarrera);
+        
         try {
-            modelo.leer();
+            modelo.buscar();
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(controladorCarrera.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(controladorFacultad.class.getName()).log(Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            Logger.getLogger(controladorCarrera.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(controladorFacultad.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            Logger.getLogger(controladorCarrera.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(controladorFacultad.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(controladorCarrera.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(controladorFacultad.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-       
-        vista.botonfacultad.setText("NADA QUE VER");
+        
+        int codigodelacarrera=modelo.getCod_c();
+   
+        String numCarrera= Integer.toString(codigodelacarrera);
+        vista.codigofacultad.setText(numCarrera);
    
     }
       

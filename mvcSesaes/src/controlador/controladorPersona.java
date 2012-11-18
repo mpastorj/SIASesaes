@@ -9,10 +9,13 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import modelo.Atencion;
 import modelo.Carrera;
+import modelo.Especialidad;
 import vista.VentanaPrincipal;
 import modelo.Persona;
 import modelo.Facultad;
+import modelo.Profesional;
 import vista.VentanaIngreso;
 
 /**
@@ -81,13 +84,20 @@ public class controladorPersona implements ActionListener{
         
         //DESDE AQUI VENTANA INGRESO
         Facultad modelofacultad=new Facultad();
+        Especialidad modeloespecialidad=new Especialidad();
         Carrera modelocarrera=new Carrera();
+        Profesional modeloprofesional=new Profesional();
+        Atencion modeloatencion=new Atencion();
         VentanaIngreso ventana = new VentanaIngreso();
         ventana.setVisible(true);
         
         controladorFacultad contfacultad=new controladorFacultad(ventana,modelofacultad);
-
-
+        controladorEspecialidad contespecialidad=new controladorEspecialidad(ventana,modeloespecialidad);
+        
+        controladorCarrera contcarrera=new controladorCarrera(ventana,modelocarrera);
+        controladorProfesional contprofesional=new controladorProfesional(ventana,modeloprofesional);
+        controladorAtencion contatencion=new controladorAtencion(ventana, modelocarrera, modeloprofesional, modeloatencion);
+     
         contfacultad.iniciar_vista();
         
     }

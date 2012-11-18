@@ -93,6 +93,15 @@ public class Carrera {
         carreraBD cdb=new carreraBD(this);
         cdb.leer();
     }
+       
+       public void buscar() throws java.lang.ClassNotFoundException,
+                                java.lang.InstantiationException,
+                                java.lang.IllegalAccessException,
+                                java.sql.SQLException
+       {
+           carreraBD cdb=new carreraBD(this);
+           cdb.buscar();
+       }
 
 
     
