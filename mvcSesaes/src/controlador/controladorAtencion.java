@@ -86,48 +86,24 @@ public class controladorAtencion implements ActionListener{
         }
         //---------------------------------------------
         
-        for(int i=0;i<cantidad;i++){
-                    
-                //INSERTA CODIGO DE CARRERA
+      
                 conexion cnbd=new conexion();
                 cnbd.setEsSelect(false);
-                cnbd.setComandoSQL("insert into alumno(cod_a,cod_c) values(null,'"+modelo_carrera.getCod_c()+"')");
-       
-                cnbd.conectar();
-                cnbd.cerrarConexion();
                 
-                //---------------------------------------------
-                //BUSCA CODIGO (GENERADO POR AUTO-INCREMENTO) DEL ULTIMO ALUMNO INGRESADO
-                cnbd.setEsSelect(true);
-
-                cnbd.setComandoSQL("select cod_a from alumno order by cod_a desc limit 1");
-                cnbd.conectar();
-                try {  
-                while(cnbd.getRst().next())
-                {
-                    codigoalumno=cnbd.getRst().getInt("cod_a");     
-                }
-                } catch (SQLException ex) {
-                Logger.getLogger(VentanaPrincipal.class.getName()).log(Level.SEVERE, "Error al cargar lista de carreras segun facultad", ex);
-                } 
-                cnbd.cerrarConexion();
-                
-                //--------------------------------------------
-                //INSERTA LA ATENCION CONSIDERANDO CODIGO DE ALUMNO, CODIGO DE PROFESIONAL Y FECHA DE ATENCIÓN
-                cnbd.setEsSelect(false);
-                cnbd.setComandoSQL("insert into atencion(cod_p,cod_a,fecha_a) values('"+modelo_profesional.getCod_p()+"','"+codigoalumno+"','"+df.format(fecha).toString() +"')");
+          
+                cnbd.setComandoSQL("insert into atencion(cod_profesional,cod_c,fecha_a,cantidad) values('"+modelo_profesional.getCod_p()+"','"+modelo_carrera.getCod_c()+"','"+df.format(fecha).toString() +"','"+cantidad+"')");
                 
                 cnbd.conectar();
                 cnbd.cerrarConexion();
                 
                 //-------------------------------------------
                 
-      }
+      
         javax.swing.JOptionPane.showMessageDialog (null, "La información ha sido ingresada con éxito", "Ficha de Ingreso", JOptionPane.INFORMATION_MESSAGE);
       
 
-    }
     
+    }
     
     
 }
