@@ -70,14 +70,7 @@ public class Atencion {
         
     }
        
-    public void buscacodigoalumno(Atencion modelo) throws java.lang.ClassNotFoundException,
-                                java.lang.InstantiationException,
-                                java.lang.IllegalAccessException,
-                                java.sql.SQLException
-    {
-        atencionBD adb=new atencionBD(modelo);
-        adb.buscacodigoalumno();
-    }
+
 
 
 

@@ -86,6 +86,7 @@ public class controladorAtencion implements ActionListener{
         }
         //---------------------------------------------
         
+        //Inserta en la tabla ATENCIÓN considerando codigo de profesional, codigo de carrera, fecha y número de atenciones
       
                 conexion cnbd=new conexion();
                 cnbd.setEsSelect(false);
@@ -96,8 +97,7 @@ public class controladorAtencion implements ActionListener{
                 cnbd.conectar();
                 cnbd.cerrarConexion();
                 
-                //-------------------------------------------
-                
+        //-----------------------------------------------               
       
         javax.swing.JOptionPane.showMessageDialog (null, "La información ha sido ingresada con éxito", "Ficha de Ingreso", JOptionPane.INFORMATION_MESSAGE);
       

@@ -46,6 +46,7 @@ public class atencionBD {
         this.c = c;
     }
     
+    //CONSULTA ANTIGUA *** SE DEBE MODIFICAR ***
     public void insertaalumno() throws java.lang.ClassNotFoundException, 
                          java.lang.InstantiationException,
                          java.lang.IllegalAccessException, 
@@ -60,32 +61,6 @@ public class atencionBD {
           
     }
     
-    public void buscacodigoalumno() throws java.lang.ClassNotFoundException, 
-                         java.lang.InstantiationException,
-                         java.lang.IllegalAccessException, 
-                         java.sql.SQLException
-    {
-        int codigoalumno=0;
-        conexion cnbd=new conexion();
-        cnbd.setEsSelect(true);
-
-            cnbd.setComandoSQL("select cod_a from alumno order by cod_a desc limit 1");
-            cnbd.conectar();
-            try {  
-            while(cnbd.getRst().next())
-            {
-                codigoalumno=cnbd.getRst().getInt("cod_a");     
-            }
-            } catch (SQLException ex) {
-            Logger.getLogger(VentanaPrincipal.class.getName()).log(Level.SEVERE, "Error al cargar lista de carreras segun facultad", ex);
-            } 
-            cnbd.cerrarConexion();
-            
-            cnbd.setEsSelect(false);
-            cnbd.setComandoSQL("insert into atencion(cod_p,cod_a) values('"+p.getCod_p()+"','"+codigoalumno+"')");
-            cnbd.conectar();
-            cnbd.cerrarConexion();
-    }
 
     
 }
