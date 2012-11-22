@@ -93,8 +93,22 @@ public class controladorAtencion implements ActionListener{
                 cnbd.conectar();
                 cnbd.cerrarConexion();
                 
+                int barra = 0;
+               
+                
         //-----------------------------------------------               
+    while(barra<2000){
+                vista.barraprogreso.setValue(barra);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(controladorAtencion.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            barra += 95;
+    }
       
+    
         javax.swing.JOptionPane.showMessageDialog (null, "La información ha sido ingresada con éxito", "Ficha de Ingreso", JOptionPane.INFORMATION_MESSAGE);
      
     
