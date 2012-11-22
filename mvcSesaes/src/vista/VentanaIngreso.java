@@ -80,7 +80,6 @@ public class VentanaIngreso extends javax.swing.JFrame {
         listacarrera.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         listacarrera.setEnabled(false);
 
-        cantidadatenciones.setEditable(true);
         cantidadatenciones.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cantidadatenciones.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccione>", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
         cantidadatenciones.setEnabled(false);
@@ -126,7 +125,6 @@ public class VentanaIngreso extends javax.swing.JFrame {
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(layout.createSequentialGroup()
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .add(barraprogreso, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 168, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .add(48, 48, 48)
                                 .add(botondeingreso, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 108, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
@@ -156,7 +154,7 @@ public class VentanaIngreso extends javax.swing.JFrame {
                                 .add(jLabel6)
                                 .add(18, 18, 18)
                                 .add(listatipo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 111, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(98, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
