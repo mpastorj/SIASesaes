@@ -17,6 +17,7 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 import modelo.Atencion;
 import modelo.Carrera;
 import modelo.Especialidad;
@@ -93,20 +94,36 @@ public class controladorAtencion implements ActionListener{
                 cnbd.conectar();
                 cnbd.cerrarConexion();
                 
-                int barra = 0;
+              
                
                 
-        //-----------------------------------------------               
-    while(barra<2000){
-                vista.barraprogreso.setValue(barra);
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(controladorAtencion.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
-            barra += 95;
+        //----------------------------------------------- 
+    
+                vista.barraprogreso.setValue(25);
+                vista.barraprogreso.setStringPainted(true);
+    int tiempo=0;           
+    Timer timer;
+    timer =new Timer(tiempo,new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                  int barra = 1000;
+                  int i=25;
+                  while(barra<10000000){
+                      if(barra==100) {
+                          vista.barraprogreso.setValue(barra);
+                      }
+                      if(barra==100000) {
+                          vista.barraprogreso.setValue(barra);
+                      }
+
+             barra++;
+             vista.barraprogreso.setValue(barra);
+             }
+
     }
+        });
+    timer.start();
       
     
         javax.swing.JOptionPane.showMessageDialog (null, "La información ha sido ingresada con éxito", "Ficha de Ingreso", JOptionPane.INFORMATION_MESSAGE);

@@ -41,6 +41,7 @@ public class VentanaIngreso extends javax.swing.JFrame {
         calendario = new com.toedter.calendar.JCalendar();
         listatipo = new javax.swing.JComboBox();
         jLabel6 = new javax.swing.JLabel();
+        barraprogreso = new javax.swing.JProgressBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -113,6 +114,8 @@ public class VentanaIngreso extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         jLabel6.setText("Tipo:");
 
+        barraprogreso.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -123,7 +126,9 @@ public class VentanaIngreso extends javax.swing.JFrame {
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(layout.createSequentialGroup()
-                                .add(89, 324, Short.MAX_VALUE)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .add(barraprogreso, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 168, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(48, 48, 48)
                                 .add(botondeingreso, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 108, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                             .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
                                 .add(0, 15, Short.MAX_VALUE)
@@ -151,7 +156,7 @@ public class VentanaIngreso extends javax.swing.JFrame {
                                 .add(jLabel6)
                                 .add(18, 18, 18)
                                 .add(listatipo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 111, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap())))
+                        .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -183,7 +188,9 @@ public class VentanaIngreso extends javax.swing.JFrame {
                 .add(34, 34, 34)
                 .add(calendario, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 199, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(41, 41, 41)
-                .add(botondeingreso, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 44, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(barraprogreso, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 30, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(botondeingreso, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 44, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -261,6 +268,7 @@ public class VentanaIngreso extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JProgressBar barraprogreso;
     public javax.swing.JButton botondeingreso;
     public com.toedter.calendar.JCalendar calendario;
     public javax.swing.JComboBox cantidadatenciones;
