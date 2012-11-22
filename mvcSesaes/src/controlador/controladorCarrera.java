@@ -61,11 +61,7 @@ public class controladorCarrera implements ActionListener{
             Logger.getLogger(controladorFacultad.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        int codigodelacarrera=modelo.getCod_c();
-   
-        String numCarrera= Integer.toString(codigodelacarrera);
-        vista.codigofacultad.setText(numCarrera);
-   
+
     }
       
 }

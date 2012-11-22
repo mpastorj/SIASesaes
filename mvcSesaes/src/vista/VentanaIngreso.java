@@ -38,10 +38,7 @@ public class VentanaIngreso extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        codigofacultad = new javax.swing.JTextField();
-        codigoespecialidad = new javax.swing.JTextField();
         calendario = new com.toedter.calendar.JCalendar();
-        fecha = new javax.swing.JTextField();
         listatipo = new javax.swing.JComboBox();
         jLabel6 = new javax.swing.JLabel();
 
@@ -58,16 +55,22 @@ public class VentanaIngreso extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         jLabel1.setText("Especialidad:");
 
+        listaespecialidad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         listaespecialidad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccione Opción>", "Medicina General", "Medicina Interna", "Odontología General", "Psiquiatría", "Nutriología", "Traumatología", "Psicología", "Enfermería", "Medicina en Hematología", "Kinesiología", "Cirugía", "Neurología" }));
         listaespecialidad.setEnabled(false);
 
+        listaprofesional.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         listaprofesional.setEnabled(false);
 
+        listafacultad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         listafacultad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccione Opción>", "Administración y Economía", "Ciencias de la Construcción y Ordenamiento Territorial", "Ciencias Naturales, Matemática y del Medio Ambiente", "Humanidades y Tecnologías de la Comunicación Social", "Ingeniería" }));
         listafacultad.setEnabled(false);
 
+        listacarrera.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         listacarrera.setEnabled(false);
 
+        cantidadatenciones.setEditable(true);
+        cantidadatenciones.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cantidadatenciones.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccione>", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
         cantidadatenciones.setEnabled(false);
 
@@ -84,12 +87,12 @@ public class VentanaIngreso extends javax.swing.JFrame {
         jLabel5.setText("Número de Atenciones:");
 
         calendario.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        calendario.setDecorationBordersVisible(true);
-        calendario.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 11)); // NOI18N
+        calendario.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 12)); // NOI18N
         calendario.setTodayButtonText("Fecha Actual");
         calendario.setTodayButtonVisible(true);
         calendario.setWeekOfYearVisible(false);
 
+        listatipo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         listatipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccione>", "Diurno", "Vespertino" }));
         listatipo.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -109,44 +112,41 @@ public class VentanaIngreso extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                    .add(layout.createSequentialGroup()
-                        .add(89, 89, 89)
-                        .add(fecha, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 120, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .add(botondeingreso, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 108, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                    .add(calendario, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 417, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .add(21, 21, 21))
             .add(layout.createSequentialGroup()
                 .addContainerGap()
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(layout.createSequentialGroup()
+                                .add(89, 324, Short.MAX_VALUE)
+                                .add(botondeingreso, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 108, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                                .add(0, 15, Short.MAX_VALUE)
+                                .add(calendario, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 417, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                        .add(21, 21, 21))
                     .add(layout.createSequentialGroup()
-                        .add(codigofacultad, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 122, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .add(43, 43, 43)
-                        .add(codigoespecialidad, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 122, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                    .add(layout.createSequentialGroup()
-                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                            .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                .add(jLabel1)
-                                .add(jLabel2)
-                                .add(jLabel3)
-                                .add(jLabel4)
-                                .add(jLabel5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 153, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                            .add(org.jdesktop.layout.GroupLayout.LEADING, layout.createSequentialGroup()
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(layout.createSequentialGroup()
+                                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                    .add(jLabel1)
+                                    .add(jLabel2)
+                                    .add(jLabel3)
+                                    .add(jLabel4)
+                                    .add(jLabel5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 153, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                    .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                                            .add(listaespecialidad, 0, 198, Short.MAX_VALUE)
+                                            .add(listaprofesional, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .add(cantidadatenciones, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 111, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                        .add(org.jdesktop.layout.GroupLayout.TRAILING, listafacultad, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 198, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                    .add(org.jdesktop.layout.GroupLayout.TRAILING, listacarrera, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 198, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                            .add(layout.createSequentialGroup()
                                 .add(jLabel6)
                                 .add(18, 18, 18)
-                                .add(listatipo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                                    .add(listaespecialidad, 0, 198, Short.MAX_VALUE)
-                                    .add(listaprofesional, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .add(cantidadatenciones, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                                .add(org.jdesktop.layout.GroupLayout.TRAILING, listafacultad, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 198, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                            .add(org.jdesktop.layout.GroupLayout.TRAILING, listacarrera, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 198, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(98, Short.MAX_VALUE))
+                                .add(listatipo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 111, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -175,16 +175,10 @@ public class VentanaIngreso extends javax.swing.JFrame {
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(cantidadatenciones, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(jLabel5))
-                .add(26, 26, 26)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(codigoespecialidad, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(codigofacultad, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .add(18, 18, 18)
-                .add(calendario, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(botondeingreso, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 44, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(fecha, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(34, 34, 34)
+                .add(calendario, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 199, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(41, 41, 41)
+                .add(botondeingreso, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 44, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -247,9 +241,6 @@ public class VentanaIngreso extends javax.swing.JFrame {
     public javax.swing.JButton botondeingreso;
     public com.toedter.calendar.JCalendar calendario;
     public javax.swing.JComboBox cantidadatenciones;
-    public javax.swing.JTextField codigoespecialidad;
-    public javax.swing.JTextField codigofacultad;
-    public javax.swing.JTextField fecha;
     public javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

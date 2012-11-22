@@ -74,7 +74,7 @@ public class controladorAtencion implements ActionListener{
         String año=Integer.toString(vista.calendario.getCalendar().get(java.util.Calendar.YEAR));
         String mes=Integer.toString(vista.calendario.getCalendar().get(java.util.Calendar.MONTH)+1);
         String dia=Integer.toString(vista.calendario.getCalendar().get(java.util.Calendar.DAY_OF_MONTH));
-        vista.fecha.setText(dia+" de "+mes+" del "+año);
+       
         String fecha_atencion=año+"-"+mes+"-"+dia;
         try {
             fecha = formatodefecha.parse(fecha_atencion);
