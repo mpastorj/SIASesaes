@@ -52,6 +52,7 @@ public class VentanaIngreso extends javax.swing.JFrame {
 
         botondeingreso.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         botondeingreso.setText("Ingresar");
+        botondeingreso.setEnabled(false);
 
         jLabel1.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         jLabel1.setText("Especialidad:");
@@ -67,15 +68,20 @@ public class VentanaIngreso extends javax.swing.JFrame {
 
         listaprofesional.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         listaprofesional.setEnabled(false);
-        listaprofesional.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                listaprofesionalItemStateChanged(evt);
-            }
-        });
 
         listafacultad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        listafacultad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccione Opción>", "Administración y Economía", "Ciencias de la Construcción y Ordenamiento Territorial", "Ciencias Naturales, Matemática y del Medio Ambiente", "Humanidades y Tecnologías de la Comunicación Social", "Ingeniería" }));
+        listafacultad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccione>", "Administración y Economía", "Ciencias de la Construcción y Ordenamiento Territorial", "Ciencias Naturales, Matemática y del Medio Ambiente", "Humanidades y Tecnologías de la Comunicación Social", "Ingeniería" }));
         listafacultad.setEnabled(false);
+        listafacultad.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                listafacultadItemStateChanged(evt);
+            }
+        });
+        listafacultad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listafacultadActionPerformed(evt);
+            }
+        });
 
         listacarrera.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         listacarrera.setEnabled(false);
@@ -83,6 +89,11 @@ public class VentanaIngreso extends javax.swing.JFrame {
         cantidadatenciones.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cantidadatenciones.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccione>", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
         cantidadatenciones.setEnabled(false);
+        cantidadatenciones.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cantidadatencionesItemStateChanged(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         jLabel2.setText("Profesional:");
@@ -114,6 +125,7 @@ public class VentanaIngreso extends javax.swing.JFrame {
         jLabel6.setText("Tipo:");
 
         barraprogreso.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        barraprogreso.setStringPainted(true);
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -122,16 +134,6 @@ public class VentanaIngreso extends javax.swing.JFrame {
             .add(layout.createSequentialGroup()
                 .addContainerGap()
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(layout.createSequentialGroup()
-                                .add(barraprogreso, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 168, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .add(48, 48, 48)
-                                .add(botondeingreso, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 108, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                            .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                                .add(0, 15, Short.MAX_VALUE)
-                                .add(calendario, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 417, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                        .add(21, 21, 21))
                     .add(layout.createSequentialGroup()
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(layout.createSequentialGroup()
@@ -154,7 +156,16 @@ public class VentanaIngreso extends javax.swing.JFrame {
                                 .add(jLabel6)
                                 .add(18, 18, 18)
                                 .add(listatipo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 111, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(98, Short.MAX_VALUE))))
+                        .addContainerGap(98, Short.MAX_VALUE))
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                        .add(0, 0, Short.MAX_VALUE)
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
+                            .add(layout.createSequentialGroup()
+                                .add(barraprogreso, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .add(18, 18, 18)
+                                .add(botondeingreso, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 108, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                            .add(calendario, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 417, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .add(21, 21, 21))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -185,11 +196,11 @@ public class VentanaIngreso extends javax.swing.JFrame {
                     .add(jLabel5))
                 .add(34, 34, 34)
                 .add(calendario, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 199, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(41, 41, 41)
+                .add(27, 27, 27)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(barraprogreso, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 30, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(botondeingreso, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 44, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .add(botondeingreso, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 44, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(barraprogreso, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 30, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(25, 25, 25))
         );
 
         pack();
@@ -207,30 +218,68 @@ public class VentanaIngreso extends javax.swing.JFrame {
             listaespecialidad.setSelectedIndex(0);
             listaespecialidad.disable();
             listaprofesional.disable();
+            listafacultad.setSelectedIndex(0);
             listafacultad.disable();
             listacarrera.disable();
+            cantidadatenciones.setSelectedIndex(0);
             cantidadatenciones.disable();
         }
     }//GEN-LAST:event_listatipoItemStateChanged
-
-    private void listaprofesionalItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_listaprofesionalItemStateChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_listaprofesionalItemStateChanged
 
     private void listaespecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaespecialidadActionPerformed
         String cadena1 = (String)listaespecialidad.getSelectedItem();
         if (cadena1.equals("<Seleccione>")){
             listaprofesional.disable();
+            listafacultad.setSelectedIndex(0);
             listafacultad.disable();
             listacarrera.disable();
+            cantidadatenciones.setSelectedIndex(0);
             cantidadatenciones.disable();
         }else{
             listaprofesional.enable();
             listafacultad.enable();
-        
-        // TODO add your handling code here:
+        }
     }//GEN-LAST:event_listaespecialidadActionPerformed
-    }
+
+        private void cantidadatencionesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cantidadatencionesItemStateChanged
+        // TODO add your handling code here:
+            String cant = (String)cantidadatenciones.getSelectedItem();
+            String tipo = (String)listatipo.getSelectedItem();
+            String especialidad = (String)listaespecialidad.getSelectedItem();
+            String facultad = (String)listafacultad.getSelectedItem();
+            if(!"<Seleccione>".equals(cant) && !"<Seleccione>".equals(tipo) && !"<Seleccione>".equals(especialidad) && !"<Seleccione>".equals(facultad)){
+                botondeingreso.setEnabled(true);
+            }else{
+                botondeingreso.setEnabled(false);
+            }
+    }//GEN-LAST:event_cantidadatencionesItemStateChanged
+
+    private void listafacultadItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_listafacultadItemStateChanged
+        // TODO add your handling code here:
+        /*String esp = (String)listafacultad.getSelectedItem();
+        if (esp != "<Seleccione>"){
+            listacarrera.enable();
+            cantidadatenciones.enable();
+        }else{
+            listacarrera.disable();
+            cantidadatenciones.setSelectedIndex(0);
+            cantidadatenciones.disable();
+        }*/
+    }//GEN-LAST:event_listafacultadItemStateChanged
+
+    private void listafacultadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listafacultadActionPerformed
+        // TODO add your handling code here:
+        String esp = (String)listafacultad.getSelectedItem();
+        if (!"<Seleccione>".equals(esp)){
+            listacarrera.enable();
+            cantidadatenciones.enable();
+        }else{
+            listacarrera.disable();
+            cantidadatenciones.setSelectedIndex(0);
+            cantidadatenciones.disable();
+        }
+    }//GEN-LAST:event_listafacultadActionPerformed
+
     /**
      * @param args the command line arguments
      */
