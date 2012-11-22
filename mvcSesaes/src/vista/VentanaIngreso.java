@@ -46,6 +46,11 @@ public class VentanaIngreso extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         botondeingreso.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         botondeingreso.setText("Ingresar");
@@ -86,6 +91,11 @@ public class VentanaIngreso extends javax.swing.JFrame {
         calendario.setWeekOfYearVisible(false);
 
         listatipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccione>", "Diurno", "Vespertino" }));
+        listatipo.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                listatipoItemStateChanged(evt);
+            }
+        });
         listatipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 listatipoActionPerformed(evt);
@@ -183,8 +193,21 @@ public class VentanaIngreso extends javax.swing.JFrame {
 
     private void listatipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listatipoActionPerformed
         // TODO add your handling code here:
-        listaespecialidad.enable();
+        //listaespecialidad.enable();
     }//GEN-LAST:event_listatipoActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+    }//GEN-LAST:event_formWindowActivated
+
+    private void listatipoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_listatipoItemStateChanged
+        // TODO add your handling code here:
+        String cadena = (String)listatipo.getSelectedItem();
+        if (cadena!="<Seleccione>"){
+            listaespecialidad.enable();
+        }else{
+            listaespecialidad.disable();
+        }
+    }//GEN-LAST:event_listatipoItemStateChanged
 
     /**
      * @param args the command line arguments

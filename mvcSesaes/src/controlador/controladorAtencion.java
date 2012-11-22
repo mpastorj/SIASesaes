@@ -53,16 +53,13 @@ public class controladorAtencion implements ActionListener{
     public controladorAtencion(Carrera modelo_carrera) {
         this.modelo_carrera = modelo_carrera;
     }
-
-  
+    
+    
     public controladorAtencion(){
-   
     }
     
     @Override
     public void actionPerformed(ActionEvent e){
-        
-        
         
         //Cantidad de atenciones que se desee ingresar
         int codigoalumno=0;
@@ -87,11 +84,10 @@ public class controladorAtencion implements ActionListener{
         //---------------------------------------------
         
         //Inserta en la tabla ATENCIÓN considerando codigo de profesional, codigo de carrera, fecha y número de atenciones
-      
+                
                 conexion cnbd=new conexion();
                 cnbd.setEsSelect(false);
-                
-          
+                      
                 cnbd.setComandoSQL("insert into atencion(cod_profesional,cod_c,fecha_a,cantidad) values('"+modelo_profesional.getCod_p()+"','"+modelo_carrera.getCod_c()+"','"+df.format(fecha).toString() +"','"+cantidad+"')");
                 
                 cnbd.conectar();
@@ -100,8 +96,7 @@ public class controladorAtencion implements ActionListener{
         //-----------------------------------------------               
       
         javax.swing.JOptionPane.showMessageDialog (null, "La información ha sido ingresada con éxito", "Ficha de Ingreso", JOptionPane.INFORMATION_MESSAGE);
-      
-
+     
     
     }
     
