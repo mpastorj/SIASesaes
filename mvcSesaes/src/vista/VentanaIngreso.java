@@ -56,11 +56,21 @@ public class VentanaIngreso extends javax.swing.JFrame {
         jLabel1.setText("Especialidad:");
 
         listaespecialidad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        listaespecialidad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccione Opción>", "Medicina General", "Medicina Interna", "Odontología General", "Psiquiatría", "Nutriología", "Traumatología", "Psicología", "Enfermería", "Medicina en Hematología", "Kinesiología", "Cirugía", "Neurología" }));
+        listaespecialidad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccione>", "Medicina General", "Medicina Interna", "Odontología General", "Psiquiatría", "Nutriología", "Traumatología", "Psicología", "Enfermería", "Medicina en Hematología", "Kinesiología", "Cirugía", "Neurología" }));
         listaespecialidad.setEnabled(false);
+        listaespecialidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listaespecialidadActionPerformed(evt);
+            }
+        });
 
         listaprofesional.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         listaprofesional.setEnabled(false);
+        listaprofesional.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                listaprofesionalItemStateChanged(evt);
+            }
+        });
 
         listafacultad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         listafacultad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccione Opción>", "Administración y Economía", "Ciencias de la Construcción y Ordenamiento Territorial", "Ciencias Naturales, Matemática y del Medio Ambiente", "Humanidades y Tecnologías de la Comunicación Social", "Ingeniería" }));
@@ -97,11 +107,6 @@ public class VentanaIngreso extends javax.swing.JFrame {
         listatipo.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 listatipoItemStateChanged(evt);
-            }
-        });
-        listatipo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listatipoActionPerformed(evt);
             }
         });
 
@@ -185,24 +190,42 @@ public class VentanaIngreso extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void listatipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listatipoActionPerformed
-        // TODO add your handling code here:
-        //listaespecialidad.enable();
-    }//GEN-LAST:event_listatipoActionPerformed
-
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
     }//GEN-LAST:event_formWindowActivated
 
     private void listatipoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_listatipoItemStateChanged
         // TODO add your handling code here:
         String cadena = (String)listatipo.getSelectedItem();
-        if (cadena!="<Seleccione>"){
+        if (!"<Seleccione>".equals(cadena)){
             listaespecialidad.enable();
         }else{
+            listaespecialidad.setSelectedIndex(0);
             listaespecialidad.disable();
+            listaprofesional.disable();
+            listafacultad.disable();
+            listacarrera.disable();
+            cantidadatenciones.disable();
         }
     }//GEN-LAST:event_listatipoItemStateChanged
 
+    private void listaprofesionalItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_listaprofesionalItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_listaprofesionalItemStateChanged
+
+    private void listaespecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaespecialidadActionPerformed
+        String cadena1 = (String)listaespecialidad.getSelectedItem();
+        if (cadena1.equals("<Seleccione>")){
+            listaprofesional.disable();
+            listafacultad.disable();
+            listacarrera.disable();
+            cantidadatenciones.disable();
+        }else{
+            listaprofesional.enable();
+            listafacultad.enable();
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_listaespecialidadActionPerformed
+    }
     /**
      * @param args the command line arguments
      */
