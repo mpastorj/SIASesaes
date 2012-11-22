@@ -19,6 +19,8 @@ import vista.VentanaPrincipal;
  *
  * @author Milii2
  */
+
+//
 public class controladorConfiguracion implements ActionListener{
 
     private VentanaPrincipal vista;
