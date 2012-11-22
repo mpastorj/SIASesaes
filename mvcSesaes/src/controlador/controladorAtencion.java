@@ -62,6 +62,8 @@ public class controladorAtencion implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e){
         
+        
+        
         //Cantidad de atenciones que se desee ingresar
         int codigoalumno=0;
         String numero_atenciones=(String) vista.cantidadatenciones.getSelectedItem();
@@ -93,40 +95,11 @@ public class controladorAtencion implements ActionListener{
                 
                 cnbd.conectar();
                 cnbd.cerrarConexion();
+        //---------------------------------------------
                 
-              
-               
-                
-        //----------------------------------------------- 
-    
-                vista.barraprogreso.setValue(25);
-                vista.barraprogreso.setStringPainted(true);
-    int tiempo=0;           
-    Timer timer;
-    timer =new Timer(tiempo,new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                  int barra = 1000;
-                  int i=25;
-                  while(barra<10000000){
-                      if(barra==100) {
-                          vista.barraprogreso.setValue(barra);
-                      }
-                      if(barra==100000) {
-                          vista.barraprogreso.setValue(barra);
-                      }
-
-             barra++;
-             vista.barraprogreso.setValue(barra);
-             }
-
-    }
-        });
-    timer.start();
-      
-    
+        vista.barraprogreso.setValue(100);
         javax.swing.JOptionPane.showMessageDialog (null, "La información ha sido ingresada con éxito", "Ficha de Ingreso", JOptionPane.INFORMATION_MESSAGE);
+        vista.barraprogreso.setValue(0);
      
     
     }
