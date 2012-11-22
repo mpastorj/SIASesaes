@@ -4,6 +4,7 @@
  *///
 package mvcsesaes;
 
+import controlador.controladorConfiguracion;
 import controlador.controladorPersona;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
@@ -32,7 +33,7 @@ public class MvcSesaes {
         VentanaPrincipal vista = new VentanaPrincipal(); 
 
         controladorPersona controlador = new controladorPersona( vista,modelo );
-      
+        controladorConfiguracion contconfig=new controladorConfiguracion(vista);
         vista.setVisible(true);
         //se inicia la vista
         controlador.iniciar_vista();
