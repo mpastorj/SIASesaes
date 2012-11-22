@@ -57,10 +57,7 @@ public class controladorProfesional implements ActionListener{
             Logger.getLogger(controladorProfesional.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        int codigodelprofesional=modelo.getCod_p();
-   
-        String numProfesional= Integer.toString(codigodelprofesional);
-        vista.codigoespecialidad.setText(numProfesional);
+  
     }
     
      
