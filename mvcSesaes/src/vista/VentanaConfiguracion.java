@@ -70,12 +70,14 @@ public class VentanaConfiguracion extends javax.swing.JFrame {
 
         jLabel2.setText("Rut:");
 
+        jTextField2.setBackground(new java.awt.Color(255, 255, 255));
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
             }
         });
 
+        jTextField3.setBackground(new java.awt.Color(255, 255, 255));
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField3ActionPerformed(evt);
@@ -98,6 +100,8 @@ public class VentanaConfiguracion extends javax.swing.JFrame {
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-", "1950", "1951", "1952", "1953", "1954", "1955", "1956", "1957", "1958", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993" }));
 
         jLabel4.setText("-");
+
+        jTextField4.setBackground(new java.awt.Color(255, 255, 255));
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
