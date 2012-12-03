@@ -53,6 +53,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         botonconfiguracion.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         botonconfiguracion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/configuracion-27 (3).png"))); // NOI18N
         botonconfiguracion.setText("Configuración");
+        botonconfiguracion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonconfiguracionActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -92,6 +97,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botonconfiguracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonconfiguracionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonconfiguracionActionPerformed
 
     /**
      * @param args the command line arguments
