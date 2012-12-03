@@ -9,11 +9,11 @@ package vista;
  * @author Milii2
  */
 public class VentanaDiurna extends javax.swing.JFrame {
-    //
+   
     /**
      * Creates new form VentanaDiurna
      */
-    //
+   
     public VentanaDiurna() {
         initComponents();
     }
