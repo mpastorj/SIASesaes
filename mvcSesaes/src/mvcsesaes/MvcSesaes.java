@@ -38,7 +38,7 @@ public class MvcSesaes {
         controladorConfiguracion contconfig=new controladorConfiguracion(vista);
         controladorDiurna contdiurna=new controladorDiurna(vista);
         vista.setVisible(true);
-        //se inicia la vista
+        
         controlador.iniciar_vista();
     }
 }

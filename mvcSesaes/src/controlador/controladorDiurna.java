@@ -30,7 +30,7 @@ public class controladorDiurna implements ActionListener{
     }
     
     
-    
+    //
     @Override
     public void actionPerformed(ActionEvent e) {
         VentanaDiurna ventana=new VentanaDiurna();
