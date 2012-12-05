@@ -63,17 +63,11 @@ public class VentanaDiurna extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
         jLabel1.setText("Seleccionar Profesional:");
 
-        listaprofesional.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabel2.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
         jLabel2.setText("Seleccionar Carrera:");
 
-        listacarrera.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabel3.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
         jLabel3.setText("Seleccionar Facultad:");
-
-        listafacultad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel4.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
         jLabel4.setText("Seleccione Periodo:");

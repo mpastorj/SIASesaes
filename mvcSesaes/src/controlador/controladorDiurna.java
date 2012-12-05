@@ -20,6 +20,7 @@ import vista.VentanaPrincipal;
 public class controladorDiurna implements ActionListener{
 
     private VentanaPrincipal vista;
+    private VentanaDiurna ventana;
 
     public controladorDiurna() {
     }
@@ -35,6 +36,8 @@ public class controladorDiurna implements ActionListener{
         VentanaDiurna ventana=new VentanaDiurna();
         ventana.setVisible(true);
         ventana.setTitle("> Estadísticas Diurna");
+        controladorEstadisticasProfesional contesta=new controladorEstadisticasProfesional(ventana);
+        
     }
     
     
