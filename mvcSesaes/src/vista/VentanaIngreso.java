@@ -4,6 +4,9 @@
  */
 package vista;
 
+import controlador.controladorPersona;
+import modelo.Persona;
+
 /**
  *
  * @author Milii2
@@ -47,6 +50,9 @@ public class VentanaIngreso extends javax.swing.JFrame {
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
+            }
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
             }
         });
 
@@ -279,6 +285,15 @@ public class VentanaIngreso extends javax.swing.JFrame {
             cantidadatenciones.disable();
         }
     }//GEN-LAST:event_listafacultadActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+       
+        VentanaPrincipal princ = new VentanaPrincipal();
+        Persona per = new Persona();
+        new controladorPersona(princ,per);
+        
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments

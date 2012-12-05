@@ -44,8 +44,8 @@ public class controladorConfiguracion implements ActionListener{
         ventana.setTitle("> Configuración");
         
         
-        controladorAjustes contajustes=new controladorAjustes(ventana);
-
+        controladorAjustesIngreso contajustes=new controladorAjustesIngreso(ventana);
+        controladorAjustesEliminar conteliminar=new controladorAjustesEliminar(ventana);
     }
     
 }

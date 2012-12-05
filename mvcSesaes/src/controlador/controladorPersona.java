@@ -31,6 +31,7 @@ public class controladorPersona implements ActionListener{
     
     public controladorPersona(VentanaPrincipal vista,Persona modelo){
        this.vista=vista;
+       this.vista.setVisible(true);
        this.modelo=modelo;
        this.vista.botoningresar.addActionListener(this);
     }
@@ -39,7 +40,6 @@ public class controladorPersona implements ActionListener{
 
     public void iniciar_vista(){
         
-        vista.botoningresar.setText("Ingresar");
         vista.setTitle(" SESAES");
       
     }
@@ -56,10 +56,9 @@ public class controladorPersona implements ActionListener{
         Carrera modelocarrera=new Carrera();
         Profesional modeloprofesional=new Profesional();
         Atencion modeloatencion=new Atencion();
+  
         VentanaIngreso ventana = new VentanaIngreso();
-       
         ventana.setVisible(true);
-        
         controladorFacultad contfacultad=new controladorFacultad(ventana,modelofacultad);
         controladorEspecialidad contespecialidad=new controladorEspecialidad(ventana,modeloespecialidad);
         

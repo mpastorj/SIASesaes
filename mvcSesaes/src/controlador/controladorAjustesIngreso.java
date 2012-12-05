@@ -23,20 +23,20 @@ import vista.VentanaConfiguracion;
  *
  * @author Milii2
  */
-public class controladorAjustes implements ActionListener{
+public class controladorAjustesIngreso implements ActionListener{
     
     private VentanaConfiguracion vista;
     private Especialidad modelo_especialidad;
     private especialidadBD especialidadbd;
 
-    public controladorAjustes(VentanaConfiguracion vista) {
+    public controladorAjustesIngreso(VentanaConfiguracion vista) {
         this.vista = vista;
         this.vista.guardar.addActionListener(this);
     }
 
     
 
-    public controladorAjustes() {
+    public controladorAjustesIngreso() {
         this.vista.guardar.addActionListener(this);
     }
    
@@ -97,7 +97,7 @@ public class controladorAjustes implements ActionListener{
         try {
             fecha = formatoDelTexto.parse(fecha_nacimiento);
         } catch (ParseException ex) {
-            Logger.getLogger(controladorAjustes.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(controladorAjustesIngreso.class.getName()).log(Level.SEVERE, null, ex);
         }
     
     conexion cnbd=new conexion();

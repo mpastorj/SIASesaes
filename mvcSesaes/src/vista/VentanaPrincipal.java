@@ -4,6 +4,9 @@
  *///
 package vista;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Milii2
@@ -41,6 +44,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         botoningresar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         botoningresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/escuchar-flecha-hacia-la-derecha-icono-5927-96 (2).png"))); // NOI18N
         botoningresar.setText("Ingresar Atenciones");
+        botoningresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botoningresarActionPerformed(evt);
+            }
+        });
 
         botondiurna.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         botondiurna.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/tiempo-sol-nube-icono-9235-96 (1).png"))); // NOI18N
@@ -98,6 +106,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void botonconfiguracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonconfiguracionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botonconfiguracionActionPerformed
+
+    private void botoningresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoningresarActionPerformed
+      this.dispose();
+    }//GEN-LAST:event_botoningresarActionPerformed
 
     /**
      * @param args the command line arguments
