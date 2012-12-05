@@ -110,7 +110,7 @@ public class controladorAjustes implements ActionListener{
     //------------------------------------------------------------
     
         cnbd.setEsSelect(true);
-        cnbd.setComandoSQL("select cod_e from especialidad where nombre='"+especialidad+"'");
+        cnbd.setComandoSQL("select cod_e from especialidad where nombre_e='"+especialidad+"'");
         cnbd.conectar();
         
         try {
@@ -126,7 +126,8 @@ public class controladorAjustes implements ActionListener{
         cnbd.setEsSelect(true);
         cnbd.setComandoSQL("select cod_p from profesional where nombre_p='"+nombre+"'");
         cnbd.conectar();
-        
+        //cnbd.setComandoSQL("SELECT cod_p FROM profesional DESC LIMIT 1 ");
+         
         try {
             while(cnbd.getRst().next()) {
                 codigoprofesional=cnbd.getRst().getInt("cod_p");
