@@ -18,44 +18,41 @@ import vista.VentanaPrincipal;
  *
  * @author Milii2
  */
-public class controladorEstadisticasCarrera implements ActionListener{
+public class controladorEstadisticasFacultad implements ActionListener{
     private VentanaDiurna ventana;
 
-    public controladorEstadisticasCarrera(VentanaDiurna ventana) {
+    public controladorEstadisticasFacultad(VentanaDiurna ventana) {
         this.ventana = ventana;
-        this.ventana.jRadioCarrera.addActionListener(this);
+        this.ventana.jRadioFacultad.addActionListener(this);
     }
 
-
-    public controladorEstadisticasCarrera() {
+    public controladorEstadisticasFacultad() {
     }
-
-    
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        ventana.listacarrera.removeAllItems();
-       ArrayList <String> nombres_c = new ArrayList();
+        ventana.listafacultad.removeAllItems();
+            ArrayList <String> nombres_f = new ArrayList();
             conexion cdb=new conexion();
            
             cdb.setEsSelect(true);
-            cdb.setComandoSQL("select nombre_c from carrera where tipo='1'" );
+            cdb.setComandoSQL("select nombre_f  from facultad" );
             cdb.conectar();
             
             try {  
             while(cdb.getRst().next())
             {
-               String nombre_c =cdb.getRst().getString("nombre_c");
+               String nombre_f =cdb.getRst().getString("nombre_f");
                 
-               nombres_c.add(nombre_c);       
+               nombres_f.add(nombre_f);       
             }
             } catch (SQLException ex) {
             Logger.getLogger(VentanaPrincipal.class.getName()).log(Level.SEVERE, "Error al cargar lista de carreras segun facultad", ex);
             } 
             cdb.cerrarConexion();
             
-            for(String arreglodecarreras:nombres_c)
-                ventana.listacarrera.addItem(arreglodecarreras);
+            for(String arreglodefacultades:nombres_f)
+                ventana.listafacultad.addItem(arreglodefacultades);
     }
     
 }

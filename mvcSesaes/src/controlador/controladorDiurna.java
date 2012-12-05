@@ -38,6 +38,8 @@ public class controladorDiurna implements ActionListener{
         ventana.setTitle("> Estadísticas Diurna");
         controladorEstadisticasProfesional contesta=new controladorEstadisticasProfesional(ventana);
         controladorEstadisticasCarrera contcarrera=new controladorEstadisticasCarrera(ventana);
+        controladorEstadisticasFacultad contfacultad=new controladorEstadisticasFacultad(ventana);
+        controladorEstadisticaDiurna controladorprincipal=new controladorEstadisticaDiurna(ventana);
     }
     
     

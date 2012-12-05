@@ -30,7 +30,8 @@ public class controladorEstadisticasProfesional implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e) {
-      ArrayList <String> nombres_p = new ArrayList();
+            ventana.listaprofesional.removeAllItems();
+            ArrayList <String> nombres_p = new ArrayList();
             conexion cdb=new conexion();
            
             cdb.setEsSelect(true);
@@ -50,7 +51,7 @@ public class controladorEstadisticasProfesional implements ActionListener{
             cdb.cerrarConexion();
             
             for(String arreglodeprofesionales:nombres_p)
-                ventana.listaprofesional.addItem(arreglodeprofesionales);
+            ventana.listaprofesional.addItem(arreglodeprofesionales);
     }
     
 }
