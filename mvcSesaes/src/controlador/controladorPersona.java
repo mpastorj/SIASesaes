@@ -16,6 +16,7 @@ import vista.VentanaPrincipal;
 import modelo.Persona;
 import modelo.Facultad;
 import modelo.Profesional;
+import vista.VentanaConfiguracion;
 import vista.VentanaIngreso;
 
 /**
@@ -34,11 +35,7 @@ public class controladorPersona implements ActionListener{
        this.vista.botoningresar.addActionListener(this);
     }
     
-    public controladorPersona(VentanaIngreso vista2,Persona modelo){
-        this.vista2=vista2;
-        this.modelo=modelo;
-        this.vista2.listatipo.addActionListener(this);
-    }
+ 
 
     public void iniciar_vista(){
         
@@ -60,6 +57,7 @@ public class controladorPersona implements ActionListener{
         Profesional modeloprofesional=new Profesional();
         Atencion modeloatencion=new Atencion();
         VentanaIngreso ventana = new VentanaIngreso();
+       
         ventana.setVisible(true);
         
         controladorFacultad contfacultad=new controladorFacultad(ventana,modelofacultad);
@@ -68,8 +66,9 @@ public class controladorPersona implements ActionListener{
         controladorCarrera contcarrera=new controladorCarrera(ventana,modelocarrera);
         controladorProfesional contprofesional=new controladorProfesional(ventana,modeloprofesional);
         controladorAtencion contatencion=new controladorAtencion(ventana, modelocarrera, modeloprofesional, modeloatencion);
-     
+        
         contfacultad.iniciar_vista();
+        
         
     }
        

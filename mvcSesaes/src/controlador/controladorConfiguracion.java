@@ -25,6 +25,7 @@ public class controladorConfiguracion implements ActionListener{
 
     private VentanaPrincipal vista;
 
+    
 
     public controladorConfiguracion(VentanaPrincipal vista) {
         this.vista = vista;
@@ -41,6 +42,9 @@ public class controladorConfiguracion implements ActionListener{
 
         ventana.setVisible(true);
         ventana.setTitle("> Configuración");
+        
+        
+        controladorAjustes contajustes=new controladorAjustes(ventana);
 
     }
     

@@ -28,7 +28,7 @@ public class controladorDiurna implements ActionListener{
         this.vista = vista;
         this.vista.botondiurna.addActionListener(this);
     }
-    
+   
    
     @Override
     public void actionPerformed(ActionEvent e) {
