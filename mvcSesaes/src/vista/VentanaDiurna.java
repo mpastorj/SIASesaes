@@ -36,7 +36,7 @@ public class VentanaDiurna extends javax.swing.JFrame {
         jRadioFacultad = new javax.swing.JRadioButton();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
-        listaprofesional = new javax.swing.JComboBox();
+        listaespecialidad = new javax.swing.JComboBox();
         jLabel2 = new javax.swing.JLabel();
         listacarrera = new javax.swing.JComboBox();
         jLabel3 = new javax.swing.JLabel();
@@ -56,7 +56,12 @@ public class VentanaDiurna extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jRadioProfesional.setFont(new java.awt.Font("Calibri Light", 1, 16)); // NOI18N
-        jRadioProfesional.setText("Profesional");
+        jRadioProfesional.setText("Especialidad");
+        jRadioProfesional.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioProfesionalActionPerformed(evt);
+            }
+        });
 
         jRadioCarrera.setFont(new java.awt.Font("Calibri Light", 1, 16)); // NOI18N
         jRadioCarrera.setText("Carrera");
@@ -65,7 +70,13 @@ public class VentanaDiurna extends javax.swing.JFrame {
         jRadioFacultad.setText("Facultad");
 
         jLabel1.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
-        jLabel1.setText("Seleccionar Profesional:");
+        jLabel1.setText("Seleccionar Especialidad:");
+
+        listaespecialidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listaespecialidadActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
         jLabel2.setText("Seleccionar Carrera:");
@@ -119,7 +130,7 @@ public class VentanaDiurna extends javax.swing.JFrame {
                             .addComponent(jLabel3))
                         .addGap(36, 36, 36)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(listaprofesional, 0, 234, Short.MAX_VALUE)
+                            .addComponent(listaespecialidad, 0, 234, Short.MAX_VALUE)
                             .addComponent(listacarrera, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(listafacultad, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
@@ -132,7 +143,7 @@ public class VentanaDiurna extends javax.swing.JFrame {
                         .addComponent(jLabel4)
                         .addGap(18, 18, 18)
                         .addComponent(listaperiodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -170,7 +181,7 @@ public class VentanaDiurna extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(listaprofesional, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(listaespecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -202,6 +213,14 @@ public class VentanaDiurna extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void listaespecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaespecialidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_listaespecialidadActionPerformed
+
+    private void jRadioProfesionalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioProfesionalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioProfesionalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -255,10 +274,10 @@ public class VentanaDiurna extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     public javax.swing.JComboBox listacarrera;
+    public javax.swing.JComboBox listaespecialidad;
     public javax.swing.JComboBox listafacultad;
     public javax.swing.JComboBox listames;
     public javax.swing.JComboBox listaperiodo;
-    public javax.swing.JComboBox listaprofesional;
     public javax.swing.JComboBox listasemestre;
     // End of variables declaration//GEN-END:variables
 }

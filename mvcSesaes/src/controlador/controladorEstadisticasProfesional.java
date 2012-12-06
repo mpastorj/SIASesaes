@@ -30,28 +30,28 @@ public class controladorEstadisticasProfesional implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e) {
-            ventana.listaprofesional.removeAllItems();
-            ArrayList <String> nombres_p = new ArrayList();
+            ventana.listaespecialidad.removeAllItems();
+            ArrayList <String> nombres_e = new ArrayList();
             conexion cdb=new conexion();
            
             cdb.setEsSelect(true);
-            cdb.setComandoSQL("select nombre_p  from profesional" );
+            cdb.setComandoSQL("select nombre_e  from especialidad order by nombre_e" );
             cdb.conectar();
             
             try {  
             while(cdb.getRst().next())
             {
-               String nombre_p =cdb.getRst().getString("nombre_p");
+               String nombre_e =cdb.getRst().getString("nombre_e");
                 
-               nombres_p.add(nombre_p);       
+               nombres_e.add(nombre_e);       
             }
             } catch (SQLException ex) {
             Logger.getLogger(VentanaPrincipal.class.getName()).log(Level.SEVERE, "Error al cargar lista de carreras segun facultad", ex);
             } 
             cdb.cerrarConexion();
             
-            for(String arreglodeprofesionales:nombres_p)
-            ventana.listaprofesional.addItem(arreglodeprofesionales);
+            for(String arreglodeprofesionales:nombres_e)
+            ventana.listaespecialidad.addItem(arreglodeprofesionales);
     }
     
 }
