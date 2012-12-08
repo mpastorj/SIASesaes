@@ -35,8 +35,13 @@ public class controladorPersona implements ActionListener{
        this.modelo=modelo;
        this.vista.botoningresar.addActionListener(this);
     }
+
+    public controladorPersona(VentanaPrincipal vista) {
+        this.vista = vista;
+        this.vista.botoningresar.addActionListener(this);
+    }
     
- 
+   
 
     public void iniciar_vista(){
         
