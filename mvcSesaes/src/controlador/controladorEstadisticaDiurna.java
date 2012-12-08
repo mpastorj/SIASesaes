@@ -99,7 +99,7 @@ public class controladorEstadisticaDiurna implements ActionListener{
                + " ELSE 'esto no es un mes' END as Mes, SUM(cantidad) as 'N° de atenciones'"
                + " from atencion where cod_profesional \n" +
                "in (select cod_p from profeespe where cod_e = (select cod_e from especialidad where nombre_e = '"+especialidad+"'))"
-               + "and cod_c in (select cod_c from carrera where tipo = '1') "+consulta+" group by Mes order by month(fecha_a)");
+               + "and cod_c in (select cod_c from carrera where tipo = '1') "+consulta+" and year(fecha_a) = '"+año+"' group by Mes order by month(fecha_a)");
        cn.setEsSelect(true);
        cn.conectar();
        
