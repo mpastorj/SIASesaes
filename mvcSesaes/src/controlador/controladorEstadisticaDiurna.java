@@ -78,9 +78,9 @@ public class controladorEstadisticaDiurna implements ActionListener{
           consulta = "AND MONTH(fecha_a) = "+mes+"";    
            break;
           case 2:
-              if(semestre == 0)
+              if(semestre == 1)
               consulta = "AND MONTH(fecha_a) BETWEEN 1 AND 6  ";
-              else
+              else if(semestre == 2)
                   consulta = "AND MONTH(fecha_a) BETWEEN 7 AND 12  ";
               break;
        }       
