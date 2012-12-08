@@ -4,6 +4,10 @@
  */
 package vista;
 
+import controlador.controladorConfiguracion;
+import controlador.controladorDiurna;
+import controlador.controladorPersona;
+
 /**
  *
  * @author Milii2
@@ -16,6 +20,7 @@ public class VentanaDiurna extends javax.swing.JFrame {
    
     public VentanaDiurna() {
         initComponents();
+      setLocationRelativeTo(null);
       gruporadio.add(jRadioProfesional);
       gruporadio.add(jRadioCarrera);
       gruporadio.add(jRadioFacultad);
@@ -52,8 +57,9 @@ public class VentanaDiurna extends javax.swing.JFrame {
         listaaño = new javax.swing.JComboBox();
         jSeparator3 = new javax.swing.JSeparator();
         botonmostrar = new javax.swing.JButton();
+        volver = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jRadioProfesional.setFont(new java.awt.Font("Calibri Light", 1, 16)); // NOI18N
         jRadioProfesional.setText("Especialidad");
@@ -105,7 +111,17 @@ public class VentanaDiurna extends javax.swing.JFrame {
         listaaño.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccione>", "2012", "2013" }));
 
         botonmostrar.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
+        botonmostrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/lupa-psd-468x468.png"))); // NOI18N
         botonmostrar.setText("Mostrar");
+
+        volver.setFont(new java.awt.Font("Calibri Light", 1, 15)); // NOI18N
+        volver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/atras_opt.png"))); // NOI18N
+        volver.setText("Volver");
+        volver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volverActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -144,15 +160,6 @@ public class VentanaDiurna extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(listaperiodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(botonmostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addComponent(jLabel5)
@@ -167,6 +174,17 @@ public class VentanaDiurna extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(listaaño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(48, 48, 48))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(volver)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(botonmostrar)
+                        .addGap(30, 30, 30))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -207,7 +225,9 @@ public class VentanaDiurna extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
-                .addComponent(botonmostrar, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botonmostrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(volver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -221,6 +241,17 @@ public class VentanaDiurna extends javax.swing.JFrame {
     private void jRadioProfesionalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioProfesionalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioProfesionalActionPerformed
+
+    private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
+        // TODO add your handling code here:
+        VentanaPrincipal ventanaprincipal=new VentanaPrincipal();
+        ventanaprincipal.setVisible(true);
+        //VentanaTabla ventanatabla=new VentanaTabla();
+        controladorPersona controladorpersona=new controladorPersona(ventanaprincipal);
+        controladorDiurna controladordiurna=new controladorDiurna(ventanaprincipal);
+        controladorConfiguracion controladorconfiguracion=new controladorConfiguracion(ventanaprincipal);
+        this.dispose();
+    }//GEN-LAST:event_volverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -279,5 +310,6 @@ public class VentanaDiurna extends javax.swing.JFrame {
     public javax.swing.JComboBox listames;
     public javax.swing.JComboBox listaperiodo;
     public javax.swing.JComboBox listasemestre;
+    public javax.swing.JButton volver;
     // End of variables declaration//GEN-END:variables
 }

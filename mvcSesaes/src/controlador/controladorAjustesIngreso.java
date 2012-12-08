@@ -79,9 +79,7 @@ public class controladorAjustesIngreso implements ActionListener{
         
     DateFormat df=new SimpleDateFormat("yyyy-MM-dd");
     SimpleDateFormat formatoDelTexto = new SimpleDateFormat("yyyy-MM-dd");
-    String rut=(String)vista.rutprofesional.getText();
     String nombre=(String)vista.nombreprofesional.getText();
-    String guion=(String)vista.guion.getText();
     String especialidad=(String)vista.especialidadprofesional.getSelectedItem();
     String dia=(String)vista.dianacimiento.getSelectedItem();
     String año=(String)vista.añonacimiento.getSelectedItem();
