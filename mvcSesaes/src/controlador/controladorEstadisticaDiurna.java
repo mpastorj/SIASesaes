@@ -173,7 +173,51 @@ public class controladorEstadisticaDiurna implements ActionListener{
    t.setVisible(true);                 
             
           
+     if(ventana.jRadioFacultad.isSelected()==true){
+          conexion cn=new conexion();
+            cn.setEsSelect(true);              
+            cn.setComandoSQL("select  CASE WHEN MONTH(fecha_a) = 1 THEN 'Enero'"
+              + " WHEN MONTH(fecha_a) = 2 THEN 'Febrero' "
+              + "WHEN MONTH(fecha_a) = 3 THEN 'Marzo' "
+              + "WHEN MONTH(fecha_a) = 4 THEN 'Abril' "
+              + "WHEN MONTH(fecha_a) = 5 THEN 'Mayo' "
+              + "WHEN MONTH(fecha_a) = 6 THEN 'Junio' "
+              + "WHEN MONTH(fecha_a) = 7 THEN 'Julio' "
+              + "WHEN MONTH(fecha_a) = 8 THEN 'Agosto' "
+              + "WHEN MONTH(fecha_a) = 9 THEN 'Septiembre' "
+              + "WHEN MONTH(fecha_a) = 10 THEN 'Octubre' "
+              + "WHEN MONTH(fecha_a) = 11 THEN 'Noviembre'"
+              + " WHEN MONTH(fecha_a) = 12 THEN 'Diciembre' "
+              + "ELSE 'esto no es un mes' END as Mes, SUM(cantidad) as 'Num de Atenciones' "
+              + "from atencion "
+              + "where cod_c in (select cod_c from carrera where cod_f in(select cod_f from facultad where nombre_f='"+facultad+"'))"
+              + "group by Mes order by MONTH(fecha_a)");
+            
+       cn.setEsSelect(true);
+       cn.conectar();
        
+       ResultSet rs = cn.getRst();
+            try {
+                ResultSetMetaData rsMd = rs.getMetaData();
+                int cantidadColumnas = rsMd.getColumnCount();
+                for (int i = 1; i <= cantidadColumnas; i++) {
+                modelo.addColumn(rsMd.getColumnLabel(i));
+                }
+
+                while (rs.next()) {
+                Object[] fila = new Object[cantidadColumnas];
+                for (int i = 0; i < cantidadColumnas; i++) {
+                fila[i]=rs.getObject(i+1);
+                }
+                modelo.addRow(fila);
+                }
+                rs.close();
+        cn.cerrarConexion();
+            } catch (SQLException ex) {
+                Logger.getLogger(VentanaTabla.class.getName()).log(Level.SEVERE, null, ex);
+            }
+         
+     }
      
        
        
