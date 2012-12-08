@@ -33,6 +33,7 @@ public class VentanaTabla extends javax.swing.JFrame {
         volver = new javax.swing.JButton();
         copiar = new javax.swing.JButton();
         titulo = new javax.swing.JLabel();
+        titulo2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,6 +58,12 @@ public class VentanaTabla extends javax.swing.JFrame {
 
         copiar.setText("Copiar Tabla");
 
+        titulo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        titulo.setForeground(new java.awt.Color(0, 51, 102));
+
+        titulo2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        titulo2.setForeground(new java.awt.Color(51, 102, 0));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -76,16 +83,20 @@ public class VentanaTabla extends javax.swing.JFrame {
                             .addComponent(reporte))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(129, 129, 129)
-                .addComponent(titulo)
+                .addGap(117, 117, 117)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(titulo, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+                    .addComponent(titulo2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(titulo)
-                .addGap(16, 16, 16)
+                .addGap(18, 18, 18)
+                .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(titulo2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(scrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -143,6 +154,7 @@ public class VentanaTabla extends javax.swing.JFrame {
     private java.awt.ScrollPane scrollPane1;
     public javax.swing.JTable tabla;
     public javax.swing.JLabel titulo;
+    public javax.swing.JLabel titulo2;
     public javax.swing.JButton volver;
     // End of variables declaration//GEN-END:variables
 }

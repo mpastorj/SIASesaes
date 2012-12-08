@@ -47,6 +47,26 @@ public class controladorEstadisticaDiurna implements ActionListener{
        DefaultTableModel modelo = new DefaultTableModel(); 
        t.tabla.setModel(modelo);
        if(ventana.jRadioProfesional.isSelected()==true){
+           t.titulo.setText("Estadística especialidad: "+especialidad );
+           switch(ventana.listaperiodo.getSelectedIndex())
+           {
+               case 1:
+            t.titulo2.setText("Período: "+(String)ventana.listames.getSelectedItem()+" de "+año); 
+            break;
+               case 2:
+               {       
+            if(semestre == 1) {
+                       t.titulo2.setText("Período: Primer semestre del año "+año);
+                   } 
+            else {
+                       t.titulo2.setText("Período: Segundo semestre del año "+año);
+                   }
+            break;       
+                 
+           }
+               case 3:
+                  t.titulo2.setText("Período: Año "+año); 
+          }
        conexion cn = new conexion();
        cn.setComandoSQL("select CASE WHEN MONTH(fecha_a) = 1 THEN 'Enero'"
                + "  WHEN MONTH(fecha_a) = 2 THEN 'Febrero' "
@@ -60,7 +80,7 @@ public class controladorEstadisticaDiurna implements ActionListener{
                + " WHEN MONTH(fecha_a) = 10 THEN 'Octubre'"
                + " WHEN MONTH(fecha_a) = 11 THEN 'Noviembre'"
                + "  WHEN MONTH(fecha_a) = 12 THEN 'Diciembre'"
-               + " ELSE 'esto no es un mes' END as Mes, SUM(cantidad) as Cantidad"
+               + " ELSE 'esto no es un mes' END as Mes, SUM(cantidad) as 'N° de atenciones'"
                + " from atencion where cod_profesional \n" +
                "in (select cod_p from profeespe where cod_e = (select cod_e from especialidad where nombre_e = '"+especialidad+"'))"
                + "and cod_c in (select cod_c from carrera where tipo = '1') group by Mes order by month(fecha_a)");
