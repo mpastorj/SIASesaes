@@ -73,7 +73,7 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/vista/sesaest_opt (3).png"/>
+          <Image iconType="3" name="/vista/ImagenPrincipalSesaes.png"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
@@ -105,7 +105,7 @@
           <Font name="Tahoma" size="12" style="1"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/vista/tiempo-sol-nube-icono-9235-96 (1).png"/>
+          <Image iconType="3" name="/vista/solVentanaPrincipal.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Estad&#xed;sticas Diurnas"/>
       </Properties>

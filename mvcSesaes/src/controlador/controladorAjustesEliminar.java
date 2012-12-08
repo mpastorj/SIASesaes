@@ -38,7 +38,7 @@ public class controladorAjustesEliminar implements ActionListener{
             conexion cdb=new conexion();
         
             cdb.setEsSelect(true);
-            cdb.setComandoSQL("select nombre_p  from profesional" );
+            cdb.setComandoSQL("select nombre_p  from profesional order by nombre_p" );
             cdb.conectar();
             
             try {  

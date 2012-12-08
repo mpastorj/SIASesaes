@@ -20,6 +20,7 @@ public class VentanaTabla extends javax.swing.JFrame {
     public VentanaTabla() {
         initComponents();
         setLocationRelativeTo(null);
+        setDefaultCloseOperation(0);
     }
 
     /**
@@ -39,6 +40,7 @@ public class VentanaTabla extends javax.swing.JFrame {
         copiar = new javax.swing.JButton();
         titulo = new javax.swing.JLabel();
         titulo2 = new javax.swing.JLabel();
+        salir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -62,6 +64,7 @@ public class VentanaTabla extends javax.swing.JFrame {
         volver.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         volver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/atras_opt.png"))); // NOI18N
         volver.setText("   Volver al \nMenú Principal");
+        volver.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 volverActionPerformed(evt);
@@ -76,6 +79,15 @@ public class VentanaTabla extends javax.swing.JFrame {
         titulo2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         titulo2.setForeground(new java.awt.Color(51, 102, 0));
 
+        salir.setFont(new java.awt.Font("Calibri Light", 1, 16)); // NOI18N
+        salir.setText("Salir");
+        salir.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -83,16 +95,13 @@ public class VentanaTabla extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(scrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(copiar)
-                            .addComponent(reporte)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addComponent(volver)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(68, 68, 68)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(copiar)
+                    .addComponent(reporte)
+                    .addComponent(volver)
+                    .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(40, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(117, 117, 117)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -110,15 +119,17 @@ public class VentanaTabla extends javax.swing.JFrame {
                 .addGap(2, 2, 2)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(scrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10))
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(copiar)
                         .addGap(18, 18, 18)
                         .addComponent(reporte)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(volver)
-                        .addGap(35, 35, 35))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(scrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10))))
+                        .addGap(18, 18, 18)
+                        .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24))))
         );
 
         pack();
@@ -137,6 +148,10 @@ public class VentanaTabla extends javax.swing.JFrame {
         ventanadiurna.dispose();
        
     }//GEN-LAST:event_volverActionPerformed
+
+    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_salirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -176,6 +191,7 @@ public class VentanaTabla extends javax.swing.JFrame {
     public javax.swing.JButton copiar;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JButton reporte;
+    public javax.swing.JButton salir;
     private java.awt.ScrollPane scrollPane1;
     public javax.swing.JTable tabla;
     public javax.swing.JLabel titulo;

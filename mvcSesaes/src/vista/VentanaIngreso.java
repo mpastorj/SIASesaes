@@ -21,6 +21,7 @@ public class VentanaIngreso extends javax.swing.JFrame {
     public VentanaIngreso() {
         initComponents();
         setLocationRelativeTo(null);
+        setDefaultCloseOperation(0);
     }
 
     /**
@@ -140,6 +141,7 @@ public class VentanaIngreso extends javax.swing.JFrame {
         volver.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         volver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/atras_opt (2).png"))); // NOI18N
         volver.setText("Volver");
+        volver.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 volverActionPerformed(evt);
@@ -180,7 +182,7 @@ public class VentanaIngreso extends javax.swing.JFrame {
                         .add(18, 18, 18)
                         .add(botondeingreso, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 108, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                     .add(calendario, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 417, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -303,9 +305,9 @@ public class VentanaIngreso extends javax.swing.JFrame {
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         // TODO add your handling code here:
        
-        VentanaPrincipal princ = new VentanaPrincipal();
-        Persona per = new Persona();
-        new controladorPersona(princ,per);
+       // VentanaPrincipal princ = new VentanaPrincipal();
+       // Persona per = new Persona();
+       // new controladorPersona(princ,per);
         
     }//GEN-LAST:event_formWindowClosed
 

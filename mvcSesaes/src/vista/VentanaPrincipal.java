@@ -40,7 +40,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/sesaest_opt (3).png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/ImagenPrincipalSesaes.png"))); // NOI18N
         jLabel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         botoningresar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -53,7 +53,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
 
         botondiurna.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        botondiurna.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/tiempo-sol-nube-icono-9235-96 (1).png"))); // NOI18N
+        botondiurna.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/solVentanaPrincipal.png"))); // NOI18N
         botondiurna.setText("Estadísticas Diurnas");
 
         botonvespertina.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N

@@ -21,6 +21,7 @@ public class VentanaDiurna extends javax.swing.JFrame {
     public VentanaDiurna() {
         initComponents();
       setLocationRelativeTo(null);
+      setDefaultCloseOperation(0);
       gruporadio.add(jRadioProfesional);
       gruporadio.add(jRadioCarrera);
       gruporadio.add(jRadioFacultad);
@@ -117,6 +118,7 @@ public class VentanaDiurna extends javax.swing.JFrame {
         volver.setFont(new java.awt.Font("Calibri Light", 1, 15)); // NOI18N
         volver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/atras_opt.png"))); // NOI18N
         volver.setText("Volver");
+        volver.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 volverActionPerformed(evt);
@@ -227,7 +229,7 @@ public class VentanaDiurna extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(botonmostrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(volver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(volver, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE))
                 .addContainerGap())
         );
 

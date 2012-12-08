@@ -23,6 +23,7 @@ public class VentanaConfiguracion extends javax.swing.JFrame {
     public VentanaConfiguracion() {
         initComponents();
         setLocationRelativeTo(null);
+        setDefaultCloseOperation(0);
     }
 
     /**
@@ -67,6 +68,8 @@ public class VentanaConfiguracion extends javax.swing.JFrame {
         eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/eliminar.png"))); // NOI18N
         eliminar.setText("Eliminar");
 
+        eliminarregistro.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
         jRadioEliminar.setFont(new java.awt.Font("Calibri Light", 1, 15)); // NOI18N
         jRadioEliminar.setText("Eliminar Registro");
 
@@ -90,13 +93,15 @@ public class VentanaConfiguracion extends javax.swing.JFrame {
 
         añonacimiento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-", "1950", "1951", "1952", "1953", "1954", "1955", "1956", "1957", "1958", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993" }));
 
-        especialidadprofesional.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccione>", "Medicina General", "Medicina Interna", "Traumatología", "Nutriología", "Kinesiología", "Neurología", "Psiquiatría", "Psicología", "Cirujía", "Odontología General", "Medicina en Hematología", "Enfermería", " " }));
+        especialidadprofesional.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        especialidadprofesional.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccione>", "Cirugía", "Enfermería", "Kinesiología", "Medicina General", "Medicina Interna", "Medicina en Hematología", "Neurología", "Nutriología", "Odontología General", "Psicología", "Psiquiatría", "Traumatología", " ", " ", " " }));
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
         volver.setFont(new java.awt.Font("Calibri Light", 1, 17)); // NOI18N
         volver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/atras_opt.png"))); // NOI18N
         volver.setText("Volver");
+        volver.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 volverActionPerformed(evt);
@@ -182,7 +187,7 @@ public class VentanaConfiguracion extends javax.swing.JFrame {
                                 .add(eliminarregistro, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .add(30, 30, 30)
                                 .add(eliminar)))
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 8, Short.MAX_VALUE)
                         .add(volver))
                     .add(layout.createSequentialGroup()
                         .add(jSeparator1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 247, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
