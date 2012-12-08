@@ -4,6 +4,10 @@
  */
 package vista;
 
+import controlador.controladorConfiguracion;
+import controlador.controladorDiurna;
+import controlador.controladorPersona;
+
 /**
  *
  * @author Pedro
@@ -54,7 +58,13 @@ public class VentanaTabla extends javax.swing.JFrame {
 
         reporte.setText("Generar reporte con gráficos en PDF");
 
-        volver.setText("Volver al menú principal");
+        volver.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
+        volver.setText("   Volver al \nMenú Principal");
+        volver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volverActionPerformed(evt);
+            }
+        });
 
         copiar.setText("Copiar Tabla");
 
@@ -72,16 +82,15 @@ public class VentanaTabla extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addComponent(scrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(volver)
-                        .addGap(62, 62, 62))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(90, 90, 90)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(copiar)
-                            .addComponent(reporte))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(reporte)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addComponent(volver)))
+                .addContainerGap(56, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(117, 117, 117)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -99,19 +108,29 @@ public class VentanaTabla extends javax.swing.JFrame {
                 .addGap(2, 2, 2)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(scrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(copiar)
                         .addGap(18, 18, 18)
                         .addComponent(reporte)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(volver)
-                        .addGap(42, 42, 42))))
+                        .addComponent(volver, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(scrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
+        // TODO add your handling code here:
+        VentanaPrincipal ventanaprincipal=new VentanaPrincipal();
+        ventanaprincipal.setVisible(true);
+        VentanaIngreso ventanaingreso=new VentanaIngreso();
+        controladorPersona controladorpersona=new controladorPersona(ventanaprincipal);
+        controladorDiurna controladordiurna=new controladorDiurna(ventanaprincipal);
+        controladorConfiguracion controladorconfiguracion=new controladorConfiguracion(ventanaprincipal);
+    }//GEN-LAST:event_volverActionPerformed
 
     /**
      * @param args the command line arguments
