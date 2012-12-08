@@ -6,8 +6,16 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.AbstractButton;
+import javax.swing.table.DefaultTableModel;
+import modelo.conexion;
 import vista.VentanaDiurna;
+import vista.VentanaTabla;
 
 /**
  *
@@ -25,8 +33,72 @@ public class controladorEstadisticaDiurna implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e) {
+        
+     String especialidad = (String)ventana.listaespecialidad.getSelectedItem();
+     String carrera      = (String)ventana.listacarrera.getSelectedItem();
+     String facultad     = (String)ventana.listafacultad.getSelectedItem();
+     String periodo      = (String)ventana.listaperiodo.getSelectedItem(); 
+     int mes          = ventana.listames.getSelectedIndex();
+     int semestre     = ventana.listasemestre.getSelectedIndex();
+     String año          =(String)ventana.listaaño.getSelectedItem();
      
-             
+     
+       VentanaTabla t = new VentanaTabla();
+       DefaultTableModel modelo = new DefaultTableModel(); 
+       t.tabla.setModel(modelo);
+     
+       conexion cn = new conexion();
+       cn.setComandoSQL("select CASE WHEN MONTH(fecha_a) = 1 THEN 'Enero'"
+               + "  WHEN MONTH(fecha_a) = 2 THEN 'Febrero' "
+               + " WHEN MONTH(fecha_a) = 3 THEN 'Marzo' "
+               + " WHEN MONTH(fecha_a) = 4 THEN 'Abril'"
+               + " WHEN MONTH(fecha_a) = 5 THEN 'Mayo' "
+               + " WHEN MONTH(fecha_a) = 6 THEN 'Junio'"
+               + " WHEN MONTH(fecha_a) = 7 THEN 'Julio'"
+               + " WHEN MONTH(fecha_a) = 8 THEN 'Agosto'"
+               + " WHEN MONTH(fecha_a) = 9 THEN 'Septiembre'"
+               + " WHEN MONTH(fecha_a) = 10 THEN 'Octubre'"
+               + " WHEN MONTH(fecha_a) = 11 THEN 'Noviembre'"
+               + "  WHEN MONTH(fecha_a) = 12 THEN 'Diciembre'"
+               + " ELSE 'esto no es un mes' END as Mes, SUM(cantidad) as Cantidad"
+               + " from atencion where cod_profesional \n" +
+               "in (select cod_p from profeespe where cod_e = (select cod_e from especialidad where nombre_e = '"+especialidad+"')) "
+               + "and cod_c in (select cod_c from carrera where tipo = '1') group by Mes order by month(fecha_a)");
+       cn.setEsSelect(true);
+       cn.conectar();
+       
+       ResultSet rs = cn.getRst();
+            try {
+                ResultSetMetaData rsMd = rs.getMetaData();
+                int cantidadColumnas = rsMd.getColumnCount();
+                for (int i = 1; i <= cantidadColumnas; i++) {
+  modelo.addColumn(rsMd.getColumnLabel(i));
+ }
+ //Creando las filas para el JTable
+ while (rs.next()) {
+  Object[] fila = new Object[cantidadColumnas];
+  for (int i = 0; i < cantidadColumnas; i++) {
+    fila[i]=rs.getObject(i+1);
+  }
+  modelo.addRow(fila);
+ }
+ rs.close();
+ cn.cerrarConexion();
+            } catch (SQLException ex) {
+                Logger.getLogger(VentanaTabla.class.getName()).log(Level.SEVERE, null, ex);
+            }
+      
+           
+
+     
+        
+   t.setVisible(true);                 
+            
+          
+       
+     
+       
+       
       
     }
            

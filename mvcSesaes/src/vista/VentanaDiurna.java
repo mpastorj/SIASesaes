@@ -49,7 +49,7 @@ public class VentanaDiurna extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         listasemestre = new javax.swing.JComboBox();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
+        listaaño = new javax.swing.JComboBox();
         jSeparator3 = new javax.swing.JSeparator();
         botonmostrar = new javax.swing.JButton();
 
@@ -102,7 +102,7 @@ public class VentanaDiurna extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Calibri Light", 0, 15)); // NOI18N
         jLabel7.setText("Año:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccione>", "2012", "2013" }));
+        listaaño.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccione>", "2012", "2013" }));
 
         botonmostrar.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
         botonmostrar.setText("Mostrar");
@@ -165,7 +165,7 @@ public class VentanaDiurna extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(listaaño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(48, 48, 48))
         );
         layout.setVerticalGroup(
@@ -203,7 +203,7 @@ public class VentanaDiurna extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(listasemestre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(listaaño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
@@ -259,7 +259,6 @@ public class VentanaDiurna extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton botonmostrar;
     public javax.swing.ButtonGroup gruporadio;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -273,6 +272,7 @@ public class VentanaDiurna extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
+    public javax.swing.JComboBox listaaño;
     public javax.swing.JComboBox listacarrera;
     public javax.swing.JComboBox listaespecialidad;
     public javax.swing.JComboBox listafacultad;
