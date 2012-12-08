@@ -69,6 +69,21 @@ public class controladorEstadisticaDiurna implements ActionListener{
                   t.titulo2.setText("Período: Año "+año); 
           }
        conexion cn = new conexion();
+       
+       String consulta = "";      
+          
+      switch(ventana.listaperiodo.getSelectedIndex())
+      {
+          case 1:
+          consulta = "AND MONTH(fecha_a) = "+mes+"";    
+           break;
+          case 2:
+              if(semestre == 0)
+              consulta = "AND MONTH(fecha_a) BETWEEN 1 AND 6  ";
+              else
+                  consulta = "AND MONTH(fecha_a) BETWEEN 7 AND 12  ";
+              break;
+       }       
        cn.setComandoSQL("select CASE WHEN MONTH(fecha_a) = 1 THEN 'Enero'"
                + "  WHEN MONTH(fecha_a) = 2 THEN 'Febrero' "
                + " WHEN MONTH(fecha_a) = 3 THEN 'Marzo'"
@@ -84,7 +99,7 @@ public class controladorEstadisticaDiurna implements ActionListener{
                + " ELSE 'esto no es un mes' END as Mes, SUM(cantidad) as 'N° de atenciones'"
                + " from atencion where cod_profesional \n" +
                "in (select cod_p from profeespe where cod_e = (select cod_e from especialidad where nombre_e = '"+especialidad+"'))"
-               + "and cod_c in (select cod_c from carrera where tipo = '1') group by Mes order by month(fecha_a)");
+               + "and cod_c in (select cod_c from carrera where tipo = '1') "+consulta+" group by Mes order by month(fecha_a)");
        cn.setEsSelect(true);
        cn.conectar();
        
