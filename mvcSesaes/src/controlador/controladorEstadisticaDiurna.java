@@ -40,19 +40,19 @@ public class controladorEstadisticaDiurna implements ActionListener{
      String periodo      = (String)ventana.listaperiodo.getSelectedItem(); 
      int mes          = ventana.listames.getSelectedIndex();
      int semestre     = ventana.listasemestre.getSelectedIndex();
-     String año          =(String)ventana.listaaño.getSelectedItem();
+     String año       =(String)ventana.listaaño.getSelectedItem();
      
      
        VentanaTabla t = new VentanaTabla();
        DefaultTableModel modelo = new DefaultTableModel(); 
        t.tabla.setModel(modelo);
-     
+       if(ventana.jRadioProfesional.isSelected()==true){
        conexion cn = new conexion();
        cn.setComandoSQL("select CASE WHEN MONTH(fecha_a) = 1 THEN 'Enero'"
                + "  WHEN MONTH(fecha_a) = 2 THEN 'Febrero' "
-               + " WHEN MONTH(fecha_a) = 3 THEN 'Marzo' "
+               + " WHEN MONTH(fecha_a) = 3 THEN 'Marzo'"
                + " WHEN MONTH(fecha_a) = 4 THEN 'Abril'"
-               + " WHEN MONTH(fecha_a) = 5 THEN 'Mayo' "
+               + " WHEN MONTH(fecha_a) = 5 THEN 'Mayo'"
                + " WHEN MONTH(fecha_a) = 6 THEN 'Junio'"
                + " WHEN MONTH(fecha_a) = 7 THEN 'Julio'"
                + " WHEN MONTH(fecha_a) = 8 THEN 'Agosto'"
@@ -62,7 +62,7 @@ public class controladorEstadisticaDiurna implements ActionListener{
                + "  WHEN MONTH(fecha_a) = 12 THEN 'Diciembre'"
                + " ELSE 'esto no es un mes' END as Mes, SUM(cantidad) as Cantidad"
                + " from atencion where cod_profesional \n" +
-               "in (select cod_p from profeespe where cod_e = (select cod_e from especialidad where nombre_e = '"+especialidad+"')) "
+               "in (select cod_p from profeespe where cod_e = (select cod_e from especialidad where nombre_e = '"+especialidad+"'))"
                + "and cod_c in (select cod_c from carrera where tipo = '1') group by Mes order by month(fecha_a)");
        cn.setEsSelect(true);
        cn.conectar();
@@ -88,7 +88,7 @@ public class controladorEstadisticaDiurna implements ActionListener{
                 Logger.getLogger(VentanaTabla.class.getName()).log(Level.SEVERE, null, ex);
             }
       
-           
+     }       
 
      
         
