@@ -50,6 +50,7 @@ public class controladorAtencion implements ActionListener{
     }
 
 
+
     public controladorAtencion(Carrera modelo_carrera) {
         this.modelo_carrera = modelo_carrera;
     }
@@ -61,9 +62,7 @@ public class controladorAtencion implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e){
         
-        
-        
-        //Cantidad de atenciones que se desee ingresar
+ 
         int codigoalumno=0;
         String numero_atenciones=(String) vista.cantidadatenciones.getSelectedItem();
         int cantidad = Integer.parseInt(numero_atenciones);
@@ -83,6 +82,14 @@ public class controladorAtencion implements ActionListener{
         } catch (ParseException ex) {
             Logger.getLogger(controladorAtencion.class.getName()).log(Level.SEVERE, null, ex);
         }
+        int confirmado = JOptionPane.showConfirmDialog(null,"<html>Se ingresarán <b>"+cantidad+"</b> atenciones de la carrera <b>"+vista.listacarrera.getSelectedItem()+"</b> con el Profesional: <b>"+vista.listaprofesional.getSelectedItem()+"</b> en la fecha <b>"+df.format(fecha).toString()+"</b>"); 
+
+       // ventanaconfirmacion.texto.setText("<html>Se ingresarán <b>"+cantidad+"</b> atenciones de la carrera <b>"+vista.listacarrera.getSelectedItem()+"</b> con el Profesional: <b>"+vista.listaprofesional.getSelectedItem()+"</b> en la fecha <b>"+df.format(fecha).toString()+"</b>"); 
+        
+        if (JOptionPane.OK_OPTION==confirmado){
+           
+        //Cantidad de atenciones que se desee ingresar
+        
         //---------------------------------------------
         
         //Inserta en la tabla ATENCIÓN considerando codigo de profesional, codigo de carrera, fecha y número de atenciones
@@ -95,13 +102,17 @@ public class controladorAtencion implements ActionListener{
                 cnbd.conectar();
                 cnbd.cerrarConexion();
         //---------------------------------------------
-                
+        
         vista.barraprogreso.setValue(100);
         javax.swing.JOptionPane.showMessageDialog (null, "La información ha sido ingresada con éxito", "Ficha de Ingreso", JOptionPane.INFORMATION_MESSAGE);
         vista.barraprogreso.setValue(0);
      
-    
-    }
+        }
+        else
+       
+        javax.swing.JOptionPane.showMessageDialog (null, "Ingreso Cancelado..", "Ficha de Ingreso", JOptionPane.INFORMATION_MESSAGE);
+      
+       }
     
     
 }
