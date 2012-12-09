@@ -70,6 +70,7 @@ public class VentanaConfiguracion extends javax.swing.JFrame {
         eliminar.setText("Eliminar");
 
         eliminarregistro.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        eliminarregistro.setEnabled(false);
 
         jRadioEliminar.setFont(new java.awt.Font("Calibri Light", 1, 15)); // NOI18N
         jRadioEliminar.setText("Eliminar Registro");
