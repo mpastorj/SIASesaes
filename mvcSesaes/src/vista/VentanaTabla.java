@@ -7,6 +7,7 @@ package vista;
 import controlador.controladorConfiguracion;
 import controlador.controladorDiurna;
 import controlador.controladorPersona;
+import controlador.controladorVespertina;
 
 /**
  *
@@ -61,9 +62,9 @@ public class VentanaTabla extends javax.swing.JFrame {
 
         reporte.setText("Generar reporte con gráficos en PDF");
 
-        volver.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
+        volver.setFont(new java.awt.Font("Calibri Light", 1, 15)); // NOI18N
         volver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/atras_opt.png"))); // NOI18N
-        volver.setText("   Volver al \nMenú Principal");
+        volver.setText("Volver");
         volver.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,9 +100,9 @@ public class VentanaTabla extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(copiar)
                     .addComponent(reporte)
-                    .addComponent(volver)
-                    .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(40, Short.MAX_VALUE))
+                    .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(volver, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(25, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(117, 117, 117)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -136,17 +137,14 @@ public class VentanaTabla extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
-        // TODO add your handling code here:
+
         VentanaPrincipal ventanaprincipal=new VentanaPrincipal();
         ventanaprincipal.setVisible(true);
-        //VentanaTabla ventanatabla=new VentanaTabla();
         controladorPersona controladorpersona=new controladorPersona(ventanaprincipal);
         controladorDiurna controladordiurna=new controladorDiurna(ventanaprincipal);
         controladorConfiguracion controladorconfiguracion=new controladorConfiguracion(ventanaprincipal);
+        controladorVespertina controladorvespertina=new controladorVespertina(ventanaprincipal);
         this.dispose();
-        //VentanaDiurna ventanadiurna = null;
-        //ventanadiurna.dispose();
-       
     }//GEN-LAST:event_volverActionPerformed
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed

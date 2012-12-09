@@ -7,6 +7,7 @@ package vista;
 import controlador.controladorConfiguracion;
 import controlador.controladorDiurna;
 import controlador.controladorPersona;
+import controlador.controladorVespertina;
 
 /**
  *
@@ -252,6 +253,7 @@ public class VentanaDiurna extends javax.swing.JFrame {
         controladorPersona controladorpersona=new controladorPersona(ventanaprincipal);
         controladorDiurna controladordiurna=new controladorDiurna(ventanaprincipal);
         controladorConfiguracion controladorconfiguracion=new controladorConfiguracion(ventanaprincipal);
+        controladorVespertina controladorvespertina=new controladorVespertina(ventanaprincipal);
         this.dispose();
     }//GEN-LAST:event_volverActionPerformed
 
