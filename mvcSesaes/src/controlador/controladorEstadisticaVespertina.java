@@ -11,7 +11,6 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.AbstractButton;
 import javax.swing.table.DefaultTableModel;
 import modelo.conexion;
 import vista.VentanaDiurna;
@@ -21,19 +20,21 @@ import vista.VentanaTabla;
  *
  * @author Milii2
  */
-public class controladorEstadisticaDiurna implements ActionListener{
-
+public class controladorEstadisticaVespertina implements ActionListener{
     private VentanaDiurna ventana;
-    private AbstractButton opcionProfesional;
 
-    public controladorEstadisticaDiurna(VentanaDiurna ventana) {
+    public controladorEstadisticaVespertina(VentanaDiurna ventana) {
         this.ventana = ventana;
         this.ventana.botonmostrar.addActionListener(this);
     }
+
+    public controladorEstadisticaVespertina() {
+    }
     
+    
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        
      String especialidad = (String)ventana.listaespecialidad.getSelectedItem();
      String carrera      = (String)ventana.listacarrera.getSelectedItem();
      String facultad     = (String)ventana.listafacultad.getSelectedItem();
@@ -99,7 +100,7 @@ public class controladorEstadisticaDiurna implements ActionListener{
                + " ELSE 'esto no es un mes' END as Mes, SUM(cantidad) as 'N° de atenciones'"
                + " from atencion where cod_profesional \n" +
                "in (select cod_p from profeespe where cod_e = (select cod_e from especialidad where nombre_e = '"+especialidad+"'))"
-               + "and cod_c in (select cod_c from carrera where tipo = '1') "+consulta+" and year(fecha_a) = '"+año+"' group by Mes order by month(fecha_a)");
+               + "and cod_c in (select cod_c from carrera where tipo = '2') "+consulta+" and year(fecha_a) = '"+año+"' group by Mes order by month(fecha_a)");
        cn.setEsSelect(true);
        cn.conectar();
        
@@ -142,7 +143,7 @@ public class controladorEstadisticaDiurna implements ActionListener{
               + " WHEN MONTH(fecha_a) = 12 THEN 'Diciembre' "
               + "ELSE 'esto no es un mes' END as Mes, SUM(cantidad) as 'Num de Atenciones' "
               + "from atencion "
-              + "where cod_c in (select cod_c from carrera where nombre_c='"+carrera+"' and tipo='1')"
+              + "where cod_c in (select cod_c from carrera where nombre_c='"+carrera+"' and tipo='2')"
               + "group by Mes order by MONTH(fecha_a)");
               cn.setEsSelect(true);
        cn.conectar();
@@ -190,7 +191,7 @@ public class controladorEstadisticaDiurna implements ActionListener{
               + " WHEN MONTH(fecha_a) = 12 THEN 'Diciembre' "
               + "ELSE 'esto no es un mes' END as Mes, SUM(cantidad) as 'Num de Atenciones' "
               + "from atencion "
-              + "where cod_c in (select cod_c from carrera where tipo='1' and cod_f in(select cod_f from facultad where nombre_f='"+facultad+"'))"
+              + "where cod_c in (select cod_c from carrera where tipo='2' and cod_f in(select cod_f from facultad where nombre_f='"+facultad+"'))"
               + "group by Mes order by MONTH(fecha_a)");
             
        cn.setEsSelect(true);
@@ -218,11 +219,6 @@ public class controladorEstadisticaDiurna implements ActionListener{
             }
          
      }
-     
-       
-       
-      
     }
-           
     
 }

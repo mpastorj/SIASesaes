@@ -322,7 +322,7 @@ public class VentanaIngreso extends javax.swing.JFrame {
         this.dispose();
        
     }//GEN-LAST:event_volverActionPerformed
-
+    
     /**
      * @param args the command line arguments
      */

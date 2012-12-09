@@ -144,8 +144,8 @@ public class VentanaTabla extends javax.swing.JFrame {
         controladorDiurna controladordiurna=new controladorDiurna(ventanaprincipal);
         controladorConfiguracion controladorconfiguracion=new controladorConfiguracion(ventanaprincipal);
         this.dispose();
-        VentanaDiurna ventanadiurna = null;
-        ventanadiurna.dispose();
+        //VentanaDiurna ventanadiurna = null;
+        //ventanadiurna.dispose();
        
     }//GEN-LAST:event_volverActionPerformed
 

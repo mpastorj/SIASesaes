@@ -7,6 +7,7 @@ package mvcsesaes;
 import controlador.controladorConfiguracion;
 import controlador.controladorDiurna;
 import controlador.controladorPersona;
+import controlador.controladorVespertina;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -34,6 +35,7 @@ public class MvcSesaes {
         controladorPersona controlador = new controladorPersona( vista,modelo );
         controladorConfiguracion contconfig=new controladorConfiguracion(vista);
         controladorDiurna contdiurna=new controladorDiurna(vista);
+        controladorVespertina contvespertina=new controladorVespertina(vista);
         vista.setVisible(true);
         
         controlador.iniciar_vista();
