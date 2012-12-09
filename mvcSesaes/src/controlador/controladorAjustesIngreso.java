@@ -130,6 +130,11 @@ public class controladorAjustesIngreso implements ActionListener{
         }
         
     if(e.getSource()==vista.guardar){
+        
+        if(nombre.length()>2 && !"<Seleccione>".equals(especialidad) && !"-".equals(dia)){
+            int confirmado = JOptionPane.showConfirmDialog(null,"<html>Se ingresará el profesional: <b>"+nombre+"</b>, fecha de nacimiento <b>"+fecha_nacimiento+"</b> con especialidad <b>"+especialidad); 
+      if (JOptionPane.OK_OPTION==confirmado){
+    
                  Date fecha=null;
     formatoDelTexto.setLenient(false);
         try {
@@ -137,7 +142,6 @@ public class controladorAjustesIngreso implements ActionListener{
         } catch (ParseException ex) {
             Logger.getLogger(controladorAjustesIngreso.class.getName()).log(Level.SEVERE, null, ex);
         }
-    
     conexion cnbd=new conexion();
     cnbd.setEsSelect(false);
     
@@ -183,7 +187,14 @@ public class controladorAjustesIngreso implements ActionListener{
         cnbd.cerrarConexion();
         
         javax.swing.JOptionPane.showMessageDialog (null, "La información ha sido ingresada con éxito", "Ficha de Configuración", JOptionPane.INFORMATION_MESSAGE);
-    }
+        }
+      else 
+          javax.swing.JOptionPane.showMessageDialog (null, "Ingreso Cancelado..", "Ficha de Configuración", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else 
+          
+            javax.swing.JOptionPane.showMessageDialog (null, "Debe ingresar información válida", "Ficha de Configuración", JOptionPane.INFORMATION_MESSAGE);
+        }
         
           
     
