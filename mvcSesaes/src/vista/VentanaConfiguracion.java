@@ -8,6 +8,10 @@ import controlador.controladorConfiguracion;
 import controlador.controladorDiurna;
 import controlador.controladorPersona;
 import controlador.controladorVespertina;
+import java.awt.event.KeyEvent;
+import java.sql.Array;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -59,11 +63,6 @@ public class VentanaConfiguracion extends javax.swing.JFrame {
         guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/IngresaProfesional_opt.png"))); // NOI18N
         guardar.setText("Guardar");
         guardar.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        guardar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                guardarActionPerformed(evt);
-            }
-        });
 
         eliminar.setFont(new java.awt.Font("Calibri Light", 1, 16)); // NOI18N
         eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/eliminar.png"))); // NOI18N
@@ -96,6 +95,12 @@ public class VentanaConfiguracion extends javax.swing.JFrame {
 
         especialidadprofesional.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         especialidadprofesional.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccione>", "Cirugía", "Enfermería", "Kinesiología", "Medicina General", "Medicina Interna", "Medicina en Hematología", "Neurología", "Nutriología", "Odontología General", "Psicología", "Psiquiatría", "Traumatología", " ", " ", " " }));
+
+        nombreprofesional.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                nombreprofesionalKeyReleased(evt);
+            }
+        });
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
@@ -199,10 +204,6 @@ public class VentanaConfiguracion extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_guardarActionPerformed
-
     private void dianacimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dianacimientoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_dianacimientoActionPerformed
@@ -219,6 +220,34 @@ public class VentanaConfiguracion extends javax.swing.JFrame {
         controladorVespertina controladorvespertina=new controladorVespertina(ventanaprincipal);
         this.dispose();
     }//GEN-LAST:event_volverActionPerformed
+
+    
+       
+    private void nombreprofesionalKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreprofesionalKeyReleased
+      
+        String str = nombreprofesional.getText();
+        char[] fuente = str.toCharArray();
+        char[] resultado = new char[fuente.length];
+        char[] arrayCaracteres={'a','b','c','d','e','f','g','h','i','j','k','l','m','n','ñ','o','p','q','r','s','t','u','v','w','x','y','z',' ',+ 
+                +'A','B','C','D','E','F','G','H','I','J','K','L','M','N','Ñ','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+        int j=0;
+        boolean error=false;
+        
+        for(int i=0; i<fuente.length;i++){
+            for(int k=0;k<55;k++){
+            if(fuente[i]==arrayCaracteres[k]){
+                resultado[j++] = fuente[i];  
+            }
+            else{
+        error=true;
+        }
+        }
+          if(error){
+        nombreprofesional.setText("");
+        nombreprofesional.setText(new String(resultado,0,j));
+        }
+        } 
+    }//GEN-LAST:event_nombreprofesionalKeyReleased
 
     /**
      * @param args the command line arguments

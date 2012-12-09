@@ -76,6 +76,8 @@ public class controladorAjustesIngreso implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e) {
+    
+        
         
     DateFormat df=new SimpleDateFormat("yyyy-MM-dd");
     SimpleDateFormat formatoDelTexto = new SimpleDateFormat("yyyy-MM-dd");
