@@ -219,6 +219,8 @@ public class controladorEstadisticaDiurna implements ActionListener{
          
      }
      
+     controladorCopiar contcopiar=new controladorCopiar(t);
+     
        
        
       

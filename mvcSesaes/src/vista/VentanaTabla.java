@@ -72,6 +72,8 @@ public class VentanaTabla extends javax.swing.JFrame {
             }
         });
 
+        copiar.setFont(new java.awt.Font("Calibri Light", 1, 12)); // NOI18N
+        copiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/copiar_opt.png"))); // NOI18N
         copiar.setText("Copiar Tabla");
 
         titulo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -81,6 +83,7 @@ public class VentanaTabla extends javax.swing.JFrame {
         titulo2.setForeground(new java.awt.Color(51, 102, 0));
 
         salir.setFont(new java.awt.Font("Calibri Light", 1, 16)); // NOI18N
+        salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/salir.png"))); // NOI18N
         salir.setText("Salir");
         salir.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         salir.addActionListener(new java.awt.event.ActionListener() {
@@ -100,9 +103,10 @@ public class VentanaTabla extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(copiar)
                     .addComponent(reporte)
-                    .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(volver, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(25, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(salir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(volver, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(117, 117, 117)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)

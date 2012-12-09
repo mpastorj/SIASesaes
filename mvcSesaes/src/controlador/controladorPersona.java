@@ -18,6 +18,7 @@ import modelo.Facultad;
 import modelo.Profesional;
 import vista.VentanaConfiguracion;
 import vista.VentanaIngreso;
+import vista.VentanaTabla;
 
 /**
  *
@@ -63,6 +64,7 @@ public class controladorPersona implements ActionListener{
         Atencion modeloatencion=new Atencion();
   
         VentanaIngreso ventana = new VentanaIngreso();
+       
         ventana.setVisible(true);
         controladorFacultad contfacultad=new controladorFacultad(ventana,modelofacultad);
         controladorEspecialidad contespecialidad=new controladorEspecialidad(ventana,modeloespecialidad);

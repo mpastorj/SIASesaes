@@ -219,6 +219,8 @@ public class controladorEstadisticaVespertina implements ActionListener{
             }
          
      }
+     
+     controladorCopiar contcopiar=new controladorCopiar(t);
     }
     
 }

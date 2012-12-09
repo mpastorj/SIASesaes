@@ -11,6 +11,7 @@ import modelo.Atencion;
 import vista.VentanaDiurna;
 import vista.VentanaIngreso;
 import vista.VentanaPrincipal;
+import vista.VentanaTabla;
 
 /**
  *
@@ -34,12 +35,12 @@ public class controladorDiurna implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         VentanaDiurna ventana=new VentanaDiurna();
-        ventana.setVisible(true);
+        ventana.setVisible(true);   
         ventana.setTitle("> Estadísticas Diurna");
         controladorEstadisticasProfesional contesta=new controladorEstadisticasProfesional(ventana);
         controladorEstadisticasCarrera contcarrera=new controladorEstadisticasCarrera(ventana);
         controladorEstadisticasFacultad contfacultad=new controladorEstadisticasFacultad(ventana);
-        controladorEstadisticaDiurna controladorprincipal=new controladorEstadisticaDiurna(ventana);
+        controladorEstadisticaDiurna controladorprincipal=new controladorEstadisticaDiurna(ventana);    
     }
     
     
