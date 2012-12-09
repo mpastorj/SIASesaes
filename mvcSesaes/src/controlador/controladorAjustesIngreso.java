@@ -32,13 +32,15 @@ public class controladorAjustesIngreso implements ActionListener{
     public controladorAjustesIngreso(VentanaConfiguracion vista) {
         this.vista = vista;
         this.vista.guardar.addActionListener(this);
+        this.vista.añonacimiento.addActionListener(this);
+        this.vista.mesnacimiento.addActionListener(this);
     }
 
     
 
-    public controladorAjustesIngreso() {
-        this.vista.guardar.addActionListener(this);
-    }
+   // public controladorAjustesIngreso() {
+  //      this.vista.guardar.addActionListener(this);
+  //  }
    
     
     public int asignames(){
@@ -77,7 +79,7 @@ public class controladorAjustesIngreso implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
     
-        
+    
         
     DateFormat df=new SimpleDateFormat("yyyy-MM-dd");
     SimpleDateFormat formatoDelTexto = new SimpleDateFormat("yyyy-MM-dd");
@@ -85,14 +87,50 @@ public class controladorAjustesIngreso implements ActionListener{
     String especialidad=(String)vista.especialidadprofesional.getSelectedItem();
     String dia=(String)vista.dianacimiento.getSelectedItem();
     String año=(String)vista.añonacimiento.getSelectedItem();
+    int añodenacimiento=Integer.parseInt(año);
     int mes_nacimiento=asignames();
     String mesnuevo=String.valueOf(mes_nacimiento);
     String fecha_nacimiento=año+"-"+mesnuevo+"-"+dia;   
     int codigoespecialidad=0;
     int codigoprofesional=0;
-            
     
-    Date fecha=null;
+    
+    if(e.getSource()==vista.añonacimiento){
+        vista.mesnacimiento.enable();
+        //vista.dianacimiento.enable();
+    }
+        if(e.getSource()==vista.mesnacimiento){
+        vista.dianacimiento.enable();
+          // vista.dianacimiento.removeAllItems();
+           
+            //vista.dianacimiento.enable();
+            if(mes_nacimiento==2){
+            //vista.dianacimiento.enable();
+    //if((añodenacimiento % 4!=0) && ((añodenacimiento % 100==0) || (añodenacimiento % 400!=0))){
+      
+    //}
+     // else
+      if((añodenacimiento % 4==0) && ((añodenacimiento % 100!=0) || (añodenacimiento % 400==0))){
+
+          vista.dianacimiento.addItem(29);
+
+      }
+            }
+            else
+                if(mes_nacimiento==1 || mes_nacimiento==3 || mes_nacimiento==5 || mes_nacimiento==7 || mes_nacimiento==8 || mes_nacimiento==10 || mes_nacimiento==12){
+                    vista.dianacimiento.addItem(29);
+                    vista.dianacimiento.addItem(30);
+                    vista.dianacimiento.addItem(31);
+                }
+                if(mes_nacimiento==4 || mes_nacimiento==6 || mes_nacimiento==9 || mes_nacimiento==11){
+                    vista.dianacimiento.addItem(29);
+                    vista.dianacimiento.addItem(30);
+                }
+                    
+        }
+        
+    if(e.getSource()==vista.guardar){
+                 Date fecha=null;
     formatoDelTexto.setLenient(false);
         try {
             fecha = formatoDelTexto.parse(fecha_nacimiento);
@@ -145,6 +183,12 @@ public class controladorAjustesIngreso implements ActionListener{
         cnbd.cerrarConexion();
         
         javax.swing.JOptionPane.showMessageDialog (null, "La información ha sido ingresada con éxito", "Ficha de Configuración", JOptionPane.INFORMATION_MESSAGE);
+    }
+        
+          
+    
+   // }
+    
  
     }
     

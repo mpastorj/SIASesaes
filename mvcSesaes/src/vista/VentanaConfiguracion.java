@@ -4,6 +4,7 @@
  */
 package vista;
 
+import controlador.controladorAjustesIngreso;
 import controlador.controladorConfiguracion;
 import controlador.controladorDiurna;
 import controlador.controladorPersona;
@@ -82,16 +83,28 @@ public class VentanaConfiguracion extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Calibri Light", 0, 15)); // NOI18N
         jLabel5.setText("Especialidad:");
 
-        dianacimiento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        dianacimiento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28" }));
+        dianacimiento.setEnabled(false);
         dianacimiento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dianacimientoActionPerformed(evt);
             }
         });
 
-        mesnacimiento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
+        mesnacimiento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
+        mesnacimiento.setEnabled(false);
+        mesnacimiento.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                mesnacimientoItemStateChanged(evt);
+            }
+        });
 
         añonacimiento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-", "1950", "1951", "1952", "1953", "1954", "1955", "1956", "1957", "1958", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993" }));
+        añonacimiento.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                añonacimientoItemStateChanged(evt);
+            }
+        });
 
         especialidadprofesional.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         especialidadprofesional.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccione>", "Cirugía", "Enfermería", "Kinesiología", "Medicina General", "Medicina Interna", "Medicina en Hematología", "Neurología", "Nutriología", "Odontología General", "Psicología", "Psiquiatría", "Traumatología", " ", " ", " " }));
@@ -136,14 +149,15 @@ public class VentanaConfiguracion extends javax.swing.JFrame {
                                 .add(18, 18, 18)
                                 .add(nombreprofesional))))
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(52, Short.MAX_VALUE)
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                                .add(mesnacimiento, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 58, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(añonacimiento, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 69, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(25, 25, 25)
+                                .add(mesnacimiento, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .add(18, 18, 18)
-                                .add(dianacimiento, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 51, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .add(18, 18, 18)
-                                .add(añonacimiento, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 69, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                .add(dianacimiento, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 66, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(8, 8, 8))
                             .add(org.jdesktop.layout.GroupLayout.TRAILING, guardar))))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 10, Short.MAX_VALUE)
                 .add(jSeparator1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 13, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
@@ -248,6 +262,25 @@ public class VentanaConfiguracion extends javax.swing.JFrame {
         }
         } 
     }//GEN-LAST:event_nombreprofesionalKeyReleased
+
+    private void mesnacimientoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_mesnacimientoItemStateChanged
+        // TODO add your handling code here:
+       // dianacimiento.repaint();
+        //dianacimiento.getActionListeners();
+        //dianacimiento.removeAll();
+        //controladorAjustesIngreso contingreso=new controladorAjustesIngreso(this);
+        dianacimiento.removeAllItems();
+        for(int i=1;i<29;i++){
+            String numCadena= String.valueOf(i);
+        dianacimiento.addItem(numCadena);
+        }
+       // dianacimiento.getComponents();
+    }//GEN-LAST:event_mesnacimientoItemStateChanged
+
+    private void añonacimientoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_añonacimientoItemStateChanged
+        // TODO add your handling code here:
+        dianacimiento.disable();
+    }//GEN-LAST:event_añonacimientoItemStateChanged
 
     /**
      * @param args the command line arguments
