@@ -131,7 +131,7 @@ public class controladorAjustesIngreso implements ActionListener{
         
     if(e.getSource()==vista.guardar){
         
-        if(nombre.length()>2 && !"<Seleccione>".equals(especialidad) && !"-".equals(dia)){
+        if(nombre.length()>6 && !"<Seleccione>".equals(especialidad) && !"-".equals(dia) && !"jajajaja".equals(nombre) && nombre!="abcdefg"){
             int confirmado = JOptionPane.showConfirmDialog(null,"<html>Se ingresará el profesional: <b>"+nombre+"</b>, fecha de nacimiento <b>"+fecha_nacimiento+"</b> con especialidad <b>"+especialidad); 
       if (JOptionPane.OK_OPTION==confirmado){
     

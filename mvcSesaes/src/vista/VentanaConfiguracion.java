@@ -247,10 +247,9 @@ public class VentanaConfiguracion extends javax.swing.JFrame {
         char[] fuente = str.toCharArray();
         char[] resultado = new char[fuente.length];
         char[] arrayCaracteres={'a','b','c','d','e','f','g','h','i','j','k','l','m','n','ñ','o','p','q','r','s','t','u','v','w','x','y','z',' ',+ 
-                +'A','B','C','D','E','F','G','H','I','J','K','L','M','N','Ñ','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+                +'A','B','C','D','E','F','G','H','I','J','K','L','M','N','Ñ','O','P','Q','R','S','T','U','V','W','X','Y','Z','`','é','í','ó','ú'};
         int j=0;
         boolean error=false;
-        
         for(int i=0; i<fuente.length;i++){
             for(int k=0;k<55;k++){
             if(fuente[i]==arrayCaracteres[k]){
@@ -265,6 +264,7 @@ public class VentanaConfiguracion extends javax.swing.JFrame {
         nombreprofesional.setText(new String(resultado,0,j));
         }
         } 
+    
     }//GEN-LAST:event_nombreprofesionalKeyReleased
 
     private void mesnacimientoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_mesnacimientoItemStateChanged
