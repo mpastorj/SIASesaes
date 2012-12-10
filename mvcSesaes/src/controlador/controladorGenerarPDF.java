@@ -17,19 +17,58 @@ public class controladorGenerarPDF implements ActionListener{
     
     
     private VentanaTabla vista;
-    
+    private VentanaDiurna ventana;
 
-    public controladorGenerarPDF(VentanaTabla vista) {
+    public controladorGenerarPDF(VentanaTabla vista, VentanaDiurna ventana) {
        this.vista = vista;
+       this.ventana = ventana;
        this.vista.botonreporte.addActionListener(this);
     }
     
     @Override
     public void actionPerformed(ActionEvent e) {
-      
-      
-    controladorReportes r = new controladorReportes("Psiquiatría","2012",12);
         
+    String especialidad = (String)ventana.listaespecialidad.getSelectedItem(); 
+    String año = (String)ventana.listaaño.getSelectedItem();
+    int mes = ventana.listames.getSelectedIndex();
+        
+      
+    if(ventana.jRadioProfesional.isSelected())
+    {
+        switch(ventana.listaperiodo.getSelectedIndex())
+        {
+            case 1:
+            {           
+     String reporte = "reporte1.jasper";           
+    controladorReportes r = new controladorReportes(especialidad,año,mes,reporte);
+    break;
+            }
+            case 2:
+            {
+            if(ventana.listaperiodo.getSelectedIndex()==1)
+            {
+             String reporte = "reporte2.jasper";           
+              controladorReportes r = new controladorReportes(especialidad,año,mes,reporte);
+                
+            }
+            else
+            {
+            String reporte = "reporte3.jasper";           
+            controladorReportes r = new controladorReportes(especialidad,año,mes,reporte);
+                
+            }
+            break;
+            
+            }  
+            case 3:
+            {
+            String reporte = "reporte4.jasper";           
+            controladorReportes r = new controladorReportes(especialidad,año,mes,reporte);
+            break;
+            
+            }
+        }        
+    }   
         
         
     }

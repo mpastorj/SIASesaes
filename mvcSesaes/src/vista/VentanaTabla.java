@@ -202,7 +202,7 @@ public class VentanaTabla extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botonreporte;
+    public javax.swing.JButton botonreporte;
     public javax.swing.JButton copiar;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JButton salir;

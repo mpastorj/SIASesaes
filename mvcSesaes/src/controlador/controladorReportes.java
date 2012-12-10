@@ -26,7 +26,7 @@ import net.sf.jasperreports.engine.util.JRLoader;
  */
 public class controladorReportes {
     
-public controladorReportes(String parametro, String año,int mes){
+public controladorReportes(String parametro, String año,int mes, String report){
 
 try {
                  Class.forName("com.mysql.jdbc.Driver");
@@ -42,7 +42,7 @@ try {
 
         JasperReport reporte = null;
              try {
-                 reporte = (JasperReport) JRLoader.loadObject("reporte1.jasper");
+                 reporte = (JasperReport) JRLoader.loadObject(report);
              } catch (JRException ex) {
                  Logger.getLogger(controladorEstadisticaDiurna.class.getName()).log(Level.SEVERE, null, ex);
              }
