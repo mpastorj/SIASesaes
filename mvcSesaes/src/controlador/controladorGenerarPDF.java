@@ -45,7 +45,7 @@ public class controladorGenerarPDF implements ActionListener{
             }
             case 2:
             {
-            if(ventana.listaperiodo.getSelectedIndex()==1)
+            if(ventana.listasemestre.getSelectedIndex()==0)
             {
              String reporte = "reporte2.jasper";           
               controladorReportes r = new controladorReportes(especialidad,año,mes,reporte);
@@ -68,7 +68,15 @@ public class controladorGenerarPDF implements ActionListener{
             
             }
         }        
-    }   
+    }  
+    
+    else if(ventana.jRadioCarrera.isSelected())
+    {
+    
+    
+    
+    
+    }
         
         
     }
