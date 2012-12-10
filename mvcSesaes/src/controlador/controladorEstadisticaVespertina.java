@@ -128,7 +128,43 @@ public class controladorEstadisticaVespertina implements ActionListener{
      }       
    
    if(ventana.jRadioCarrera.isSelected()==true){
-       conexion cn=new conexion();
+         t.titulo.setText("Estadística Carrera: "+carrera );
+           switch(ventana.listaperiodo.getSelectedIndex())
+           {
+               case 1:
+            t.titulo2.setText("Período: "+(String)ventana.listames.getSelectedItem()+" de "+año); 
+            break;
+               case 2:
+               {       
+            if(semestre == 1) {
+                       t.titulo2.setText("Período: Primer semestre del año "+año);
+                   } 
+            else {
+                       t.titulo2.setText("Período: Segundo semestre del año "+año);
+                   }
+            break;       
+                 
+           }
+               case 3:
+                  t.titulo2.setText("Período: Año "+año); 
+          }
+           
+       conexion cn = new conexion();
+       
+       String consulta = "";      
+          
+      switch(ventana.listaperiodo.getSelectedIndex())
+      {
+          case 1:
+          consulta = "AND MONTH(fecha_a) = "+mes+"";    
+           break;
+          case 2:
+              if(semestre == 1)
+              consulta = "AND MONTH(fecha_a) BETWEEN 1 AND 6  ";
+              else if(semestre == 2)
+                  consulta = "AND MONTH(fecha_a) BETWEEN 7 AND 12  ";
+              break;
+       } 
        cn.setComandoSQL("select  CASE WHEN MONTH(fecha_a) = 1 THEN 'Enero'"
               + " WHEN MONTH(fecha_a) = 2 THEN 'Febrero' "
               + "WHEN MONTH(fecha_a) = 3 THEN 'Marzo' "
@@ -143,8 +179,8 @@ public class controladorEstadisticaVespertina implements ActionListener{
               + " WHEN MONTH(fecha_a) = 12 THEN 'Diciembre' "
               + "ELSE 'esto no es un mes' END as Mes, SUM(cantidad) as 'Num de Atenciones' "
               + "from atencion "
-              + "where cod_c in (select cod_c from carrera where nombre_c='"+carrera+"' and tipo='2')"
-              + "group by Mes order by MONTH(fecha_a)");
+              + "where cod_c in (select cod_c from carrera where nombre_c='"+carrera+"' and tipo='2') " +consulta+ " and year(fecha_a) = '"+año+"' group by Mes order by month(fecha_a)" );
+
               cn.setEsSelect(true);
        cn.conectar();
        
@@ -175,7 +211,42 @@ public class controladorEstadisticaVespertina implements ActionListener{
             
           
      if(ventana.jRadioFacultad.isSelected()==true){
+          t.titulo.setText("Estadística Facultad: "+facultad );
+           switch(ventana.listaperiodo.getSelectedIndex())
+           {
+               case 1:
+            t.titulo2.setText("Período: "+(String)ventana.listames.getSelectedItem()+" de "+año); 
+            break;
+               case 2:
+               {       
+            if(semestre == 1) {
+                       t.titulo2.setText("Período: Primer semestre del año "+año);
+                   } 
+            else {
+                       t.titulo2.setText("Período: Segundo semestre del año "+año);
+                   }
+            break;       
+                 
+           }
+               case 3:
+                  t.titulo2.setText("Período: Año "+año); 
+          }
           conexion cn=new conexion();
+          String consulta = "";      
+          
+      switch(ventana.listaperiodo.getSelectedIndex())
+      {
+          case 1:
+          consulta = "AND MONTH(fecha_a) = "+mes+"";    
+           break;
+          case 2:
+              if(semestre == 1)
+              consulta = "AND MONTH(fecha_a) BETWEEN 1 AND 6  ";
+              else if(semestre == 2)
+                  consulta = "AND MONTH(fecha_a) BETWEEN 7 AND 12  ";
+              break;
+       }
+      
             cn.setEsSelect(true);              
             cn.setComandoSQL("select  CASE WHEN MONTH(fecha_a) = 1 THEN 'Enero'"
               + " WHEN MONTH(fecha_a) = 2 THEN 'Febrero' "
@@ -191,8 +262,7 @@ public class controladorEstadisticaVespertina implements ActionListener{
               + " WHEN MONTH(fecha_a) = 12 THEN 'Diciembre' "
               + "ELSE 'esto no es un mes' END as Mes, SUM(cantidad) as 'Num de Atenciones' "
               + "from atencion "
-              + "where cod_c in (select cod_c from carrera where tipo='2' and cod_f in(select cod_f from facultad where nombre_f='"+facultad+"'))"
-              + "group by Mes order by MONTH(fecha_a)");
+              + "where cod_c in (select cod_c from carrera where tipo='2' and cod_f in(select cod_f from facultad where nombre_f='"+facultad+"')) " +consulta+ " and year(fecha_a) = '"+año+"' group by Mes order by month(fecha_a)" );
             
        cn.setEsSelect(true);
        cn.conectar();

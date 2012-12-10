@@ -180,7 +180,7 @@ public class controladorEstadisticaDiurna implements ActionListener{
               + "ELSE 'esto no es un mes' END as Mes, SUM(cantidad) as 'Num de Atenciones' "
               + "from atencion "
               + "where cod_c in (select cod_c from carrera where nombre_c='"+carrera+"' and tipo='1') " +consulta+ " and year(fecha_a) = '"+año+"' group by Mes order by month(fecha_a)" );
-              //+ "group by Mes order by MONTH(fecha_a)");
+    
               cn.setEsSelect(true);
        cn.conectar();
        
@@ -292,8 +292,6 @@ public class controladorEstadisticaDiurna implements ActionListener{
      
      controladorCopiar contcopiar=new controladorCopiar(t);
      
-       
-       
       
     }
            
