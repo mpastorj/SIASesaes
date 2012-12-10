@@ -31,11 +31,9 @@
               <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                   <Component id="copiar" max="32767" attributes="0"/>
-                  <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="salir" alignment="1" max="32767" attributes="0"/>
-                      <Component id="volver" alignment="1" pref="121" max="32767" attributes="0"/>
-                  </Group>
-                  <Component id="reporte" max="32767" attributes="0"/>
+                  <Component id="salir" alignment="1" max="32767" attributes="0"/>
+                  <Component id="volver" alignment="1" max="32767" attributes="0"/>
+                  <Component id="botonreporte" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -65,7 +63,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="copiar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="reporte" min="-2" max="-2" attributes="0"/>
+                      <Component id="botonreporte" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="volver" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -108,7 +106,7 @@
         </Container>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="reporte">
+    <Component class="javax.swing.JButton" name="botonreporte">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Calibri Light" size="12" style="1"/>

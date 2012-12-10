@@ -6,14 +6,28 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.AbstractButton;
 import javax.swing.table.DefaultTableModel;
 import modelo.conexion;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JRExporter;
+import net.sf.jasperreports.engine.JRExporterParameter;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.export.JRPdfExporter;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import vista.VentanaDiurna;
 import vista.VentanaTabla;
 
@@ -104,6 +118,9 @@ public class controladorEstadisticaDiurna implements ActionListener{
        cn.setEsSelect(true);
        cn.conectar();
        
+       
+            
+       
        ResultSet rs = cn.getRst();
             try {
                 ResultSetMetaData rsMd = rs.getMetaData();
@@ -124,7 +141,7 @@ public class controladorEstadisticaDiurna implements ActionListener{
             } catch (SQLException ex) {
                 Logger.getLogger(VentanaTabla.class.getName()).log(Level.SEVERE, null, ex);
             }
-      
+            
      }       
    
    if(ventana.jRadioCarrera.isSelected()==true){
@@ -292,6 +309,8 @@ public class controladorEstadisticaDiurna implements ActionListener{
      }
      
      controladorCopiar contcopiar=new controladorCopiar(t);
+     controladorGenerarPDF pdf = new controladorGenerarPDF(t);
+     
      
      }
     }

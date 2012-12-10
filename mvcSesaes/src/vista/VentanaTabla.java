@@ -38,7 +38,7 @@ public class VentanaTabla extends javax.swing.JFrame {
         scrollPane1 = new java.awt.ScrollPane();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
-        reporte = new javax.swing.JButton();
+        botonreporte = new javax.swing.JButton();
         volver = new javax.swing.JButton();
         copiar = new javax.swing.JButton();
         titulo = new javax.swing.JLabel();
@@ -63,9 +63,9 @@ public class VentanaTabla extends javax.swing.JFrame {
 
         scrollPane1.add(jScrollPane1);
 
-        reporte.setFont(new java.awt.Font("Calibri Light", 1, 12)); // NOI18N
-        reporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/PDF_opt.png"))); // NOI18N
-        reporte.setText("Generar PDF");
+        botonreporte.setFont(new java.awt.Font("Calibri Light", 1, 12)); // NOI18N
+        botonreporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/PDF_opt.png"))); // NOI18N
+        botonreporte.setText("Generar PDF");
 
         volver.setFont(new java.awt.Font("Calibri Light", 1, 15)); // NOI18N
         volver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/atras_opt.png"))); // NOI18N
@@ -107,10 +107,9 @@ public class VentanaTabla extends javax.swing.JFrame {
                 .addGap(68, 68, 68)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(copiar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(salir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(volver, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE))
-                    .addComponent(reporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(salir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(volver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botonreporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(117, 117, 117)
@@ -134,7 +133,7 @@ public class VentanaTabla extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(copiar)
                         .addGap(18, 18, 18)
-                        .addComponent(reporte)
+                        .addComponent(botonreporte)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(volver)
                         .addGap(18, 18, 18)
@@ -203,9 +202,9 @@ public class VentanaTabla extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonreporte;
     public javax.swing.JButton copiar;
     private javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JButton reporte;
     public javax.swing.JButton salir;
     private java.awt.ScrollPane scrollPane1;
     public javax.swing.JTable tabla;
