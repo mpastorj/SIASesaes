@@ -9,6 +9,8 @@ import controlador.controladorConfiguracion;
 import controlador.controladorDiurna;
 import controlador.controladorPersona;
 import controlador.controladorVespertina;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.sql.Array;
 import java.util.ArrayList;
@@ -57,6 +59,7 @@ public class VentanaConfiguracion extends javax.swing.JFrame {
         volver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconImage(getIconImage());
         setMinimumSize(new java.awt.Dimension(360, 400));
         setResizable(false);
 
@@ -286,6 +289,14 @@ public class VentanaConfiguracion extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    
+     public Image getIconImage() {
+    Image retValue = Toolkit.getDefaultToolkit().
+    getImage(ClassLoader.getSystemResource("vista/graficoazul.png"));
+    
+    return retValue;
+    }
+     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

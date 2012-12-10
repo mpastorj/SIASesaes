@@ -8,6 +8,8 @@ import controlador.controladorConfiguracion;
 import controlador.controladorDiurna;
 import controlador.controladorPersona;
 import controlador.controladorVespertina;
+import java.awt.Image;
+import java.awt.Toolkit;
 
 /**
  *
@@ -62,6 +64,7 @@ public class VentanaDiurna extends javax.swing.JFrame {
         volver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconImage(getIconImage());
 
         jRadioProfesional.setFont(new java.awt.Font("Calibri Light", 1, 16)); // NOI18N
         jRadioProfesional.setText("Especialidad");
@@ -333,6 +336,14 @@ public class VentanaDiurna extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    
+     public Image getIconImage() {
+    Image retValue = Toolkit.getDefaultToolkit().
+    getImage(ClassLoader.getSystemResource("vista/graficoazul.png"));
+    
+    return retValue;
+    }
+     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

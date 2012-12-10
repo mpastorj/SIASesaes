@@ -4,6 +4,8 @@
  *///
 package vista;
 
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -38,6 +40,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         botonconfiguracion = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(getIconImage());
         setResizable(false);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/ImagenPrincipalSesaes.png"))); // NOI18N
@@ -46,11 +49,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         botoningresar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         botoningresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/escuchar-flecha-hacia-la-derecha-icono-5927-96 (2).png"))); // NOI18N
         botoningresar.setText("Ingresar Atenciones");
-        botoningresar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botoningresarActionPerformed(evt);
-            }
-        });
 
         botondiurna.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         botondiurna.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/solVentanaPrincipal.png"))); // NOI18N
@@ -115,13 +113,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_botonconfiguracionActionPerformed
 
-    private void botoningresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoningresarActionPerformed
-      this.dispose();
-    }//GEN-LAST:event_botoningresarActionPerformed
-
     /**
      * @param args the command line arguments
      */
+    
+    public Image getIconImage() {
+    Image retValue = Toolkit.getDefaultToolkit().
+    getImage(ClassLoader.getSystemResource("vista/graficoazul.png"));
+    
+    return retValue;
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

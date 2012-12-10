@@ -8,6 +8,8 @@ import controlador.controladorConfiguracion;
 import controlador.controladorDiurna;
 import controlador.controladorPersona;
 import controlador.controladorVespertina;
+import java.awt.Image;
+import java.awt.Toolkit;
 import modelo.Persona;
 
 /**
@@ -52,6 +54,7 @@ public class VentanaIngreso extends javax.swing.JFrame {
         volver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconImage(getIconImage());
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
@@ -328,6 +331,13 @@ public class VentanaIngreso extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+     public Image getIconImage() {
+    Image retValue = Toolkit.getDefaultToolkit().
+    getImage(ClassLoader.getSystemResource("vista/graficoazul.png"));
+    
+    return retValue;
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
