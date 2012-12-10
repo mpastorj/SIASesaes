@@ -73,13 +73,24 @@ public class VentanaDiurna extends javax.swing.JFrame {
 
         jRadioCarrera.setFont(new java.awt.Font("Calibri Light", 1, 16)); // NOI18N
         jRadioCarrera.setText("Carrera");
+        jRadioCarrera.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioCarreraActionPerformed(evt);
+            }
+        });
 
         jRadioFacultad.setFont(new java.awt.Font("Calibri Light", 1, 16)); // NOI18N
         jRadioFacultad.setText("Facultad");
+        jRadioFacultad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioFacultadActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
         jLabel1.setText("Seleccionar Especialidad:");
 
+        listaespecialidad.setEnabled(false);
         listaespecialidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 listaespecialidadActionPerformed(evt);
@@ -89,28 +100,40 @@ public class VentanaDiurna extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
         jLabel2.setText("Seleccionar Carrera:");
 
+        listacarrera.setEnabled(false);
+
         jLabel3.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
         jLabel3.setText("Seleccionar Facultad:");
+
+        listafacultad.setEnabled(false);
 
         jLabel4.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
         jLabel4.setText("Seleccione Periodo:");
 
         listaperiodo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccione>", "Mensual", "Semestral", "Anual" }));
+        listaperiodo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listaperiodoActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Calibri Light", 0, 15)); // NOI18N
         jLabel5.setText("Mes:");
 
-        listames.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccione>", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
+        listames.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
+        listames.setEnabled(false);
 
         jLabel6.setFont(new java.awt.Font("Calibri Light", 0, 15)); // NOI18N
         jLabel6.setText("Semestre:");
 
-        listasemestre.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccione>", "1", "2" }));
+        listasemestre.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2" }));
+        listasemestre.setEnabled(false);
 
         jLabel7.setFont(new java.awt.Font("Calibri Light", 0, 15)); // NOI18N
         jLabel7.setText("Año:");
 
-        listaaño.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccione>", "2012", "2013" }));
+        listaaño.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2012", "2013" }));
+        listaaño.setEnabled(false);
 
         botonmostrar.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
         botonmostrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/lupa-psd-468x468.png"))); // NOI18N
@@ -139,6 +162,28 @@ public class VentanaDiurna extends javax.swing.JFrame {
                 .addComponent(jRadioFacultad)
                 .addGap(63, 63, 63))
             .addGroup(layout.createSequentialGroup()
+                .addGap(62, 62, 62)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel4)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(listames, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39)
+                        .addComponent(jLabel6)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(listaperiodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(listasemestre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(80, 80, 80)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(listaaño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(36, 36, 36)
@@ -156,27 +201,8 @@ public class VentanaDiurna extends javax.swing.JFrame {
                         .addGap(19, 19, 19)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(132, 132, 132)
-                        .addComponent(jLabel4)
-                        .addGap(18, 18, 18)
-                        .addComponent(listaperiodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(listames, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(listasemestre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(listaaño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -243,6 +269,11 @@ public class VentanaDiurna extends javax.swing.JFrame {
 
     private void jRadioProfesionalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioProfesionalActionPerformed
         // TODO add your handling code here:
+        if(jRadioProfesional.isSelected()==true){
+            listaespecialidad.enable();
+            listacarrera.disable();
+            listafacultad.disable();
+        }
     }//GEN-LAST:event_jRadioProfesionalActionPerformed
 
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
@@ -256,6 +287,48 @@ public class VentanaDiurna extends javax.swing.JFrame {
         controladorVespertina controladorvespertina=new controladorVespertina(ventanaprincipal);
         this.dispose();
     }//GEN-LAST:event_volverActionPerformed
+
+    private void jRadioCarreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioCarreraActionPerformed
+        if(jRadioCarrera.isSelected()==true){
+            listacarrera.enable();
+            listaespecialidad.disable();
+            listafacultad.disable();
+        }
+    }//GEN-LAST:event_jRadioCarreraActionPerformed
+
+    private void jRadioFacultadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioFacultadActionPerformed
+        if(jRadioFacultad.isSelected()==true){
+            listafacultad.enable();
+            listacarrera.disable();
+            listaespecialidad.disable();
+        }
+    }//GEN-LAST:event_jRadioFacultadActionPerformed
+
+    private void listaperiodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaperiodoActionPerformed
+        if(listaperiodo.getSelectedIndex()==0){
+            listames.setEnabled(false);
+            listasemestre.setEnabled(false);
+            listaaño.setEnabled(false);
+        }
+        else if(listaperiodo.getSelectedIndex()==1){
+            listames.setEnabled(true);
+            listasemestre.setEnabled(false);
+            listaaño.setEnabled(true);
+            
+        }
+        else if(listaperiodo.getSelectedIndex()==2){
+            listasemestre.setEnabled(true);
+            listames.setEnabled(false);
+            listaaño.setEnabled(true);
+        }
+        else if(listaperiodo.getSelectedIndex()==3){
+            listaaño.setEnabled(true);
+            listasemestre.setEnabled(false);
+            listames.setEnabled(false);
+        }
+        
+            
+    }//GEN-LAST:event_listaperiodoActionPerformed
 
     /**
      * @param args the command line arguments

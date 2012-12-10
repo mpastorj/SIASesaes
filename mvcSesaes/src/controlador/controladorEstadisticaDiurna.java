@@ -33,6 +33,7 @@ public class controladorEstadisticaDiurna implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e) {
+     
         
      String especialidad = (String)ventana.listaespecialidad.getSelectedItem();
      String carrera      = (String)ventana.listacarrera.getSelectedItem();
@@ -42,7 +43,7 @@ public class controladorEstadisticaDiurna implements ActionListener{
      int semestre     = ventana.listasemestre.getSelectedIndex();
      String año       =(String)ventana.listaaño.getSelectedItem();
      
-     
+     if((ventana.jRadioProfesional.isSelected()==true || ventana.jRadioFacultad.isSelected()==true || ventana.jRadioCarrera.isSelected()==true) && ventana.listaperiodo.getSelectedIndex()!=0){
        VentanaTabla t = new VentanaTabla();
        DefaultTableModel modelo = new DefaultTableModel(); 
        t.tabla.setModel(modelo);
@@ -56,10 +57,10 @@ public class controladorEstadisticaDiurna implements ActionListener{
             break;
                case 2:
                {       
-            if(semestre == 1) {
+            if(semestre == 0) {
                        t.titulo2.setText("Período: Primer semestre del año "+año);
                    } 
-            else {
+            else{
                        t.titulo2.setText("Período: Segundo semestre del año "+año);
                    }
             break;       
@@ -78,9 +79,9 @@ public class controladorEstadisticaDiurna implements ActionListener{
           consulta = "AND MONTH(fecha_a) = "+mes+"";    
            break;
           case 2:
-              if(semestre == 1)
+              if(semestre == 0)
               consulta = "AND MONTH(fecha_a) BETWEEN 1 AND 6  ";
-              else if(semestre == 2)
+              else if(semestre == 1)
                   consulta = "AND MONTH(fecha_a) BETWEEN 7 AND 12  ";
               break;
        }       
@@ -135,7 +136,7 @@ public class controladorEstadisticaDiurna implements ActionListener{
             break;
                case 2:
                {       
-            if(semestre == 1) {
+            if(semestre == 0) {
                        t.titulo2.setText("Período: Primer semestre del año "+año);
                    } 
             else {
@@ -158,9 +159,9 @@ public class controladorEstadisticaDiurna implements ActionListener{
           consulta = "AND MONTH(fecha_a) = "+mes+"";    
            break;
           case 2:
-              if(semestre == 1)
+              if(semestre == 0)
               consulta = "AND MONTH(fecha_a) BETWEEN 1 AND 6  ";
-              else if(semestre == 2)
+              else if(semestre == 1)
                   consulta = "AND MONTH(fecha_a) BETWEEN 7 AND 12  ";
               break;
        }  
@@ -219,7 +220,7 @@ public class controladorEstadisticaDiurna implements ActionListener{
             break;
                case 2:
                {       
-            if(semestre == 1) {
+            if(semestre == 0) {
                        t.titulo2.setText("Período: Primer semestre del año "+año);
                    } 
             else {
@@ -240,9 +241,9 @@ public class controladorEstadisticaDiurna implements ActionListener{
           consulta = "AND MONTH(fecha_a) = "+mes+"";    
            break;
           case 2:
-              if(semestre == 1)
+              if(semestre == 0)
               consulta = "AND MONTH(fecha_a) BETWEEN 1 AND 6  ";
-              else if(semestre == 2)
+              else if(semestre == 1)
                   consulta = "AND MONTH(fecha_a) BETWEEN 7 AND 12  ";
               break;
        }
@@ -292,7 +293,7 @@ public class controladorEstadisticaDiurna implements ActionListener{
      
      controladorCopiar contcopiar=new controladorCopiar(t);
      
-      
+     }
     }
            
     
