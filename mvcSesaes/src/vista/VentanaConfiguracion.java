@@ -225,7 +225,7 @@ public class VentanaConfiguracion extends javax.swing.JFrame {
     private void dianacimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dianacimientoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_dianacimientoActionPerformed
-
+  
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
         // TODO add your handling code here:
         

@@ -4,6 +4,7 @@
  */
 package controlador;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -11,6 +12,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRExporter;
 import net.sf.jasperreports.engine.JRExporterParameter;
@@ -25,7 +29,7 @@ import net.sf.jasperreports.engine.util.JRLoader;
  * @author Pedro
  */
 public class controladorReportes {
-    
+    private File ruta_destino=null;
 public controladorReportes(String parametro, String año,int mes, String report){
 
 try {
@@ -57,10 +61,18 @@ try {
                  Logger.getLogger(controladorEstadisticaDiurna.class.getName()).log(Level.SEVERE, null, ex);
              }
 
-        JRExporter exporter = new JRPdfExporter();
+       
         
+       JRExporter exporter = new JRPdfExporter();
+       FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivo PDF","pdf","PDF");
+       JFileChooser fileChooser = new JFileChooser();       
+       fileChooser.setFileFilter(filter);
+       int result = fileChooser.showSaveDialog(null);
+       if ( result == JFileChooser.APPROVE_OPTION ){   
+           this.ruta_destino = fileChooser.getSelectedFile().getAbsoluteFile();
+        }      
         exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
-        exporter.setParameter(JRExporterParameter.OUTPUT_FILE, new java.io.File("reportePDF.pdf"));
+        exporter.setParameter(JRExporterParameter.OUTPUT_FILE, new java.io.File(this.ruta_destino+"reportePDF.pdf"));
              try {
                  exporter.exportReport();
              } catch (JRException ex) {
