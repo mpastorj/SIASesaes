@@ -309,7 +309,7 @@ public class controladorEstadisticaDiurna implements ActionListener{
      }
      
      controladorCopiar contcopiar=new controladorCopiar(t);
-     controladorGenerarPDF pdf = new controladorGenerarPDF(t,ventana);
+     controladorGenerarPDF pdf = new controladorGenerarPDF(t,ventana,1);
      
      
      }

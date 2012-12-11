@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporte1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c6078ab7-3c60-4559-bb08-a960a4fe3dfc">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="19"/>
+	<property name="ireport.y" value="18"/>
 	<parameter name="año" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -10,6 +10,9 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<parameter name="mes" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="jornada" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
@@ -26,7 +29,7 @@
                WHEN MONTH(`atencion`.fecha_a) = 11 THEN 'Noviembre'
                WHEN MONTH(`atencion`.fecha_a) = 12 THEN 'Diciembre'
                ELSE 'esto no es un mes' END as Mes, SUM(`atencion`.cantidad) as 'N° de atenciones'
-               from  `atencion` atencion where `atencion`.cod_profesional in (select `profeespe`.cod_p from `profeespe` profeespe where `profeespe`.cod_e = (select `especialidad`.cod_e from `especialidad` especialidad where `especialidad`.nombre_e = $P{especialidad})) and `atencion`.cod_c in (select `carrera`.cod_c from `carrera` carrera where tipo = '1') and MONTH(`atencion`.fecha_a) = $P{mes}  and YEAR(`atencion`.fecha_a) = $P{año}  group by Mes ]]>
+               from  `atencion` atencion where `atencion`.cod_profesional in (select `profeespe`.cod_p from `profeespe` profeespe where `profeespe`.cod_e = (select `especialidad`.cod_e from `especialidad` especialidad where `especialidad`.nombre_e = $P{especialidad})) and `atencion`.cod_c in (select `carrera`.cod_c from `carrera` carrera where tipo = $P{jornada}) and MONTH(`atencion`.fecha_a) = $P{mes}  and YEAR(`atencion`.fecha_a) = $P{año}  group by Mes]]>
 	</queryString>
 	<field name="Mes" class="java.lang.String"/>
 	<field name="N° de atenciones" class="java.math.BigDecimal"/>

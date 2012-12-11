@@ -39,7 +39,7 @@ public class controladorEstadisticaVespertina implements ActionListener{
      String carrera      = (String)ventana.listacarrera.getSelectedItem();
      String facultad     = (String)ventana.listafacultad.getSelectedItem();
      String periodo      = (String)ventana.listaperiodo.getSelectedItem(); 
-     int mes          = ventana.listames.getSelectedIndex();
+     int mes          = ventana.listames.getSelectedIndex()+1;
      int semestre     = ventana.listasemestre.getSelectedIndex();
      String año       =(String)ventana.listaaño.getSelectedItem();
      if((ventana.jRadioProfesional.isSelected()==true || ventana.jRadioFacultad.isSelected()==true || ventana.jRadioCarrera.isSelected()==true) && ventana.listaperiodo.getSelectedIndex()!=0){
@@ -291,7 +291,9 @@ public class controladorEstadisticaVespertina implements ActionListener{
      }
      
      controladorCopiar contcopiar=new controladorCopiar(t);
+     controladorGenerarPDF pdf = new controladorGenerarPDF(t,ventana,2);
      }
+     
     }
     
 }
