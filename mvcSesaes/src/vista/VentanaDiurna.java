@@ -94,11 +94,6 @@ public class VentanaDiurna extends javax.swing.JFrame {
         jLabel1.setText("Seleccionar Especialidad:");
 
         listaespecialidad.setEnabled(false);
-        listaespecialidad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listaespecialidadActionPerformed(evt);
-            }
-        });
 
         jLabel2.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
         jLabel2.setText("Seleccionar Carrera:");
@@ -266,12 +261,8 @@ public class VentanaDiurna extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void listaespecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaespecialidadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_listaespecialidadActionPerformed
-
     private void jRadioProfesionalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioProfesionalActionPerformed
-        // TODO add your handling code here:
+     
         if(jRadioProfesional.isSelected()==true){
             listaespecialidad.enable();
             listacarrera.disable();
@@ -280,10 +271,9 @@ public class VentanaDiurna extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioProfesionalActionPerformed
 
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
-        // TODO add your handling code here:
+        
         VentanaPrincipal ventanaprincipal=new VentanaPrincipal();
         ventanaprincipal.setVisible(true);
-        //VentanaTabla ventanatabla=new VentanaTabla();
         controladorPersona controladorpersona=new controladorPersona(ventanaprincipal);
         controladorDiurna controladordiurna=new controladorDiurna(ventanaprincipal);
         controladorConfiguracion controladorconfiguracion=new controladorConfiguracion(ventanaprincipal);

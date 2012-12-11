@@ -53,9 +53,7 @@ public class controladorPersona implements ActionListener{
     //@Override
     @Override
     public void actionPerformed(ActionEvent e) {
-
-
-        
+   
         //DESDE AQUI VENTANA INGRESO
         Facultad modelofacultad=new Facultad();
         Especialidad modeloespecialidad=new Especialidad();
@@ -74,8 +72,6 @@ public class controladorPersona implements ActionListener{
         controladorAtencion contatencion=new controladorAtencion(ventana, modelocarrera, modeloprofesional, modeloatencion);
         
         contfacultad.iniciar_vista();
-        
-        
     }
        
 }

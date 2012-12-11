@@ -89,11 +89,6 @@ public class VentanaConfiguracion extends javax.swing.JFrame {
 
         dianacimiento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28" }));
         dianacimiento.setEnabled(false);
-        dianacimiento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dianacimientoActionPerformed(evt);
-            }
-        });
 
         mesnacimiento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
         mesnacimiento.setEnabled(false);
@@ -111,7 +106,7 @@ public class VentanaConfiguracion extends javax.swing.JFrame {
         });
 
         especialidadprofesional.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        especialidadprofesional.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccione>", "Cirugía", "Enfermería", "Kinesiología", "Medicina General", "Medicina Interna", "Medicina en Hematología", "Neurología", "Nutriología", "Odontología General", "Psicología", "Psiquiatría", "Traumatología", " ", " ", " " }));
+        especialidadprofesional.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccione>", "Cirugía", "Enfermería", "Kinesiología", "Medicina General", "Medicina Interna", "Medicina en Hematología", "Neurología", "Nutriología", "Odontología General", "Psicología", "Psiquiatría", "Traumatología" }));
 
         nombreprofesional.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -221,17 +216,11 @@ public class VentanaConfiguracion extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void dianacimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dianacimientoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dianacimientoActionPerformed
   
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
-        // TODO add your handling code here:
-        
+ 
         VentanaPrincipal ventanaprincipal=new VentanaPrincipal();
         ventanaprincipal.setVisible(true);
-        //VentanaTabla ventanatabla=new VentanaTabla();
         controladorPersona controladorpersona=new controladorPersona(ventanaprincipal);
         controladorDiurna controladordiurna=new controladorDiurna(ventanaprincipal);
         controladorConfiguracion controladorconfiguracion=new controladorConfiguracion(ventanaprincipal);
@@ -268,21 +257,16 @@ public class VentanaConfiguracion extends javax.swing.JFrame {
     }//GEN-LAST:event_nombreprofesionalKeyReleased
 
     private void mesnacimientoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_mesnacimientoItemStateChanged
-        // TODO add your handling code here:
-       // dianacimiento.repaint();
-        //dianacimiento.getActionListeners();
-        //dianacimiento.removeAll();
-        //controladorAjustesIngreso contingreso=new controladorAjustesIngreso(this);
+
         dianacimiento.removeAllItems();
         for(int i=1;i<29;i++){
             String numCadena= String.valueOf(i);
         dianacimiento.addItem(numCadena);
         }
-       // dianacimiento.getComponents();
     }//GEN-LAST:event_mesnacimientoItemStateChanged
 
     private void añonacimientoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_añonacimientoItemStateChanged
-        // TODO add your handling code here:
+      
         dianacimiento.disable();
     }//GEN-LAST:event_añonacimientoItemStateChanged
 

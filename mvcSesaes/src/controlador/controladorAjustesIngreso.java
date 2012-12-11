@@ -37,12 +37,6 @@ public class controladorAjustesIngreso implements ActionListener{
     }
 
     
-
-   // public controladorAjustesIngreso() {
-  //      this.vista.guardar.addActionListener(this);
-  //  }
-   
-    
     public int asignames(){
         String mes_nac=(String)vista.mesnacimiento.getSelectedItem();
         int numero=0;
@@ -97,19 +91,11 @@ public class controladorAjustesIngreso implements ActionListener{
     
     if(e.getSource()==vista.añonacimiento){
         vista.mesnacimiento.enable();
-        //vista.dianacimiento.enable();
     }
         if(e.getSource()==vista.mesnacimiento){
         vista.dianacimiento.enable();
-          // vista.dianacimiento.removeAllItems();
-           
-            //vista.dianacimiento.enable();
             if(mes_nacimiento==2){
-            //vista.dianacimiento.enable();
-    //if((añodenacimiento % 4!=0) && ((añodenacimiento % 100==0) || (añodenacimiento % 400!=0))){
-      
-    //}
-     // else
+                
       if((añodenacimiento % 4==0) && ((añodenacimiento % 100!=0) || (añodenacimiento % 400==0))){
 
           vista.dianacimiento.addItem(29);
@@ -168,7 +154,6 @@ public class controladorAjustesIngreso implements ActionListener{
         cnbd.setEsSelect(true);
         cnbd.setComandoSQL("select cod_p from profesional where nombre_p='"+nombre+"'");
         cnbd.conectar();
-        //cnbd.setComandoSQL("SELECT cod_p FROM profesional DESC LIMIT 1 ");
          
         try {
             while(cnbd.getRst().next()) {
@@ -196,10 +181,6 @@ public class controladorAjustesIngreso implements ActionListener{
             javax.swing.JOptionPane.showMessageDialog (null, "Debe ingresar información válida", "Ficha de Configuración", JOptionPane.INFORMATION_MESSAGE);
         }
         
-          
-    
-   // }
-    
  
     }
     

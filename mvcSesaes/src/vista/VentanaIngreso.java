@@ -56,14 +56,6 @@ public class VentanaIngreso extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setIconImage(getIconImage());
         setResizable(false);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowActivated(java.awt.event.WindowEvent evt) {
-                formWindowActivated(evt);
-            }
-            public void windowClosed(java.awt.event.WindowEvent evt) {
-                formWindowClosed(evt);
-            }
-        });
 
         botondeingreso.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         botondeingreso.setText("Ingresar");
@@ -87,11 +79,6 @@ public class VentanaIngreso extends javax.swing.JFrame {
         listafacultad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         listafacultad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccione>", "Administración y Economía", "Ciencias de la Construcción y Ordenamiento Territorial", "Ciencias Naturales, Matemática y del Medio Ambiente", "Humanidades y Tecnologías de la Comunicación Social", "Ingeniería" }));
         listafacultad.setEnabled(false);
-        listafacultad.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                listafacultadItemStateChanged(evt);
-            }
-        });
         listafacultad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 listafacultadActionPerformed(evt);
@@ -232,11 +219,8 @@ public class VentanaIngreso extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-    }//GEN-LAST:event_formWindowActivated
-
     private void listatipoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_listatipoItemStateChanged
-        // TODO add your handling code here:
+    
         String cadena = (String)listatipo.getSelectedItem();
         if (!"<Seleccione>".equals(cadena)){
             listaespecialidad.enable();
@@ -250,6 +234,14 @@ public class VentanaIngreso extends javax.swing.JFrame {
             cantidadatenciones.setSelectedIndex(0);
             cantidadatenciones.disable();
         }
+        botondeingreso.setEnabled(false);
+        listaespecialidad.setSelectedIndex(0);
+        //listaprofesional.setSelectedIndex(0);
+        listafacultad.setSelectedIndex(0);
+        //listacarrera.setSelectedIndex(0);
+        cantidadatenciones.setSelectedIndex(0);
+        
+        
     }//GEN-LAST:event_listatipoItemStateChanged
 
     private void listaespecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaespecialidadActionPerformed
@@ -268,7 +260,7 @@ public class VentanaIngreso extends javax.swing.JFrame {
     }//GEN-LAST:event_listaespecialidadActionPerformed
 
         private void cantidadatencionesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cantidadatencionesItemStateChanged
-        // TODO add your handling code here:
+        
             String cant = (String)cantidadatenciones.getSelectedItem();
             String tipo = (String)listatipo.getSelectedItem();
             String especialidad = (String)listaespecialidad.getSelectedItem();
@@ -280,21 +272,8 @@ public class VentanaIngreso extends javax.swing.JFrame {
             }
     }//GEN-LAST:event_cantidadatencionesItemStateChanged
 
-    private void listafacultadItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_listafacultadItemStateChanged
-        // TODO add your handling code here:
-        /*String esp = (String)listafacultad.getSelectedItem();
-        if (esp != "<Seleccione>"){
-            listacarrera.enable();
-            cantidadatenciones.enable();
-        }else{
-            listacarrera.disable();
-            cantidadatenciones.setSelectedIndex(0);
-            cantidadatenciones.disable();
-        }*/
-    }//GEN-LAST:event_listafacultadItemStateChanged
-
     private void listafacultadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listafacultadActionPerformed
-        // TODO add your handling code here:
+    
         String esp = (String)listafacultad.getSelectedItem();
         if (!"<Seleccione>".equals(esp)){
             listacarrera.enable();
@@ -306,20 +285,10 @@ public class VentanaIngreso extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_listafacultadActionPerformed
 
-    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
-        // TODO add your handling code here:
-       
-       // VentanaPrincipal princ = new VentanaPrincipal();
-       // Persona per = new Persona();
-       // new controladorPersona(princ,per);
-        
-    }//GEN-LAST:event_formWindowClosed
-
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
-        // TODO add your handling code here:
+
         VentanaPrincipal ventanaprincipal=new VentanaPrincipal();
         ventanaprincipal.setVisible(true);
-        //VentanaTabla ventanatabla=new VentanaTabla();
         controladorPersona controladorpersona=new controladorPersona(ventanaprincipal);
         controladorDiurna controladordiurna=new controladorDiurna(ventanaprincipal);
         controladorConfiguracion controladorconfiguracion=new controladorConfiguracion(ventanaprincipal);

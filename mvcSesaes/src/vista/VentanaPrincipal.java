@@ -56,14 +56,29 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         botoningresar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         botoningresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/escuchar-flecha-hacia-la-derecha-icono-5927-96 (2).png"))); // NOI18N
         botoningresar.setText("Ingresar Atenciones");
+        botoningresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botoningresarActionPerformed(evt);
+            }
+        });
 
         botondiurna.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         botondiurna.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/solVentanaPrincipal.png"))); // NOI18N
         botondiurna.setText("Estadísticas Diurnas");
+        botondiurna.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botondiurnaActionPerformed(evt);
+            }
+        });
 
         botonvespertina.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         botonvespertina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/noche-de-luna-icono-7290-96 (2).png"))); // NOI18N
         botonvespertina.setText("Estadísticas Vespertinas");
+        botonvespertina.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonvespertinaActionPerformed(evt);
+            }
+        });
 
         botonconfiguracion.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         botonconfiguracion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/configuracion-27 (3).png"))); // NOI18N
@@ -116,8 +131,24 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void botoningresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoningresarActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_botoningresarActionPerformed
+
+    private void botondiurnaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botondiurnaActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_botondiurnaActionPerformed
+
+    private void botonvespertinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonvespertinaActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_botonvespertinaActionPerformed
+
     private void botonconfiguracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonconfiguracionActionPerformed
         // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_botonconfiguracionActionPerformed
 
     /**
