@@ -85,14 +85,14 @@ public class controladorGenerarPDF implements ActionListener{
             {
             if(ventana.listasemestre.getSelectedIndex()==0)
             {
-             String reporte = "reporte2.jasper";           
-              controladorReportes r = new controladorReportes(especialidad,año,mes,reporte);
+             String reporte = "reporte6.jasper";           
+              controladorReportes r = new controladorReportes(carrera,año,mes,reporte);
                 
             }
             else
             {
-            String reporte = "reporte3.jasper";           
-            controladorReportes r = new controladorReportes(especialidad,año,mes,reporte);
+            String reporte = "reporte7.jasper";           
+            controladorReportes r = new controladorReportes(carrera,año,mes,reporte);
                 
             }
             break;
@@ -100,8 +100,8 @@ public class controladorGenerarPDF implements ActionListener{
             }  
             case 3:
             {
-            String reporte = "reporte4.jasper";           
-            controladorReportes r = new controladorReportes(especialidad,año,mes,reporte);
+            String reporte = "reporte8.jasper";           
+            controladorReportes r = new controladorReportes(carrera,año,mes,reporte);
             break;
             
             }
