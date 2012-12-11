@@ -53,7 +53,7 @@ public class controladorEstadisticaDiurna implements ActionListener{
      String carrera      = (String)ventana.listacarrera.getSelectedItem();
      String facultad     = (String)ventana.listafacultad.getSelectedItem();
      String periodo      = (String)ventana.listaperiodo.getSelectedItem(); 
-     int mes          = ventana.listames.getSelectedIndex();
+     int mes          = ventana.listames.getSelectedIndex() + 1;
      int semestre     = ventana.listasemestre.getSelectedIndex();
      String año       =(String)ventana.listaaño.getSelectedItem();
      

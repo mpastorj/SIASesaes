@@ -32,6 +32,8 @@ public class controladorReportes {
     private File ruta_destino=null;
 public controladorReportes(String parametro, String año,int mes, String report){
 
+    int mes2 = mes +1;
+    
 try {
                  Class.forName("com.mysql.jdbc.Driver");
              } catch (ClassNotFoundException ex) {
@@ -55,7 +57,7 @@ try {
                  Map parametros = new HashMap();
                  parametros.put("especialidad",parametro);
                  parametros.put("año",año);
-                 parametros.put("mes", mes);
+                 parametros.put("mes", mes2);
                  jasperPrint = JasperFillManager.fillReport(reporte, parametros , conexion);
              } catch (JRException ex) {
                  Logger.getLogger(controladorEstadisticaDiurna.class.getName()).log(Level.SEVERE, null, ex);

@@ -27,7 +27,7 @@
                WHEN MONTH(`atencion`.fecha_a) = 12 THEN 'Diciembre'
                ELSE 'esto no es un mes' END as Mes, SUM(`atencion`.cantidad) as 'N° de atenciones'
                from  `atencion` atencion where  `atencion`.cod_c in (select `carrera`.cod_c from `carrera` carrera where
-  tipo = '1' and `carrera`.cod_f = (select `facultad`.cod_f from `facultad` facultad where `facultad`.nombre_f = $P{especialidad})) and MONTH(`atencion`.fecha_a) = $P{año} and YEAR(`atencion`.fecha_a) = $P{año}  group by Mes order by MONTH(`atencion`.fecha_a)]]>
+  tipo = '1' and `carrera`.cod_f = (select `facultad`.cod_f from `facultad` facultad where `facultad`.nombre_f = $P{especialidad})) and YEAR(`atencion`.fecha_a) = $P{año} and MONTH(`atencion`.fecha_a) = $P{mes} group by Mes order by MONTH(`atencion`.fecha_a)]]>
 	</queryString>
 	<field name="Mes" class="java.lang.String"/>
 	<field name="N° de atenciones" class="java.math.BigDecimal"/>
