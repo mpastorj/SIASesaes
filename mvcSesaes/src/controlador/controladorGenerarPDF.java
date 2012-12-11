@@ -32,6 +32,7 @@ public class controladorGenerarPDF implements ActionListener{
     String año = (String)ventana.listaaño.getSelectedItem();
     int mes = ventana.listames.getSelectedIndex();
     String carrera = (String)ventana.listacarrera.getSelectedItem();
+    String facultad = (String)ventana.listafacultad.getSelectedItem();
         
       
     if(ventana.jRadioProfesional.isSelected())
@@ -110,7 +111,47 @@ public class controladorGenerarPDF implements ActionListener{
     
     
     }
-        
+    
+    else if(ventana.jRadioFacultad.isSelected())
+    {
+    switch(ventana.listaperiodo.getSelectedIndex())
+        {
+            case 1:
+            {           
+     String reporte = "reporte9.jasper";           
+    controladorReportes r = new controladorReportes(facultad,año,mes,reporte);
+    break;
+            }
+            case 2:
+            {
+            if(ventana.listasemestre.getSelectedIndex()==0)
+            {
+             String reporte = "reporte10.jasper";           
+              controladorReportes r = new controladorReportes(facultad,año,mes,reporte);
+                
+            }
+            else
+            {
+            String reporte = "reporte11.jasper";           
+            controladorReportes r = new controladorReportes(facultad,año,mes,reporte);
+                
+            }
+            break;
+            
+            }  
+            case 3:
+            {
+            String reporte = "reporte12.jasper";           
+            controladorReportes r = new controladorReportes(facultad,año,mes,reporte);
+            break;
+            
+            }
+        }        
+    
+    
+    
+    }
+       
         
     }
     

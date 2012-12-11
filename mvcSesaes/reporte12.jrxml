@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporte1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c6078ab7-3c60-4559-bb08-a960a4fe3dfc">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="año" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="especialidad" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="mes" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select CASE WHEN MONTH(`atencion`.fecha_a) = 1 THEN 'Enero'
+               WHEN MONTH(`atencion`.fecha_a) = 2 THEN 'Febrero' 
+               WHEN MONTH(`atencion`.fecha_a) = 3 THEN 'Marzo'
+               WHEN MONTH(`atencion`.fecha_a) = 4 THEN 'Abril'
+               WHEN MONTH(`atencion`.fecha_a) = 5 THEN 'Mayo'
+               WHEN MONTH(`atencion`.fecha_a) = 6 THEN 'Junio'
+               WHEN MONTH(`atencion`.fecha_a) = 7 THEN 'Julio'
+               WHEN MONTH(`atencion`.fecha_a) = 8 THEN 'Agosto'
+               WHEN MONTH(`atencion`.fecha_a) = 9 THEN 'Septiembre'
+               WHEN MONTH(`atencion`.fecha_a) = 10 THEN 'Octubre'
+               WHEN MONTH(`atencion`.fecha_a) = 11 THEN 'Noviembre'
+               WHEN MONTH(`atencion`.fecha_a) = 12 THEN 'Diciembre'
+               ELSE 'esto no es un mes' END as Mes, SUM(`atencion`.cantidad) as 'N° de atenciones'
+               from  `atencion` atencion where  `atencion`.cod_c in (select `carrera`.cod_c from `carrera` carrera where
+  tipo = '1' and `carrera`.cod_f = (select `facultad`.cod_f from `facultad` facultad where `facultad`.nombre_f = $P{especialidad})) and YEAR(`atencion`.fecha_a) = $P{año}  group by Mes order by MONTH(`atencion`.fecha_a)]]>
+	</queryString>
+	<field name="Mes" class="java.lang.String"/>
+	<field name="N° de atenciones" class="java.math.BigDecimal"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement uuid="35a7f612-8680-42a9-8126-c34d0a3d5130" mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699"/>
+				<textField>
+					<reportElement uuid="6eafd086-cf9a-4b10-bdf8-e398e59cd059" x="20" y="28" width="487" height="35" forecolor="#FFFFFF"/>
+					<textElement>
+						<font size="20" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Estadísticas: "+ $P{especialidad}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement uuid="d6542ebd-bd09-477b-bfa8-76c7757ca128" x="-20" y="20" width="595" height="1" forecolor="#666666"/>
+			</line>
+			<staticText>
+				<reportElement uuid="581167e3-b2f6-4e2f-ab31-eb7a4eb3b72f" mode="Opaque" x="0" y="0" width="277" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Mes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="23d495db-6c80-46fc-8aa5-b897d26fdb17" mode="Opaque" x="277" y="0" width="277" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[N° de atenciones]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement uuid="90b630f3-188f-4c00-a6dc-663333b4098a" positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="59fe9888-d80f-4281-b645-f470f61ca43c" x="0" y="0" width="277" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Mes}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="666b54d3-bb31-40c6-8919-ccda8f33a020" x="277" y="0" width="277" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{N° de atenciones}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement uuid="9a787d18-bff0-4bbc-9bff-9ea935f879ba" mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="40dd535b-cbd3-4536-a0ce-f5db759341dd" mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="25af8ad0-12e2-4c2f-b518-b960721f544c" x="0" y="4" width="100" height="13"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="200">
+			<bar3DChart>
+				<chart>
+					<reportElement uuid="85ec34c6-1339-44fd-925a-0d57b5122171" x="83" y="11" width="368" height="175"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA[""]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{Mes}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{N° de atenciones}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<bar3DPlot>
+					<plot/>
+					<itemLabel/>
+				</bar3DPlot>
+			</bar3DChart>
+		</band>
+	</summary>
+</jasperReport>
