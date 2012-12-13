@@ -139,6 +139,11 @@
 						<categoryExpression><![CDATA[$F{Mes}]]></categoryExpression>
 						<valueExpression><![CDATA[$F{N° de atenciones}]]></valueExpression>
 					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{Mes}]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{Mes}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{N° de atenciones}]]></valueExpression>
+					</categorySeries>
 				</categoryDataset>
 				<bar3DPlot>
 					<plot/>

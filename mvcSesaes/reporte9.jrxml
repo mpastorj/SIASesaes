@@ -48,6 +48,13 @@
 					</textElement>
 					<textFieldExpression><![CDATA["Estadísticas: "+ $P{especialidad}]]></textFieldExpression>
 				</textField>
+				<textField>
+					<reportElement uuid="0682cf0f-1a59-4f22-9c93-30a8b8a4f11f" x="380" y="63" width="195" height="20" forecolor="#FFFFFF"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Estadística Mensual Año :" +$P{año}]]></textFieldExpression>
+				</textField>
 			</frame>
 		</band>
 	</title>
@@ -122,14 +129,14 @@
 		<band height="200">
 			<bar3DChart>
 				<chart>
-					<reportElement uuid="85ec34c6-1339-44fd-925a-0d57b5122171" x="83" y="11" width="368" height="175"/>
+					<reportElement uuid="85ec34c6-1339-44fd-925a-0d57b5122171" x="80" y="10" width="368" height="175"/>
 					<chartTitle/>
 					<chartSubtitle/>
 					<chartLegend/>
 				</chart>
 				<categoryDataset>
 					<categorySeries>
-						<seriesExpression><![CDATA[""]]></seriesExpression>
+						<seriesExpression><![CDATA[$F{Mes}]]></seriesExpression>
 						<categoryExpression><![CDATA[$F{Mes}]]></categoryExpression>
 						<valueExpression><![CDATA[$F{N° de atenciones}]]></valueExpression>
 					</categorySeries>

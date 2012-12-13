@@ -48,11 +48,11 @@
 					<textFieldExpression><![CDATA["Estadísticas: "+ $P{especialidad}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement uuid="be48b629-d0f2-4b8e-88f9-7e087844c11e" x="382" y="51" width="189" height="32" forecolor="#FFFFFF"/>
+					<reportElement uuid="c3d0cb09-a873-429f-8c00-19c58cbcd22e" x="394" y="47" width="181" height="36" forecolor="#FFFFFF"/>
 					<textElement>
 						<font size="12"/>
 					</textElement>
-					<textFieldExpression><![CDATA["Estadística Segundo Semestre año :"+$P{año}]]></textFieldExpression>
+					<textFieldExpression><![CDATA["Estadísticas Segundo Semestre año: "+$P{año}]]></textFieldExpression>
 				</textField>
 			</frame>
 		</band>
@@ -135,7 +135,7 @@
 				</chart>
 				<categoryDataset>
 					<categorySeries>
-						<seriesExpression><![CDATA[""]]></seriesExpression>
+						<seriesExpression><![CDATA[$F{Mes}]]></seriesExpression>
 						<categoryExpression><![CDATA[$F{Mes}]]></categoryExpression>
 						<valueExpression><![CDATA[$F{N° de atenciones}]]></valueExpression>
 					</categorySeries>
