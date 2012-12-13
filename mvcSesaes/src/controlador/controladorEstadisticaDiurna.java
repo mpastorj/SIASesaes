@@ -62,6 +62,7 @@ public class controladorEstadisticaDiurna implements ActionListener{
        DefaultTableModel modelo = new DefaultTableModel(); 
        t.tabla.setModel(modelo);
        
+       
        if(ventana.jRadioProfesional.isSelected()==true){
            t.titulo.setText("Estadística especialidad: "+especialidad );
            switch(ventana.listaperiodo.getSelectedIndex())
@@ -135,6 +136,7 @@ public class controladorEstadisticaDiurna implements ActionListener{
     fila[i]=rs.getObject(i+1);
   }
   modelo.addRow(fila);
+  
  }
  rs.close();
  cn.cerrarConexion();

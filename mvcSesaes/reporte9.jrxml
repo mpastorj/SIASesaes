@@ -42,7 +42,7 @@
 			<frame>
 				<reportElement uuid="35a7f612-8680-42a9-8126-c34d0a3d5130" mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699"/>
 				<textField>
-					<reportElement uuid="6eafd086-cf9a-4b10-bdf8-e398e59cd059" x="20" y="28" width="487" height="35" forecolor="#FFFFFF"/>
+					<reportElement uuid="6eafd086-cf9a-4b10-bdf8-e398e59cd059" x="20" y="28" width="554" height="35" forecolor="#FFFFFF"/>
 					<textElement>
 						<font size="20" isBold="true"/>
 					</textElement>
