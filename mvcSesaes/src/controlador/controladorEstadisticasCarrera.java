@@ -39,7 +39,7 @@ public class controladorEstadisticasCarrera implements ActionListener{
             conexion cdb=new conexion();
            
             cdb.setEsSelect(true);
-            cdb.setComandoSQL("select nombre_c from carrera where tipo='1'" );
+            cdb.setComandoSQL("select nombre_c from carrera where tipo='1' order by nombre_c" );
             cdb.conectar();
             
             try {  

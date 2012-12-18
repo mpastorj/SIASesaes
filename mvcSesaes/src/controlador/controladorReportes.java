@@ -73,7 +73,12 @@ try {
        int result = fileChooser.showSaveDialog(null);
        if ( result == JFileChooser.APPROVE_OPTION ){   
            this.ruta_destino = fileChooser.getSelectedFile().getAbsoluteFile();
-        }      
+           javax.swing.JOptionPane.showMessageDialog (null, "PDF generado con éxito", "Ficha de Estadísticas", JOptionPane.INFORMATION_MESSAGE);
+       }
+       else
+           if(result==JFileChooser.CANCEL_OPTION){
+               javax.swing.JOptionPane.showMessageDialog (null, "PDF cancelado..", "Ficha de Estadísticas", JOptionPane.INFORMATION_MESSAGE);
+           }
         exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
         exporter.setParameter(JRExporterParameter.OUTPUT_FILE, new java.io.File(this.ruta_destino+"reportePDF.pdf"));
              try {
@@ -83,7 +88,7 @@ try {
              }
 
 
-
+                     
 }    
     
 }

@@ -190,11 +190,11 @@ public class VentanaDiurna extends javax.swing.JFrame {
                                 .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(jLabel3))
-                        .addGap(36, 36, 36)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(listaespecialidad, 0, 234, Short.MAX_VALUE)
-                            .addComponent(listacarrera, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(listafacultad, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(listaespecialidad, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(listafacultad, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(listacarrera, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -265,8 +265,12 @@ public class VentanaDiurna extends javax.swing.JFrame {
      
         if(jRadioProfesional.isSelected()==true){
             listaespecialidad.enable();
-            listacarrera.disable();
-            listafacultad.disable();
+            listacarrera.removeAllItems();
+            listacarrera.setEnabled(false);
+            //listacarrera.disable();
+            listafacultad.removeAllItems();
+            listafacultad.setEnabled(false);
+           // listafacultad.disable();
         }
     }//GEN-LAST:event_jRadioProfesionalActionPerformed
 
@@ -284,16 +288,20 @@ public class VentanaDiurna extends javax.swing.JFrame {
     private void jRadioCarreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioCarreraActionPerformed
         if(jRadioCarrera.isSelected()==true){
             listacarrera.enable();
-            listaespecialidad.disable();
-            listafacultad.disable();
+            listaespecialidad.removeAllItems();
+            listaespecialidad.setEnabled(false);
+            listafacultad.removeAllItems();
+            listafacultad.setEnabled(false);
         }
     }//GEN-LAST:event_jRadioCarreraActionPerformed
 
     private void jRadioFacultadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioFacultadActionPerformed
         if(jRadioFacultad.isSelected()==true){
             listafacultad.enable();
-            listacarrera.disable();
-            listaespecialidad.disable();
+            listacarrera.removeAllItems();
+            listacarrera.setEnabled(false);
+            listaespecialidad.removeAllItems();
+            listaespecialidad.setEnabled(false);
         }
     }//GEN-LAST:event_jRadioFacultadActionPerformed
 

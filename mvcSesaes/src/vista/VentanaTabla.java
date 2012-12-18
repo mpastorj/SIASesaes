@@ -154,6 +154,8 @@ public class VentanaTabla extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_volverActionPerformed
 
+
+    
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_salirActionPerformed
@@ -192,7 +194,7 @@ public class VentanaTabla extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(VentanaTabla.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+     
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

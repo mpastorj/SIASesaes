@@ -31,7 +31,6 @@ public class controladorEstadisticaVespertina implements ActionListener{
     public controladorEstadisticaVespertina() {
     }
     
-    
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -45,7 +44,8 @@ public class controladorEstadisticaVespertina implements ActionListener{
      if((ventana.jRadioProfesional.isSelected()==true || ventana.jRadioFacultad.isSelected()==true || ventana.jRadioCarrera.isSelected()==true) && ventana.listaperiodo.getSelectedIndex()!=0){
      
        VentanaTabla t = new VentanaTabla();
-       DefaultTableModel modelo = new DefaultTableModel(); 
+       DefaultTableModel modelo = new DefaultTableModel();
+    
        t.tabla.setModel(modelo);
        
        if(ventana.jRadioProfesional.isSelected()==true){

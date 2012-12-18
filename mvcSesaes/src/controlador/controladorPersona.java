@@ -46,7 +46,7 @@ public class controladorPersona implements ActionListener{
 
     public void iniciar_vista(){
         
-        vista.setTitle(" SESAES");
+        vista.setTitle(" SESAES: Sistema de Estadísticas");
       
     }
     
@@ -70,7 +70,7 @@ public class controladorPersona implements ActionListener{
         controladorCarrera contcarrera=new controladorCarrera(ventana,modelocarrera);
         controladorProfesional contprofesional=new controladorProfesional(ventana,modeloprofesional);
         controladorAtencion contatencion=new controladorAtencion(ventana, modelocarrera, modeloprofesional, modeloatencion);
-        
+        vista.setTitle(" SESAES: Sistema de Estadísticas");
         contfacultad.iniciar_vista();
     }
        

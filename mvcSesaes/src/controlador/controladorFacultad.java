@@ -94,18 +94,20 @@ public class controladorFacultad implements ActionListener{
   
         //ACA SE LLENA EL JCOMBOBOX DE CARRERAS SEGUN FACULTAD
             ArrayList <String> nombres_c = new ArrayList();
+            ArrayList <String> codigos_c=new ArrayList();
             conexion cdb=new conexion();
         
             cdb.setEsSelect(true);
-            cdb.setComandoSQL("select nombre_c,tipo  from carrera where tipo='"+numerotipo+"' and cod_f='"+numFacultad+"' order by nombre_c" );
+            cdb.setComandoSQL("select nombre_c,tipo,cod_c  from carrera where tipo='"+numerotipo+"' and cod_f='"+numFacultad+"' order by cod_c" );
             cdb.conectar();
             
             try {  
             while(cdb.getRst().next())
             {
                String nombre_c =cdb.getRst().getString("nombre_c");
-                
-               nombres_c.add(nombre_c);       
+               String codigo_c=cdb.getRst().getString("cod_c");
+               nombres_c.add(nombre_c);    
+               codigos_c.add(codigo_c);
             }
             } catch (SQLException ex) {
             Logger.getLogger(VentanaPrincipal.class.getName()).log(Level.SEVERE, "Error al cargar lista de carreras segun facultad", ex);
@@ -114,9 +116,14 @@ public class controladorFacultad implements ActionListener{
             cdb.cerrarConexion();
             
             vista.listacarrera.removeAllItems();
-      
-            for(String arreglodecarreras:nombres_c)
-            vista.listacarrera.addItem(arreglodecarreras);
+           // String arreglodecodigos=codigos_c;
+            int cantidad=codigos_c.size();
+            int i=0;
+            for(i=0;i<cantidad;i++){
+           // for(String arreglodecarreras:nombres_c){
+            vista.listacarrera.addItem(codigos_c.get(i)+" - "+nombres_c.get(i));
+            //}
+            }
             
         //-------------------------------------------
             
