@@ -9,6 +9,7 @@ import java.awt.Toolkit;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -46,9 +47,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         botonvespertina = new javax.swing.JButton();
         botonconfiguracion = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setIconImage(getIconImage());
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/ImagenPrincipalSesaes.png"))); // NOI18N
         jLabel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -150,6 +156,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_botonconfiguracionActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        int salir = JOptionPane.showConfirmDialog(null,"¿Está seguro(a) que desea salir?", "Salir",JOptionPane.YES_NO_OPTION);
+        
+      if (JOptionPane.YES_OPTION==salir) {
+            this.dispose();
+      }
+            
+    }//GEN-LAST:event_formWindowClosing
+
 
     /**
      * @param args the command line arguments
