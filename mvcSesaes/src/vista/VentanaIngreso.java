@@ -77,7 +77,7 @@ public class VentanaIngreso extends javax.swing.JFrame {
         listaprofesional.setEnabled(false);
 
         listafacultad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        listafacultad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccione>", "Administración y Economía", "Ciencias de la Construcción y Ordenamiento Territorial", "Ciencias Naturales, Matemática y del Medio Ambiente", "Humanidades y Tecnologías de la Comunicación Social", "Ingeniería" }));
+        listafacultad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccione>", "Administración y Economía", "Ciencias de la Construcción y Ordenamiento Territorial", "Ciencias Naturales, Matemática y del Medio Ambiente", "Humanidades y Tecnologías de la Comunicación Social", "Ingeniería", "Sede San Fernando" }));
         listafacultad.setEnabled(false);
         listafacultad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
