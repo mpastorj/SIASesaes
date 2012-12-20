@@ -35,6 +35,7 @@ public class controladorVespertina implements ActionListener{
         controladorEstadisticasFacultad contfacultad=new controladorEstadisticasFacultad(ventana);
         controladorEstadisticasCarreraVespertina contcarrera=new controladorEstadisticasCarreraVespertina(ventana);
         controladorEstadisticaVespertina controladorprincipal=new controladorEstadisticaVespertina(ventana);
+        controladorEstadisticasEspecialidad contprofesional=new controladorEstadisticasEspecialidad(ventana);
     }
     
 }

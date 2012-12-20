@@ -48,7 +48,7 @@ public class controladorEstadisticaDiurna implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
      
-        
+     String profesional=(String)ventana.listaprofesional.getSelectedItem();  
      String especialidad = (String)ventana.listaespecialidad.getSelectedItem();
      String carrera      = (String)ventana.listacarrera.getSelectedItem();
      String facultad     = (String)ventana.listafacultad.getSelectedItem();
@@ -57,7 +57,7 @@ public class controladorEstadisticaDiurna implements ActionListener{
      int semestre     = ventana.listasemestre.getSelectedIndex();
      String año       =(String)ventana.listaaño.getSelectedItem();
      
-     if((ventana.jRadioProfesional.isSelected()==true || ventana.jRadioFacultad.isSelected()==true || ventana.jRadioCarrera.isSelected()==true) && ventana.listaperiodo.getSelectedIndex()!=0){
+     if((ventana.jRadioProfesional.isSelected()==true || ventana.jRadioFacultad.isSelected()==true || ventana.jRadioCarrera.isSelected()==true || ventana.jradioprofesional.isSelected()==true) && ventana.listaperiodo.getSelectedIndex()!=0){
        VentanaTabla t = new VentanaTabla();
        DefaultTableModel modelo = new DefaultTableModel(); 
        t.tabla.setModel(modelo);
@@ -308,6 +308,86 @@ public class controladorEstadisticaDiurna implements ActionListener{
                 Logger.getLogger(VentanaTabla.class.getName()).log(Level.SEVERE, null, ex);
             }
          
+     }
+     
+     if(ventana.jradioprofesional.isSelected()==true){
+        t.titulo.setText("Estadística Carrera: "+profesional );
+           switch(ventana.listaperiodo.getSelectedIndex())
+           {
+               case 1:
+            t.titulo2.setText("Período: "+(String)ventana.listames.getSelectedItem()+" de "+año); 
+            break;
+               case 2:
+               {       
+            if(semestre == 0) {
+                       t.titulo2.setText("Período: Primer semestre del año "+año);
+                   } 
+            else {
+                       t.titulo2.setText("Período: Segundo semestre del año "+año);
+                   }
+            break;       
+                 
+           }
+               case 3:
+                  t.titulo2.setText("Período: Año "+año); 
+          }
+           
+       conexion cn = new conexion();
+       
+       String consulta = "";      
+          
+      switch(ventana.listaperiodo.getSelectedIndex())
+      {
+          case 1:
+          consulta = "AND MONTH(fecha_a) = "+mes+"";    
+           break;
+          case 2:
+              if(semestre == 0)
+              consulta = "AND MONTH(fecha_a) BETWEEN 1 AND 6  ";
+              else if(semestre == 1)
+                  consulta = "AND MONTH(fecha_a) BETWEEN 7 AND 12  ";
+              break;
+      }  
+        
+       cn.setComandoSQL("select  CASE WHEN MONTH(fecha_a) = 1 THEN 'Enero'"
+              + "WHEN MONTH(fecha_a) = 2 THEN 'Febrero' "
+              + "WHEN MONTH(fecha_a) = 3 THEN 'Marzo' "
+              + "WHEN MONTH(fecha_a) = 4 THEN 'Abril' "
+              + "WHEN MONTH(fecha_a) = 5 THEN 'Mayo' "
+              + "WHEN MONTH(fecha_a) = 6 THEN 'Junio' "
+              + "WHEN MONTH(fecha_a) = 7 THEN 'Julio' "
+              + "WHEN MONTH(fecha_a) = 8 THEN 'Agosto' "
+              + "WHEN MONTH(fecha_a) = 9 THEN 'Septiembre' "
+              + "WHEN MONTH(fecha_a) = 10 THEN 'Octubre' "
+              + "WHEN MONTH(fecha_a) = 11 THEN 'Noviembre'"
+              + "WHEN MONTH(fecha_a) = 12 THEN 'Diciembre' "
+              + "ELSE 'esto no es un mes' END as Mes, SUM(cantidad) as 'Num de Atenciones' "
+              + "from atencion "
+              + "where cod_c in (select cod_c from carrera where tipo='1' and cod_profesional in (select cod_p from profesional where nombre_p='"+profesional+"')) " +consulta+ " and year(fecha_a) = '"+año+"' group by Mes order by month(fecha_a)" );
+    
+       cn.setEsSelect(true);
+       cn.conectar();
+       
+       ResultSet rs = cn.getRst();
+            try {
+                ResultSetMetaData rsMd = rs.getMetaData();
+                int cantidadColumnas = rsMd.getColumnCount();
+                for (int i = 1; i <= cantidadColumnas; i++) {
+                modelo.addColumn(rsMd.getColumnLabel(i));
+                }
+
+                while (rs.next()) {
+                Object[] fila = new Object[cantidadColumnas];
+                for (int i = 0; i < cantidadColumnas; i++) {
+                fila[i]=rs.getObject(i+1);
+                }
+                modelo.addRow(fila);
+                }
+                rs.close();
+        cn.cerrarConexion();
+            } catch (SQLException ex) {
+                Logger.getLogger(VentanaTabla.class.getName()).log(Level.SEVERE, null, ex);
+            } 
      }
      
      controladorCopiar contcopiar=new controladorCopiar(t);

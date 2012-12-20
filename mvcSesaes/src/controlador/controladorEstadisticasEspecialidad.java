@@ -18,6 +18,7 @@ import vista.VentanaPrincipal;
  *
  * @author Milii2
  */
+//***CONTROLA LISTA DE PROFESIONALES EN VENTANA DE ESTADISTICAS***
 public class controladorEstadisticasEspecialidad implements ActionListener{
     private VentanaDiurna ventana;
 
