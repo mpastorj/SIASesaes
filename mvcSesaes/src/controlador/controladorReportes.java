@@ -30,7 +30,7 @@ import net.sf.jasperreports.engine.util.JRLoader;
  */
 public class controladorReportes {
     private File ruta_destino=null;
-public controladorReportes(String parametro, String año,int mes, String report,int jornada){
+public controladorReportes(String parametro, String año,int mes, String report,int jornada, String profesional){
 
     int mes2 = mes +1;
     
@@ -59,6 +59,7 @@ try {
                  parametros.put("año",año);
                  parametros.put("mes", mes2);
                  parametros.put("jornada",jornada);
+                 parametros.put("profesional",profesional);
                  jasperPrint = JasperFillManager.fillReport(reporte, parametros , conexion);
              } catch (JRException ex) {
                  Logger.getLogger(controladorEstadisticaDiurna.class.getName()).log(Level.SEVERE, null, ex);
