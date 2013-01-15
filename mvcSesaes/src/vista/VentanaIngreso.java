@@ -112,7 +112,6 @@ public class VentanaIngreso extends javax.swing.JFrame {
         calendario.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         calendario.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 12)); // NOI18N
         calendario.setTodayButtonText("Fecha Actual");
-        calendario.setTodayButtonVisible(true);
         calendario.setWeekOfYearVisible(false);
 
         listatipo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -211,8 +210,8 @@ public class VentanaIngreso extends javax.swing.JFrame {
                     .add(jLabel5)
                     .add(cantidadatenciones, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .add(18, 18, 18)
-                .add(calendario, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 199, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(28, 28, 28)
+                .add(calendario, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 209, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(18, 18, 18)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(botondeingreso, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 44, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(barraprogreso, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 30, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))

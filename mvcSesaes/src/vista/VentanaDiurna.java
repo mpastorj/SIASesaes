@@ -10,6 +10,13 @@ import controlador.controladorPersona;
 import controlador.controladorVespertina;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+import modelo.conexion;
 
 /**
  *
@@ -66,6 +73,7 @@ public class VentanaDiurna extends javax.swing.JFrame {
         jradioprofesional = new javax.swing.JRadioButton();
         jLabel8 = new javax.swing.JLabel();
         listaprofesional = new javax.swing.JComboBox();
+        especialidades = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setIconImage(getIconImage());
@@ -164,21 +172,20 @@ public class VentanaDiurna extends javax.swing.JFrame {
 
         listaprofesional.setEnabled(false);
 
+        especialidades.setFont(new java.awt.Font("Calibri Light", 1, 12)); // NOI18N
+        especialidades.setHideActionText(true);
+        especialidades.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        especialidades.setLabel("Listar \nEspecialidades");
+        especialidades.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                especialidadesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(volver)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(botonmostrar)
-                        .addGap(30, 30, 30))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(63, 63, 63)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -201,36 +208,42 @@ public class VentanaDiurna extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(36, 36, 36)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel8))
-                            .addGap(18, 18, 18)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(listaespecialidad, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(listafacultad, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(listacarrera, 0, 293, Short.MAX_VALUE)
-                                .addComponent(listaprofesional, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(19, 19, 19)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jradioprofesional)
-                                    .addGap(30, 30, 30)
-                                    .addComponent(jRadioProfesional)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jRadioCarrera)
-                                    .addGap(27, 27, 27)
-                                    .addComponent(jRadioFacultad))
-                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel8))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(listaespecialidad, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(listafacultad, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(listacarrera, 0, 293, Short.MAX_VALUE)
+                            .addComponent(listaprofesional, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(volver)
+                                .addGap(18, 18, 18)
+                                .addComponent(especialidades)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(botonmostrar))
+                            .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 10, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jradioprofesional)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jRadioProfesional)
+                                .addGap(36, 36, 36)
+                                .addComponent(jRadioCarrera)
+                                .addGap(37, 37, 37)
+                                .addComponent(jRadioFacultad)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -278,8 +291,10 @@ public class VentanaDiurna extends javax.swing.JFrame {
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botonmostrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(volver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(especialidades, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(volver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(botonmostrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -377,6 +392,46 @@ public class VentanaDiurna extends javax.swing.JFrame {
             
     }//GEN-LAST:event_jradioprofesionalActionPerformed
 
+    private void especialidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_especialidadesActionPerformed
+        // TODO add your handling code here:
+        //VentanaTabla ventana=new VentanaTabla();
+       // ventana.profesionales.setVisible(false);
+        VentanaTabla t = new VentanaTabla();
+        DefaultTableModel modelo = new DefaultTableModel(); 
+        t.tabla.setModel(modelo);
+        t.profesionales.setVisible(false);
+        t.jScrollPane2.setVisible(false);
+        t.botonreporte.setEnabled(false);
+        conexion cn = new conexion();
+        cn.setEsSelect(true);
+
+        cn.setComandoSQL("select e.nombre_e as 'Especialidad', count(c.cod_e) as 'Cantidad de Profesionales' from especialidad e, profeespe c where c.cod_e=e.cod_e group by c.cod_e order by e.nombre_e");
+
+        cn.conectar();
+        ResultSet rs = cn.getRst();
+            try {
+                ResultSetMetaData rsMd = rs.getMetaData();
+                int cantidadColumnas = rsMd.getColumnCount();
+                for (int i = 1; i <= cantidadColumnas; i++) {
+        modelo.addColumn(rsMd.getColumnLabel(i));
+        }
+        //Creando las filas para el JTable 
+        while (rs.next()) {
+        Object[] fila = new Object[cantidadColumnas];
+        for (int i = 0; i < cantidadColumnas; i++) {
+        fila[i]=rs.getObject(i+1);
+        }
+        modelo.addRow(fila);
+        }
+        rs.close();
+        cn.cerrarConexion();
+            } catch (SQLException ex) {
+                Logger.getLogger(VentanaDiurna.class.getName()).log(Level.SEVERE, "Error en la asignación de filas y columnas", ex);
+            }
+   t.titulo.setText("Cantidad de Profesionales por Especialidad");            
+   t.setVisible(true);  
+    }//GEN-LAST:event_especialidadesActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -421,6 +476,7 @@ public class VentanaDiurna extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton botonmostrar;
+    public javax.swing.JButton especialidades;
     public javax.swing.ButtonGroup gruporadio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

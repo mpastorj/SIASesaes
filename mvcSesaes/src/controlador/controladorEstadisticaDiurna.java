@@ -12,6 +12,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
@@ -29,6 +30,7 @@ import net.sf.jasperreports.engine.export.JRPdfExporter;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 import vista.VentanaDiurna;
+import vista.VentanaPrincipal;
 import vista.VentanaTabla;
 
 /**
@@ -137,16 +139,38 @@ public class controladorEstadisticaDiurna implements ActionListener{
   }
   modelo.addRow(fila);
   
+  
  }
  rs.close();
  cn.cerrarConexion();
             } catch (SQLException ex) {
                 Logger.getLogger(VentanaTabla.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+  ArrayList <String> nombres_p = new ArrayList();
+  cn.setEsSelect(true);
+  cn.setComandoSQL("select nombre_p from profesional where cod_p in (select cod_p from profeespe where cod_e = (select cod_e from especialidad where nombre_e='"+especialidad+"'))");
+  cn.conectar();
+  try {  
+            while(cn.getRst().next())
+            {
+               String nombre_p =cn.getRst().getString("nombre_p");
+                
+               nombres_p.add(nombre_p); 
+               t.profesionales.append("\n");
+               t.profesionales.append(" - ");
+               t.profesionales.append(nombre_p);
+               
+            }
+            } catch (SQLException ex) {
+            Logger.getLogger(VentanaPrincipal.class.getName()).log(Level.SEVERE, "Error al cargar nombre de profesionales", ex);
+            } 
+            cn.cerrarConexion();        
+     
      }       
    
    if(ventana.jRadioCarrera.isSelected()==true){
+       t.profesionales.setVisible(false);
+       t.jScrollPane2.setVisible(false);
        t.titulo.setText("Estadística Carrera: "+carrera );
            switch(ventana.listaperiodo.getSelectedIndex())
            {
@@ -231,6 +255,8 @@ public class controladorEstadisticaDiurna implements ActionListener{
             
           
      if(ventana.jRadioFacultad.isSelected()==true){
+         t.profesionales.setVisible(false);
+         t.jScrollPane2.setVisible(false);
          t.titulo.setText("Estadística Facultad: "+facultad );
            switch(ventana.listaperiodo.getSelectedIndex())
            {
@@ -311,6 +337,8 @@ public class controladorEstadisticaDiurna implements ActionListener{
      }
      
      if(ventana.jradioprofesional.isSelected()==true){
+        t.profesionales.setVisible(false);
+        t.jScrollPane2.setVisible(false);
         t.titulo.setText("Estadística Carrera: "+profesional );
            switch(ventana.listaperiodo.getSelectedIndex())
            {
